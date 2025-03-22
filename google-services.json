@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "842405104947",
+    "firebase_url": "https://buy002-99171-default-rtdb.firebaseio.com",
+    "project_id": "buy002-99171",
+    "storage_bucket": "buy002-99171.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842405104947:android:8c55089172210a1cc44246",
+        "android_client_info": {
+          "package_name": "com.buy002.to"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVfphBeg04-Ayq3cXHsng61bDGzPM1z14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
