@@ -37,11 +37,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: 'biuld'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with : 
          node-version : 18
       - run: npm ci
-      - run: npm test
+      - run: npm run biuld
