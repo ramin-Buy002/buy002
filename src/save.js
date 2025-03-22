@@ -16,7 +16,7 @@ function App() {
 
   // call the function
   fetchData()
-    // make sure to catch any error
+    
     .catch(console.error);
 
   // useEffect(async () => {
@@ -31,7 +31,9 @@ function App() {
 
         <h1 >hello</h1>
         </div>
-     
+       <div>
+        
+       </div>
 
     
         <h1>Data from database:</h1>
