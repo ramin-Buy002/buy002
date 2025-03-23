@@ -87,6 +87,8 @@ const App = () => {
 
       <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
       <h3> site for Manufacturer & Big sellers </h3>
+      <h3> site for Manufacturer & Big sellers </h3>
+      <h3> site for Manufacturer & Big sellers </h3>
         
         <ul>
           <DropdownItem img = {user} text = {"list Orders"} />
