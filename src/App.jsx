@@ -1,6 +1,6 @@
 import "./App.css";
 import user from "./../src/assets/user.png"
-import React, { useEffect, useState } from "react";
+import React, {   useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import menu02 from "./../src/assets/menu02.png";
 import { fireStoreDb } from "./configuration/firebase-config";
@@ -78,7 +78,7 @@ const App = () => {
     <div className="App">
       <div className="menu-container">
         <div className="menu-trigger" onClick={()=> setOpen(!open)} > 
-        <img className="menu-trigger-img" src={menu02}></img>
+        <img className="menu-trigger-img" alt="Person holding a cat" src={menu02}></img>
         <h3>The kiet<bar/><span>Website Designer</span> </h3>
 
       </div>
@@ -183,8 +183,8 @@ const DropdownItem = (props)=>{
 
   return (
     <li className="dropdownItem" >
-      <img src={props.img} ></img>
-      <a> {props.text} </a>
+      <img src={props.img} alt="Person holding a cat" ></img>
+      <a href="https://www.w3schools.com "> {props.text} </a>
     </li>
   );
 }
