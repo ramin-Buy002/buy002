@@ -79,7 +79,7 @@ const App = () => {
       <div className="menu-container">
         <div className="menu-trigger" onClick={()=> setOpen(!open)} > 
         <img className="menu-trigger-img" alt="Person holding a cat" src={menu02}></img>
-        <h3>The kiet<bar/><span>Website Designer</span> </h3>
+        <h3> site for Manufacturer & Big sellers </h3>
 
       </div>
       </div>
