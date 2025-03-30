@@ -4,14 +4,17 @@
   --border-radius: 8px;
   --speed: 500ms ;
 }
-body {
+body {  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background: linear-gradient(#569bf5 , #661599);
 }
+ 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
