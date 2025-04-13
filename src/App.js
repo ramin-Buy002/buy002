@@ -27,15 +27,13 @@ function App() {
               {userLoggedIn ? (
                 <div class="    sticky top-0    bg-sky-950 w-full h-13 ">
                   <div  class="flex flex-row w-9 h-9 absolute inset-y-3 right-35 ">
-                  
-                    <img
-                      class ="  rounded-md   "
+                    <img   class ="  rounded-md   "
                       src={profile_pic}
                     />
                   </div>
                 </div>
               ) : (
-                <div> </div>
+                <div> .. </div>
               )}
             </div>
 

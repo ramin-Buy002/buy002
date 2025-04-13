@@ -23,6 +23,7 @@ const Offers = () => {
    const paginationModel = { page: 0, pageSize: 5 };
 
     const [new_Array_row, setNew_Array_row] = useState([]);
+   
   
     const columns = [
      {
@@ -154,15 +155,15 @@ const Offers = () => {
               })
     };
     
-  useEffect(  () => {
-    getUserData();
-   
-  }, []);
-  console.log("new_Array_row ::" ,  new_Array_row )
+    useEffect(  () => {
+      getUserData();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+       }, [ ]);
+
   return (
     <div class="bg-sky-950  ">
       <div class="bg-white rounded-l-3xl ml-58 ">
-        <h3></h3>
+        <h3>...</h3>
    
         <Paper sx={{ height: 800, width: 1300, marginLeft: 3, marginTop: 2 }}>
           <DataGrid
