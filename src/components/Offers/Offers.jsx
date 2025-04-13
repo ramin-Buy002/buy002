@@ -118,7 +118,7 @@ const Offers = () => {
     ];
     
     const rows = new_Array_row
-    console.log("new_Array_row   : " , new_Array_row) ;
+    console.log("new_Array_row : " , new_Array_row) ;
     
       const getUserData = async () => {
 
