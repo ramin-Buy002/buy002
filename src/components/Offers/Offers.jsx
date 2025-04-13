@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import "./Offers.css";
-import { collection, query, where, getDocs, onSnapshot, doc, getDoc } from "firebase/firestore";
+import { collection, query, where, onSnapshot, doc } from "firebase/firestore";
 import { fireStoreDb } from "../../configuration/firebase-config";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { Navigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
  
 
 
@@ -23,7 +23,6 @@ const Offers = () => {
    const paginationModel = { page: 0, pageSize: 5 };
 
     const [new_Array_row, setNew_Array_row] = useState([]);
-    const [w_id, setW_id] = useState("0");
   
     const columns = [
      {
@@ -118,7 +117,7 @@ const Offers = () => {
     ];
     
     const rows = new_Array_row
-    console.log("new_Array_row  : " , new_Array_row) ;
+    console.log("new_Array_row   : " , new_Array_row) ;
     
       const getUserData = async () => {
 

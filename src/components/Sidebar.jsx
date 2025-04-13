@@ -1,22 +1,18 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { SiShopware } from "react-icons/si";
 import { IoHomeOutline } from "react-icons/io5";
 import "./../output.css";
 import "react-tooltip/dist/react-tooltip.css";
 import { MdOutlineLocalShipping  , MdAccountBalanceWallet  } from "react-icons/md";
 import { BsBasket } from "react-icons/bs";
 import { FaListCheck } from "react-icons/fa6";
-import { CiWallet } from "react-icons/ci";
 import { doSignOut } from "../configuration/auth";
 
 const Sidebar = () => {
   const activeMenu = true;
   const navigate = useNavigate();
 
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
-  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
- 
+  
   return (
     <div
       className="ml-3 h-screen 

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import "./Orders.css";
-import { collection, query, where, getDocs, onSnapshot, doc, getDoc } from "firebase/firestore";
+import { collection, query, where, onSnapshot, doc, getDoc } from "firebase/firestore";
 import { fireStoreDb } from "../../configuration/firebase-config";
 import { useAuth } from "../../contexts/authcontext";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { Navigate, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 
 
 export default function Orders() {
