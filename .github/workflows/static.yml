@@ -12,7 +12,7 @@ on:
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 env:
   CI: false
-  
+
 permissions:
   contents: read
   pages: write
@@ -41,7 +41,6 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - env: CI="false"
       - run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
