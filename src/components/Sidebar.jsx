@@ -1,15 +1,18 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
-import { MdOutlineCancel } from "react-icons/md";
-import { Tooltip } from "react-tooltip";
-import { links } from "./../data/dummy";
+import { IoHomeOutline } from "react-icons/io5";
 import "./../output.css";
 import "react-tooltip/dist/react-tooltip.css";
-import Item from "antd/es/list/Item";
+import { MdOutlineLocalShipping  , MdAccountBalanceWallet  } from "react-icons/md";
+import { BsBasket } from "react-icons/bs";
+import { FaListCheck } from "react-icons/fa6";
+import { CiWallet } from "react-icons/ci";
+import { doSignOut } from "../configuration/auth";
 
 const Sidebar = () => {
   const activeMenu = true;
+  const navigate = useNavigate();
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
@@ -24,55 +27,144 @@ const Sidebar = () => {
         <>
           <div
             className="flex justify-between 
-        items-center  "
+        items-center   flex-row "
           >
             <Link
               to="/"
               onClick={() => {}}
               className="items-center gap-3 ml-3
-              mt-4 flex text-x1 font-extrabold 
+              mt-4 flex text-x1 font-bold 
               -tracking-tight dark:text-white
-              text-slate-900  "
+              text-white  "
             >
-              <SiShopware /> <span>Shoppy</span>
+              <BsBasket /> <span className="  text-rose-400" > Buy_together</span>
             </Link>
-            {/* <div
-              className="text-xl rounded-full
-                    p-5  mt-4 "
-            >
-              <a id="not-clickable">
-                <MdOutlineCancel />
-              </a>
-              <Tooltip anchorSelect="#not-clickable">
-                <button type="button" onClick={() => {}}>
-                  {" "}
-                  menu :
-                </button>
-              </Tooltip>
-            </div> */}
+ 
           </div>
-          <div className="mt-10">
-            {links.map((item) => (
-              <div  key={item.title}>
-               <p className="text-gray-400
-                     m-3mt-4 uppercase">
-                {item.title} </p>
-                {item.links.map((link) => (
-                    <NavLink to={`/${link.name}`}
-                        key={link.name}
-                        onClick={()=>{}} 
-                       className={({isActive})=> isActive ? activeLink :
-                        normalLink } >
-                             
-                             {link.icon}
-                             <span className="capitalize">
-                                {link.name}
-                             </span>
+          <div className="mt-2  ">
+ 
+              <div className=" text-white   "  >
+                 <div className=" p-6 mt-4  flex flex-row  " >
+                 <IoHomeOutline className="mr-1 mt-1 w-7" />
+                  <NavLink
+                    to="/home"
+                    style={({ isActive }) => ({
+                        color:  "white"  ,
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                        marginRight: "15px",
+                    })}
+                >
+                    Home
+                  </NavLink>
+                  </div>
+                  <div className="p-1 mt-1 ml-5 flex flex-row " >
+                  <FaListCheck className="mr-1 mt-1 w-7" />
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Order List
+                  </NavLink>
+                  </div>
+                  <div className="p-1 mt-5 ml-5 flex flex-row " >
+                  <MdOutlineLocalShipping className="mr-1 mt-1 w-7" />
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Add Post Sale
+                  </NavLink>
+                  </div>
+                  <div className="p-1 mt-5 ml-5 flex flex-row " >
+                  <MdOutlineLocalShipping className="mr-1 mt-1 w-7" />
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Shipment
+                  </NavLink>
+                  </div>
+                  <div className="p-1 mt-5 ml-5 flex flex-row " >
+                  <MdOutlineLocalShipping className="mr-1 mt-1 w-7" />
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Reports
+                  </NavLink>
+                  </div>
+                  <div className="p-1 mt-5 ml-5 flex flex-row " >
+                  < MdAccountBalanceWallet  className="mr-1 mt-1 w-8" />
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Wallet
+                  </NavLink>
+                  </div>
 
-                        </NavLink>
-                ) ) }
+
+                  <div   className="p-5">
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Calender
+                  </NavLink>
+                  </div>
+                  <div   className="ml-5">
+                  <NavLink
+                    to="/orders"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Edit Profile
+                  </NavLink>
+                  </div>
+                  
+                
+                  <div className="ml-5 mt-5" >
+                     <button
+                                    onClick={() => {
+                                      doSignOut().then(() => {
+                                        navigate("/login");
+                                      });
+                                    }}
+                                  >
+                                    Logout
+                                  </button>
+                  </div>
+               
               </div>
-            ))}
+          
           </div>
         </>
       )}

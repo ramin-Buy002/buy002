@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../../configuration/firebase-config";
-// import { GoogleAuthProvider } from "firebase/auth";
+import { auth, fireStoreDb } from "../../configuration/firebase-config";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = React.createContext();
+
+ 
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -16,10 +18,17 @@ export function AuthProvider({ children }) {
   const [isGoogleUser, setIsGoogleUser] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, initializeUser);
+ 
+
+  useEffect( () => {
+    
+    const unsubscribe =   onAuthStateChanged(auth, initializeUser);
     return unsubscribe;
+
+    
   }, []);
+
+ 
 
   async function initializeUser(user) {
     if (user) {
@@ -32,11 +41,6 @@ export function AuthProvider({ children }) {
       );
       setIsEmailUser(isEmail);
 
-      // check if the auth provider is google or not
-    //   const isGoogle = user.providerData.some(
-    //     (provider) => provider.providerId === GoogleAuthProvider.PROVIDER_ID
-    //   );
-    //   setIsGoogleUser(isGoogle);
 
       setUserLoggedIn(true);
     } else {

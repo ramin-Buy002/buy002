@@ -1,0 +1,103 @@
+.container{
+    width: 100%;
+    height: 50;
+    background-color: rgb(23 37 84);
+}
+.headerWidget{
+    display: flex;
+    height: 13;
+    width: 98%;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    background-color: #acdfb7;
+
+}
+.widget{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-right: 20px;
+   
+}
+.widgetRow{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgb(0, 172, 105);
+
+    box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
+    cursor: pointer;
+
+}
+.widgetRow01{
+    display: flex;
+    justify-content: space-between;
+    background-color: #f15871;
+    border-radius: 10px;
+    box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
+    cursor: pointer;
+
+}
+.widgetRow02{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3987fc;
+    border-radius: 10px;
+    box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
+    cursor: pointer;
+
+}
+.widgetRow03{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(244, 161, 0);
+
+    border-radius: 10px;
+    box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
+    cursor: pointer;
+
+}
+.icon{
+    margin-left: -10px;
+   font-size: 60px;
+   color: rgb(255, 255, 255);
+   margin-right: 15px;
+   margin-top: 7px;
+   
+}
+.icon01{
+    
+   font-size: 32px;
+   color: rgb(255, 255, 255);
+   margin-right: 15px;
+   margin-top: 0px;
+   
+}
+.widgetItem{
+    flex:1;
+    margin: 0px 27px;
+    padding: 4px;
+    border-radius: 10px;
+   
+}
+.widgetTitle{
+    font-size: 17px;
+    margin: 7px 10px;
+
+}
+.widgetMoneyContainer{
+    margin: 0px 20px;
+    display: flex;
+    align-items: center;
+}
+.widgetMoney{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0px 20px;
+
+}
+.widgetSub{
+    margin: 7px 20px;
+
+}

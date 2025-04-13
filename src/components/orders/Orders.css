@@ -1,0 +1,15 @@
+.container01{
+    display: flex;
+    width: 1000px ;
+    background-color:#f10b0b ;
+    border-radius: 10px;
+  
+}
+.userListImg{
+    width: 37px;
+    height: 40px;
+    border-radius: 15px;
+    margin-top: 5px;
+    object-fit: cover;
+
+}
