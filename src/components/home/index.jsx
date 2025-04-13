@@ -31,7 +31,7 @@ const Home = ( ) => {
   }, []);
 
   return (
-    <div  class="isolate   bg-sky-950  " >
+    <div  class="isolate      bg-sky-950  " >
            
                       <div  className="w-58 fixed sidebar  bg-sky-950" >
                           <Sidebar />
