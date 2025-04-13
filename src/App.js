@@ -14,8 +14,7 @@ function App() {
 
   const { userLoggedIn } = useAuth();
 
-  const profile_pic =
-    "https://givebutter.com/cdn-cgi/image/width=1200/https://givebutter.s3.amazonaws.com/media/PNzfRlb2IQ9Nx95V8sakTYyDpyXOJTpm6lCe2I78.jpeg";
+ 
 
   return (
     <div>
@@ -27,7 +26,7 @@ function App() {
               {userLoggedIn ? (
                 <div class="    sticky top-0    bg-sky-950 w-full h-13 ">
                   <div  class="flex flex-row w-9 h-9 absolute inset-y-3 right-35 ">
-                    <img   class ="  rounded-md   " src={profile_pic}   />
+                    <h3>...</h3>
                   </div>
                 </div>
               ) : (
