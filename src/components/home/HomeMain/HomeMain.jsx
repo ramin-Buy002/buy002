@@ -2,9 +2,7 @@ import React from 'react'
 import "./HomeMain.css"
 import { useAuth } from '../../../contexts/authcontext';
 import { FaSackDollar , FaListCheck} from "react-icons/fa6";
-import emailLogo  from "./../../../assets/email.png"
 import { TfiCommentAlt } from "react-icons/tfi";
-import { FaShoppingBasket } from "react-icons/fa";
 import { BsBasket } from "react-icons/bs";
 import { IoIosArrowRoundUp } from "react-icons/io";
 

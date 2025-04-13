@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, fireStoreDb } from "../../configuration/firebase-config";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { auth } from "../../configuration/firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = React.createContext();
@@ -15,7 +14,7 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [isEmailUser, setIsEmailUser] = useState(false);
-  const [isGoogleUser, setIsGoogleUser] = useState(false);
+  const [isGoogleUser ] = useState(false);
   const [loading, setLoading] = useState(true);
 
  
