@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React  from "react";
 import Login from "./components/auth/login";
  
 import Register from "./components/auth/register";
@@ -12,15 +12,8 @@ import Offers from "./components/Offers/Offers";
 
 function App() {
 
-   const [users ] = useState([]);
-
- 
- 
   const { userLoggedIn } = useAuth();
 
-
- 
-  
   const profile_pic =
     "https://givebutter.com/cdn-cgi/image/width=1200/https://givebutter.s3.amazonaws.com/media/PNzfRlb2IQ9Nx95V8sakTYyDpyXOJTpm6lCe2I78.jpeg";
 

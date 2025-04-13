@@ -1,12 +1,11 @@
 import { useAuth } from "../../contexts/authcontext";
 import React, { useEffect, useState } from "react";
 import {  doc, getDoc  } from "firebase/firestore";
-import { firebaseApp, fireStoreDb } from "../../configuration/firebase-config";
+import { fireStoreDb } from "../../configuration/firebase-config";
  
 import "./index.css";
 import "./../../output.css";
 import Sidebar from "../Sidebar";
-import { getAuth } from "firebase/auth";
 import HomeMain from "./HomeMain/HomeMain";
 
 

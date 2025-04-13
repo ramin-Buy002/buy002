@@ -116,7 +116,7 @@ const HomeMain = ({users}) => {
                         </div>
             </div>
             <div style={{marginTop:270}} >
-            <h1></h1>
+            <h1>...</h1>
             </div>
             {currentUser.displayName
              ? currentUser.displayName
