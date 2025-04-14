@@ -9,7 +9,6 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 const HomeMain = ({users}) => {
 
      const { currentUser } = useAuth(); 
-     console.log("eee" , users.owner_uid)
   return (
    <div>
            <div className="headerWidget">
