@@ -23,7 +23,7 @@ const Offers = () => {
    const paginationModel = { page: 0, pageSize: 5 };
 
     const [new_Array_row, setNew_Array_row] = useState([]);
-    const [render, setRender] = useState(1);
+    const [render, setRender] = useState(0);
    
   
     const columns = [
@@ -151,16 +151,17 @@ const Offers = () => {
                            new_obj_01 = Object.assign(new_object, obj_01, obj_02 , obj_03 );
                            
                           new_array_orders.push(new_obj_01);
-                      
+                      //  setRender(1) 
 
                 })
                setNew_Array_row(new_array_orders);
-                
               }) 
+             setRender(2) 
             } ) 
-               
+            setRender(3) 
+       
               })
-              setRender(3)
+              
     };
     console.log("render 3 :::" , render)
     
