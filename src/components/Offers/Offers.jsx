@@ -147,10 +147,12 @@ const Offers = () => {
                           const new_obj = Object.assign(new_object, obj_01, obj_02 , obj_03 );
                           new_array_orders.push(new_obj);
             
-                          setNew_Array_row(new_array_orders);
+                          
                      
 
-                }) }) } ) 
+                })
+                setNew_Array_row(new_array_orders);
+              }) } ) 
                
               })
     };
