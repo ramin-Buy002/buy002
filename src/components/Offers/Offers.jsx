@@ -23,6 +23,7 @@ const Offers = () => {
    const paginationModel = { page: 0, pageSize: 5 };
 
     const [new_Array_row, setNew_Array_row] = useState([]);
+    const [render, setRender] = useState("1");
    
   
     const columns = [
@@ -127,11 +128,10 @@ const Offers = () => {
 
           const docRef_offer = doc(fireStoreDb, "offers", offer_id);
           onSnapshot(collection(docRef_offer, "orders"), (snapshot) => {
-    //--------------------------
+    
             snapshot.docs.forEach((doc)=> {
                    
                       let new_object = doc.data() ;
-                      console.log("doc.data() 11: " , doc.data()) ;
                       customer_ID = doc.data().customer_id ;
                  
                       const usersRef = collection(fireStoreDb , "users") ;
@@ -140,7 +140,6 @@ const Offers = () => {
                         onSnapshot(qqqq, (querySnapshot) => {
                       
                         querySnapshot.forEach((doc) => {
-                          console.log("doc.data() : " , doc.data()) ;
                    
                           let obj_01 = {username_01 : doc.data().username } ;
                           let obj_02 = {id :doc.id   } ;
@@ -148,10 +147,9 @@ const Offers = () => {
 
 
                           const new_obj = Object.assign(new_object, obj_01, obj_02 , obj_03 );
-                          console.log("new_obj : " , new_obj) ;
                           const new_obj_01 = new_obj 
                           new_array_orders.push(new_obj_01);
-                          console.log("new_array_orders : " , new_array_orders) ;
+                      
 
                 })
                setNew_Array_row(new_array_orders);
@@ -160,12 +158,14 @@ const Offers = () => {
             } ) 
                
               })
+              setRender("2")
     };
+    console.log("render" , render)
     
     useEffect(  () => {
       getUserData();
       // eslint-disable-next-line react-hooks/exhaustive-deps
-       }, []);
+       }, [render]);
 
   return (
     <div class="bg-sky-950  ">
