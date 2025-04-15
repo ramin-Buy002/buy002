@@ -23,7 +23,7 @@ const Offers = () => {
    const paginationModel = { page: 0, pageSize: 5 };
 
     const [new_Array_row, setNew_Array_row] = useState([]);
-    const [render, setRender] = useState("1");
+    const [render, setRender] = useState(1);
    
   
     const columns = [
@@ -125,7 +125,8 @@ const Offers = () => {
 
        let new_array_orders = [] ;
        let customer_ID = null ;
-
+       let new_obj_01 = null ;
+       
           const docRef_offer = doc(fireStoreDb, "offers", offer_id);
           onSnapshot(collection(docRef_offer, "orders"), (snapshot) => {
     
@@ -146,8 +147,8 @@ const Offers = () => {
                           let obj_03 = {profile_picture : doc.data().profile_picture } ;
 
 
-                          const new_obj = Object.assign(new_object, obj_01, obj_02 , obj_03 );
-                          const new_obj_01 = new_obj 
+                           new_obj_01 = Object.assign(new_object, obj_01, obj_02 , obj_03 );
+                           
                           new_array_orders.push(new_obj_01);
                       
 
@@ -158,7 +159,7 @@ const Offers = () => {
             } ) 
                
               })
-              setRender("2")
+              setRender(3)
     };
     console.log("render" , render)
     
