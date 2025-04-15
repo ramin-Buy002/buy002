@@ -18,7 +18,7 @@ const Offers = () => {
    const para = useParams();
   
    const offer_id = para.userId ;
-   console.log("offer_id : " ,  offer_id);
+ 
 
    const paginationModel = { page: 0, pageSize: 5 };
 
