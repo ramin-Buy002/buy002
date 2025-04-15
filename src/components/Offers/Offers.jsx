@@ -126,6 +126,7 @@ const Offers = () => {
        let new_array_orders = [] ;
        let customer_ID = null ;
        let new_obj_01 = null ;
+       console.log("render 1 :::" , render)
        
           const docRef_offer = doc(fireStoreDb, "offers", offer_id);
           onSnapshot(collection(docRef_offer, "orders"), (snapshot) => {
@@ -161,7 +162,7 @@ const Offers = () => {
               })
               setRender(3)
     };
-    console.log("render" , render)
+    console.log("render 3 :::" , render)
     
     useEffect(  () => {
       getUserData();
