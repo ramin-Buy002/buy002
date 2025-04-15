@@ -129,17 +129,17 @@ const Offers = () => {
           onSnapshot(collection(docRef_offer, "orders"), (snapshot) => {
     //--------------------------
             snapshot.docs.forEach((doc)=> {
-                      console.log("first doc.data() ::" , doc.data() );
+                   
                       let new_object = doc.data() ;
                       customer_ID = doc.data().customer_id ;
-                      console.log("customer_ID ::" , customer_ID )
+                 
                       const usersRef = collection(fireStoreDb , "users") ;
                       const qqqq = query(usersRef , where("owner_uid" , "==" , customer_ID )) ;
                     
                         onSnapshot(qqqq, (querySnapshot) => {
                       
                         querySnapshot.forEach((doc) => {
-                         console.log("second doc.data() ::" , doc.data())
+                   
                           let obj_01 = {username_01 : doc.data().username } ;
                           let obj_03 = {profile_picture : doc.data().profile_picture } ;
                           let obj_02 = {id :doc.id   } ;
@@ -151,7 +151,7 @@ const Offers = () => {
                      
 
                 }) }) } ) 
-                setNew_Array_row(null);
+               
               })
     };
     
