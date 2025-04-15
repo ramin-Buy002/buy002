@@ -1,8 +1,7 @@
 import React  from "react";
 import Login from "./components/auth/login";
- 
 import Register from "./components/auth/register";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {   HashRouter, Route, Routes } from "react-router-dom";
 import Orders from "./components/orders/Orders";
 import Home from "./components/home/index";
 import Sidebar from "./components/Sidebar";
@@ -18,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <div className="  relative  ">
           <div>
    
@@ -26,7 +25,7 @@ function App() {
               {userLoggedIn ? (
                 <div class="    sticky top-0    bg-sky-950 w-full h-13 ">
                   <div  class="flex flex-row w-9 h-9 absolute inset-y-3 right-35 ">
-                    <h3>....</h3>
+                    <h3>.</h3>
                   </div>
                 </div>
               ) : (
@@ -58,7 +57,7 @@ function App() {
             </Routes>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
