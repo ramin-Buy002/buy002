@@ -1,7 +1,7 @@
 import React from 'react'
 import "./HomeMain.css"
 import { useAuth } from '../../../contexts/authcontext';
-import { FaSackDollar , FaListCheck} from "react-icons/fa6";
+import { FaSackDollar , FaListCheck , FaPeopleGroup } from "react-icons/fa6";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { BsBasket } from "react-icons/bs";
 import { IoIosArrowRoundUp } from "react-icons/io";
@@ -21,9 +21,9 @@ const HomeMain = ({users}) => {
 
                 <div className='widgetRow'>
                     <div className="widgetItem">
-                        <span className="widgetTitle">Revenue</span>
+                        <span className="widgetTitle">Total sales</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">$ 33.2</span>
+                            <span className="widgetMoney">$ 3366.2</span>
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
                             </div>
@@ -48,7 +48,7 @@ const HomeMain = ({users}) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Orders Received</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">$ 33.2</span>
+                            <span className="widgetMoney">$ 8788.2</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
@@ -65,20 +65,20 @@ const HomeMain = ({users}) => {
                 
                 <div className='widgetRow02'>
                     <div className="widgetItem">
-                        <span className="widgetTitle">Total Sales</span>
+                        <span className="widgetTitle">Helper sale</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">$ 33.2</span>
+                            <span className="helperSale">640 people</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
                             </div>
                             </span>
                         </div>
-                        <span className="widgetSub">$ 33.2</span>
+                        <span className="widgetSub"> ...</span>
                         <span>rrr</span>
                     </div>
                 <div className='icon'>
-                    <  BsBasket  className='icon'  />
+                    < FaPeopleGroup   className='iconPeople'  />
                 </div>
                 </div>
 
@@ -86,14 +86,14 @@ const HomeMain = ({users}) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Total Comment</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">$ 33.2</span>
+                            <span className="widgetMoney">560</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
                             </div>
                             </span>
                         </div>
-                        <span className="widgetSub">$ 33.2</span>
+                        <span className="widgetSub">....</span>
                         <span>rrr</span>
                     </div>
                 <div className='icon'>

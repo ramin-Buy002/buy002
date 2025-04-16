@@ -137,7 +137,6 @@ export default function Orders() {
        snapshot.docs.forEach((doc) => {
           array.push({...doc.data() , id: doc.id})
       
-       console.log("array_post_ID" , array[0].post_ID    ) ;
       setPost_ID( array[0].post_ID );
       setMyArray(array)
       }) })
@@ -149,7 +148,6 @@ export default function Orders() {
       snapshot.docs.forEach((doc) => {
 
       setPicPost(doc.data().imageUrl)
-      console.log( "doc.data().imageUrl" , doc.data() );
       }) })
       
     
