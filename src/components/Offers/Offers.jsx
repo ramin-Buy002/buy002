@@ -14,7 +14,8 @@ import { Link } from 'react-router-dom'
 
 
 const Offers = () => {
-
+ 
+  let new_array_orders = [] ;
    const para = useParams();
   
    const offer_id = para.userId ;
@@ -23,7 +24,7 @@ const Offers = () => {
    const paginationModel = { page: 0, pageSize: 5 };
 
     const [new_Array_row, setNew_Array_row] = useState([]);
-    const [render, setRender] = useState(0);
+    
    
   
     const columns = [
@@ -119,56 +120,49 @@ const Offers = () => {
     ];
     
     const rows = new_Array_row
-    console.log("new_Array_row : " , new_Array_row) ;
+ 
     
       const getUserData = async () => {
 
-       let new_array_orders = [] ;
+
        let customer_ID = null ;
-       let new_obj_01 = null ;
-       console.log("render 1 :::" , render)
+       let new_obj = {} ;
        
-          const docRef_offer = doc(fireStoreDb, "offers", offer_id);
+          const docRef_offer =  doc(fireStoreDb, "offers", offer_id);
           onSnapshot(collection(docRef_offer, "orders"), (snapshot) => {
     
             snapshot.docs.forEach((doc)=> {
-                   
+
                       let new_object = doc.data() ;
                       customer_ID = doc.data().customer_id ;
                  
                       const usersRef = collection(fireStoreDb , "users") ;
                       const qqqq = query(usersRef , where("owner_uid" , "==" , customer_ID )) ;
                     
-                        onSnapshot(qqqq, (querySnapshot) => {
+                       onSnapshot(qqqq, (querySnapshot) => {
                       
-                        querySnapshot.forEach((doc) => {
-                   
-                          let obj_01 = {username_01 : doc.data().username } ;
-                          let obj_02 = {id :doc.id   } ;
-                          let obj_03 = {profile_picture : doc.data().profile_picture } ;
+                            querySnapshot.forEach((doc) => {
+                      
+                              let obj_01 = {username_01 : doc.data().username } ;
+                              let obj_02 = {id :doc.id   } ;
+                              let obj_03 = {profile_picture : doc.data().profile_picture } ;
 
-
-                           new_obj_01 = Object.assign(new_object, obj_01, obj_02 , obj_03 );
-                           
-                          new_array_orders.push(new_obj_01);
-                      //  setRender(1) 
-
+                              new_obj = Object.assign(new_object, obj_01, obj_02 , obj_03 );
+                              
+                              new_array_orders =[...new_array_orders, new_obj];
+                               setNew_Array_row(new_array_orders);
+                              
                 })
-               setNew_Array_row(new_array_orders);
               }) 
-             setRender(2) 
             } ) 
-            setRender(3) 
-       
               })
-              
     };
-    console.log("render 3 :::" , render)
-    
+ 
     useEffect(  () => {
-      getUserData();
+    getUserData();
+ 
       // eslint-disable-next-line react-hooks/exhaustive-deps
-       }, [render]);
+       }, []);
 
   return (
     <div class="bg-sky-950  ">
