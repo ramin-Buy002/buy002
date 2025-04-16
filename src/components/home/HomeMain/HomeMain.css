@@ -21,6 +21,8 @@
    
 }
 .widgetRow{
+    width: 300px;
+
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
@@ -29,6 +31,8 @@
     cursor: pointer;
 }
 .widgetRow01{
+    width: 320px;
+
     display: flex;
     justify-content: space-between;
     background-color: #585bf1;
@@ -37,6 +41,8 @@
     cursor: pointer;
 }
 .widgetRow02{
+    width: 320px;
+
     display: flex;
     justify-content: space-between;
     background-color: #667e40;
@@ -45,6 +51,8 @@
     cursor: pointer;
 }
 .widgetRow03{
+    width: 300px;
+
     display: flex;
     justify-content: space-between;
     background-color: rgb(68, 168, 102);
@@ -54,8 +62,8 @@
 
 }
 .icon{
-    margin-left: -10px;
-   font-size: 45px;
+    margin-left: -16px;
+   font-size: 48px;
    color: rgb(255, 255, 255);
    margin-right: 15px;
    margin-top: 7px;
@@ -96,7 +104,7 @@
     align-items: center;
 }
 .widgetMoney{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     margin: 0px 18px;
 

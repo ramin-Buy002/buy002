@@ -48,7 +48,7 @@ const HomeMain = ({users}) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Orders Received</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">$ 8788.2</span>
+                            <span className="widgetMoney">878</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
