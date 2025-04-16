@@ -31,8 +31,8 @@ const HomeMain = ({users}) => {
 
                             </span>
                         </div>
-                        <span className="widgetSub">$ 33.2</span>
-                        <span>rrr</span>
+                        <span className="widgetSub">$ ....</span>
+                        <span>...</span>
                     </div>
             
                     
@@ -48,15 +48,15 @@ const HomeMain = ({users}) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Orders Received</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">878</span>
+                            <span className="widgetMoney">878   pcs</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
                             </div>
                             </span>
                         </div>
-                        <span className="widgetSub">$ 33.2</span>
-                        <span>rrr</span>
+                        <span className="widgetSub">....</span>
+                        <span>....</span>
                     </div>
                 <div className='icon'>
                     < FaListCheck className='icon'  />
@@ -75,7 +75,7 @@ const HomeMain = ({users}) => {
                             </span>
                         </div>
                         <span className="widgetSub"> ...</span>
-                        <span>rrr</span>
+                        <span>.....</span>
                     </div>
                 <div className='icon'>
                     < FaPeopleGroup   className='iconPeople'  />
@@ -86,7 +86,7 @@ const HomeMain = ({users}) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Total Comment</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">560</span>
+                            <span className="widgetMoney">560 text</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
@@ -94,7 +94,7 @@ const HomeMain = ({users}) => {
                             </span>
                         </div>
                         <span className="widgetSub">....</span>
-                        <span>rrr</span>
+                        <span>...</span>
                     </div>
                 <div className='icon'>
                     <TfiCommentAlt className='icon'  />
