@@ -3,7 +3,7 @@ import "./HomeMain.css"
 import { useAuth } from '../../../contexts/authcontext';
 import { FaSackDollar , FaListCheck , FaPeopleGroup } from "react-icons/fa6";
 import { TfiCommentAlt } from "react-icons/tfi";
-import { BsBasket } from "react-icons/bs";
+ 
 import { IoIosArrowRoundUp } from "react-icons/io";
 
 const HomeMain = ({users}) => {

@@ -7,8 +7,9 @@
   margin-top: 300px;
 }
 .profile {
-  height: "37px";
-  width: "37px";
+  height: 12px;
+  width: 12px;
+  border-radius: 25px;
 }
  
 .text-logo {
