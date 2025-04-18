@@ -51,20 +51,18 @@ function App() {
               {currentUser ? (
                 <div class="    sticky top-0    bg-sky-950 w-full h-14 ">
                   <div  class="flex flex-row absolute  right-35  mt-2   ml-12   ">
-
-                       <h2  className="text-white  mr-3  mt-2 font-semibold"   >{username}</h2>
-                       <img src={profile_pic} alt="profile_picture" className="w-11 h-10 object-cover  rounded-2xl " />
-                       <div className="iconLan"  >
-                        <FaBell  />
-                             
-
-                          </div>
-                          <div className="iconLan"  >
-                     
+   
+                         <div className="iconLan"  >
                               <FaLanguage />
-
                           </div>
-                         
+                    
+                         <div className="iconLan"  >
+                                 <FaBell  />
+                          </div>
+                       
+                           <h2  className="text-white  mr-3 ml-4 mt-3 font-semibold  text-sm "   >{username}</h2>
+
+                           <img src={profile_pic} alt="profile_picture" className="w-8 h-8 mt-1 object-cover ml-3  rounded-2xl " />
                   </div>
                 </div>
               ) : (
