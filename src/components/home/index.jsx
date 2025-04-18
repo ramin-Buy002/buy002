@@ -1,8 +1,7 @@
 import { useAuth } from "../../contexts/authcontext";
 import React, { useEffect, useState } from "react";
-import {  doc, getDoc  } from "firebase/firestore";
+import {   collection, doc, getDoc, onSnapshot, query, where  } from "firebase/firestore";
 import { fireStoreDb } from "../../configuration/firebase-config";
- 
 import "./index.css";
 import "./../../output.css";
 import Sidebar from "../Sidebar";
@@ -13,15 +12,46 @@ const Home = ( ) => {
   
 
   const { currentUser } = useAuth(); 
+  let array_myOffers = [];
+  let arrayy  = [];
+
 
   const [users, setUsers] = useState([]);
-
+  const [sum_money , setSum_money] = useState(null)
   const myEmail = currentUser.email;
   
   const getUserData = async () => {
     const docRef = doc(fireStoreDb, "users", myEmail);
     const docSnap = await getDoc(docRef);
     setUsers(docSnap.data());
+        
+           const uid = docSnap.data().owner_uid;
+            
+           const  offersRef = collection(fireStoreDb, "offers"); 
+          const q = query(offersRef, where("manufacturer" , "==" , uid ));
+          onSnapshot(q, (querySnapshot) => {
+                          
+                                querySnapshot.forEach((doc_01) => {
+                          
+                                  let obj_01 =  doc_01.id  ;
+                                  let price = doc_01.data().Price
+                                  array_myOffers =[...array_myOffers, obj_01]
+    
+     
+                                            onSnapshot(collection(doc(fireStoreDb, "offers", obj_01), "orders"), (snapshot) => {
+                                                        
+                                                snapshot.docs.forEach((doc)=> {
+                                                  let Count = doc.data().count ;
+                                                    let  sale = Count * price ; 
+                                                      arrayy.push(sale)
+                                              })
+    
+                                          console.log("arrayy   :" , arrayy)  ;
+                                          let sum = arrayy.reduce( (acc,e ) => acc + e , 0) ;
+                                          setSum_money(sum) ;
+                                            })
+                                          })
+                                          })
      
   };
  
@@ -43,7 +73,7 @@ const Home = ( ) => {
              <h3    > ..</h3>
                     <div class="mt-1 ml-5">
                      
-                      <HomeMain users={users} />
+                      <HomeMain users={users}  sum_money= {sum_money} />
                  
                     </div>
                     

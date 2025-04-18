@@ -7,35 +7,34 @@ import Home from "./components/home/index";
 import Sidebar from "./components/Sidebar";
 import { useAuth } from "./contexts/authcontext";
 import Offers from "./components/Offers/Offers";
-import {   doc, getDoc } from "firebase/firestore";
+import {   collection, doc, getDoc, onSnapshot, query, where  } from "firebase/firestore";
 import { fireStoreDb } from "./configuration/firebase-config";
  
 
 function App() {
 
+  let arrayy  = [];
+
   const { currentUser } = useAuth(); 
   const [profile_pic , setProfile_pic] = useState(null)
   const [username , setUsername] = useState(null)
+  const [sum_money , setSum_money] = useState(null)
 
        const getUserData = async () => {
- 
+       let array_myOffers = [];
        const myEmail = currentUser.email;
  
        const docRef = doc(fireStoreDb, "users", myEmail);
        const docSnap = await getDoc(docRef);
 
        setProfile_pic(docSnap.data().profile_picture) ;
-   //    const uid = docSnap.data().owner_uid;
+       const uid = docSnap.data().owner_uid;
        setUsername(docSnap.data().username);
-       console.log("profile_pic : " , profile_pic )
-       
- 
-     //  const q = query(offersRef, where("manufacturer" , "==" , uid ));
-  //    onSnapshot(q, (snapshot) => {
-    //    snapshot.docs.forEach((doc) => { 
-     //   console.log("doc : " , doc.data() )
-    //    })})}
-}
+         
+
+                                 
+    }; 
+
    useEffect(  () => {
        getUserData();
        // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,7 +60,6 @@ function App() {
               )}
             </div>
 
-         
 
             <div>
               {currentUser ? (
