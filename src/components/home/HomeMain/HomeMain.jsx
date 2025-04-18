@@ -4,7 +4,7 @@ import { useAuth } from '../../../contexts/authcontext';
 import { FaSackDollar , FaListCheck , FaPeopleGroup } from "react-icons/fa6";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { IoIosArrowRoundUp } from "react-icons/io";
-import { Bar, BarChart, CartesianGrid, Legend,  Line,  LineChart,  XAxis, YAxis } from 'recharts';
+import {   CartesianGrid, Legend,  Line,  LineChart,  XAxis, YAxis } from 'recharts';
  
 
 const HomeMain = ({users , sum_money , sum_count }) => {
