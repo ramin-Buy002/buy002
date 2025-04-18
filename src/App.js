@@ -7,28 +7,29 @@ import Home from "./components/home/index";
 import Sidebar from "./components/Sidebar";
 import { useAuth } from "./contexts/authcontext";
 import Offers from "./components/Offers/Offers";
-import {   collection, doc, getDoc, onSnapshot, query, where  } from "firebase/firestore";
+import {    doc, getDoc  } from "firebase/firestore";
 import { fireStoreDb } from "./configuration/firebase-config";
- 
+import { FaLanguage  , FaBell} from "react-icons/fa";
+
 
 function App() {
 
-  let arrayy  = [];
+ 
 
   const { currentUser } = useAuth(); 
   const [profile_pic , setProfile_pic] = useState(null)
   const [username , setUsername] = useState(null)
-  const [sum_money , setSum_money] = useState(null)
+ 
 
        const getUserData = async () => {
-       let array_myOffers = [];
+    
        const myEmail = currentUser.email;
  
        const docRef = doc(fireStoreDb, "users", myEmail);
        const docSnap = await getDoc(docRef);
 
        setProfile_pic(docSnap.data().profile_picture) ;
-       const uid = docSnap.data().owner_uid;
+    
        setUsername(docSnap.data().username);
          
 
@@ -49,10 +50,21 @@ function App() {
             <div  class="relative" >   
               {currentUser ? (
                 <div class="    sticky top-0    bg-sky-950 w-full h-14 ">
-                  <div  class="flex flex-row absolute  right-35  mt-2   bg-red-900  ">
+                  <div  class="flex flex-row absolute  right-35  mt-2   ml-12   ">
+
                        <h2  className="text-white  mr-3  mt-2 font-semibold"   >{username}</h2>
                        <img src={profile_pic} alt="profile_picture" className="w-11 h-10 object-cover  rounded-2xl " />
+                       <div className="iconLan"  >
+                        <FaBell  />
+                             
 
+                          </div>
+                          <div className="iconLan"  >
+                     
+                              <FaLanguage />
+
+                          </div>
+                         
                   </div>
                 </div>
               ) : (

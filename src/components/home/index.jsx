@@ -13,11 +13,14 @@ const Home = ( ) => {
 
   const { currentUser } = useAuth(); 
   let array_myOffers = [];
-  let arrayy  = [];
+  let array_price  = [];
+  let array_count  = [];
 
 
   const [users, setUsers] = useState([]);
-  const [sum_money , setSum_money] = useState(null)
+  const [sum_money , setSum_money] = useState(null) ;
+  const [sum_count , setSum_count] = useState(null) ;
+
   const myEmail = currentUser.email;
   
   const getUserData = async () => {
@@ -43,12 +46,17 @@ const Home = ( ) => {
                                                 snapshot.docs.forEach((doc)=> {
                                                   let Count = doc.data().count ;
                                                     let  sale = Count * price ; 
-                                                      arrayy.push(sale)
+                                                    array_price.push(sale)
+                                                    array_count.push(Count)
+                                                    
+                                                  
                                               })
     
-                                          console.log("arrayy   :" , arrayy)  ;
-                                          let sum = arrayy.reduce( (acc,e ) => acc + e , 0) ;
+                                          let sum = array_price.reduce( (acc,e ) => acc + e , 0) ;
                                           setSum_money(sum) ;
+
+                                          let sum01 = array_count.reduce( (acc,e ) => acc + e , 0) ;
+                                          setSum_count(sum01) ;
                                             })
                                           })
                                           })
@@ -73,7 +81,7 @@ const Home = ( ) => {
              <h3    > ..</h3>
                     <div class="mt-1 ml-5">
                      
-                      <HomeMain users={users}  sum_money= {sum_money} />
+                      <HomeMain users={users}  sum_money= {sum_money}   sum_count = {sum_count} />
                  
                     </div>
                     

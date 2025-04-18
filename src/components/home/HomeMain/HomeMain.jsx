@@ -6,7 +6,7 @@ import { TfiCommentAlt } from "react-icons/tfi";
  
 import { IoIosArrowRoundUp } from "react-icons/io";
 
-const HomeMain = ({users , sum_money }) => {
+const HomeMain = ({users , sum_money , sum_count }) => {
 
      const { currentUser } = useAuth(); 
   return (
@@ -48,7 +48,7 @@ const HomeMain = ({users , sum_money }) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Orders Received</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">878   pcs</span>
+                            <span className="widgetMoney">{sum_count}   pcs</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
