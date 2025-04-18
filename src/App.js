@@ -62,7 +62,7 @@ function App() {
                        
                            <h2  className="text-white  mr-3 ml-4 mt-3 font-semibold  text-sm "   >{username}</h2>
 
-                           <img src={profile_pic} alt="profile_picture" className="w-8 h-8 mt-1 object-cover ml-3  rounded-2xl " />
+                           <img src={profile_pic} alt="profile_picture" className="w-9 h-11 mb-1 object-cover ml-3  rounded-2xl " />
                   </div>
                 </div>
               ) : (
