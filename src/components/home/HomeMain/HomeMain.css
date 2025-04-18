@@ -93,6 +93,38 @@
    margin-top: 0px;
    
 }
+.circle01{
+    
+    font-size: 18px;
+    color:rgb(0, 136, 254);
+    margin-right: 7px;
+    margin-top: 3px;
+    
+ }
+ .circle02{
+    
+    font-size: 18px;
+    color:rgb(0, 196, 159);
+    margin-right: 7px;
+    margin-top: 3px;
+    
+ }
+ .circle03{
+    
+    font-size: 18px;
+    color:rgb(255, 187, 40);
+    margin-right: 7px;
+    margin-top: 3px;
+    
+ }
+ .circle04{
+    
+    font-size: 18px;
+    color:rgb(255, 128, 66);
+    margin-right: 7px;
+    margin-top: 3px;
+    
+ }
 .widgetItem{
     flex:1;
     margin: 0px 27px;

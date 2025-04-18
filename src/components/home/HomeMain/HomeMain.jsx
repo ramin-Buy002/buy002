@@ -1,84 +1,111 @@
-import React from 'react'
+import React  from 'react'
 import "./HomeMain.css"
 import { useAuth } from '../../../contexts/authcontext';
 import { FaSackDollar , FaListCheck , FaPeopleGroup } from "react-icons/fa6";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { IoIosArrowRoundUp } from "react-icons/io";
 import {   CartesianGrid, Legend,  Line,  LineChart,  XAxis, YAxis } from 'recharts';
- 
+import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
+import { FaSquare } from "react-icons/fa";
 
 const HomeMain = ({users , sum_money , sum_count }) => {
 
+     
+    const date = new Date() ;
+    const year = date.getFullYear() ;
+    const month = date.getMonth() ;
+    const day = date.getDay() ;
 
-    const data = [
+    const data01 = [
         {
-          "name": "jun",
+          "name": "JAN",
           "uv": 4000,
           "pv": 2400
         },
         {
-          "name": "feb",
+          "name": "FEB",
           "uv": 3000,
           "pv": 1398
         },
         {
-            "name": "mar",
+            "name": "MAR",
             "uv": 4000,
             "pv": 2400
           },
           {
-            "name": "des",
+            "name": "APR",
             "uv": 3000,
             "pv": 1398
           },
           {
-            "name": "Page A",
+            "name": "MAY",
             "uv": 4000,
             "pv": 2400
           },
           {
-            "name": "Page A",
+            "name": "JUN",
             "uv": 4000,
             "pv": 2400
           },
           {
-            "name": "Page B",
+            "name": "JUL",
             "uv": 3000,
             "pv": 1398
           },
         {
-          "name": "Page C",
+          "name": "AUG",
           "uv": 2000,
-          "pv": 9800
+          "pv": 8200
         },
         {
-          "name": "Page D",
+          "name": "SEP",
           "uv": 2780,
           "pv": 3908
         },
         {
-          "name": "Page E",
+          "name": "OCT",
           "uv": 1890,
           "pv": 4800
         },
         {
-          "name": "Page F",
+          "name": "NOV",
           "uv": 2390,
           "pv": 3800
         },
         {
-          "name": "Page G",
+          "name": "DEC",
           "uv": 3490,
           "pv": 4300
         }
       ];
+      const data = [
+        { label: 'Group A', value: 400, color: '#0088FE' },
+        { label: 'Group B', value: 300, color: '#00C49F' },
+        { label: 'Group C', value: 300, color: '#FFBB28' },
+        { label: 'Group D', value: 200, color: '#FF8042' },
+      ];
       
+      const sizing = {
+        margin: { right: 5 },
+        width: 200,
+        height: 200,
+        hideLegend: true,
+      };
+      const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
+
+      const getArcLabel = (params) => {
+        const percent = params.value / TOTAL;
+        return `${(percent * 100).toFixed(0)}%`;
+      };
+
+
      const { currentUser } = useAuth(); 
   return (
    <div>
            <div className="headerWidget">
-            <h1  class="ml-4 h-8 mt-1"
-              >Date & Time : {" "} Wednesday, April 2, 2025</h1>
+            <span  class="ml-4 h-8 mt-1"
+              > date & time  :    {year} , {month} , {day} </span>
+            
            </div>
        <div className='widget' >
 
@@ -167,13 +194,15 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                 </div>
         
             </div>
-            <div class="flex flex-row ..."  >
-                        <div class="  rounded-xl ml-4 mt-10 bg-white w-195 h-110 "  >
-                            <span class=" mt-60   ml-70   "   >
+            <div class="flex flex-row h-130"  >
+                        <div class="  rounded-xl ml-4 mt-10 bg-white w-195   "  >
+                            <span class=" mt-62   ml-90   "   >
                             Market Sales
                             </span>
-                            <LineChart width={750} height={400} data={data}
-                                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                            <h1 class="text-white" >...</h1>
+                            <div class=" mt-22   "    >
+                            <LineChart width={750} height={400} data={data01}  marginTop={20}
+                                    margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis dataKey="name" />
                                     <YAxis />
@@ -183,10 +212,50 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                                     <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
                                 </LineChart>
                         </div>
-                        <div class="  rounded-xl mt-10 ml-5 bg-white w-120 h-110 "  >
-                            <span class=" mt-60   ml-45   "   >
-                            Sales Per Day
-                            </span>
+                        </div>
+                        <div class="  rounded-xl mt-10 ml-5 bg-white w-120  "  >
+                            <h2 class=" mt-40   ml-5   "   >
+                              status orders
+                            </h2>
+                            <div  class='flex  flex-row mt-10    '  >
+                            <PieChart
+                                            series={[
+                                                {
+                                                outerRadius: 90,
+                                                data,
+                                                arcLabel: getArcLabel,
+                                                },
+                                            ]}
+                                            sx={{
+                                                [`& .${pieArcLabelClasses.root}`]: {
+                                                fill: 'white',
+                                                fontSize: 14,
+                                                },
+                                            }}
+                                            {...sizing}
+                                            />
+                               
+                                 
+                            </div>
+                            <div  className=' mt-5  ml-30' >  
+                                    <div  className='flex'>     
+                                        <FaSquare  className='circle01' />
+                                    <h1   >shipment</h1>
+                                </div>        
+                                <div  className='flex'>     
+                                        <FaSquare  className='circle02' />
+                                    <h1>delivered</h1>
+                                </div>    
+                                <div  className='flex'>     
+                                        <FaSquare  className='circle03' />
+                                    <h1>pending</h1>
+                                </div>  
+                                <div  className='flex'>     
+                                        <FaSquare  className='circle04' />
+                                    <h1>canceled</h1>
+                                </div>    
+                                </div>
+                                
                         </div>
             </div>
             <div style={{marginTop:270}} >
