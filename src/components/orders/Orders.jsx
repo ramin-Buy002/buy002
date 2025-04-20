@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import "./Orders.css";
-import { collection, query, where, onSnapshot, doc, getDoc } from "firebase/firestore";
+import { collection, query, where, onSnapshot, doc, getDoc} from "firebase/firestore";
 import { fireStoreDb } from "../../configuration/firebase-config";
 import { useAuth } from "../../contexts/authcontext";
 import Stack from '@mui/material/Stack';
@@ -12,14 +12,13 @@ import {  Link } from 'react-router-dom'
 
 export default function Orders() {
 
-  const paginationModel = { page: 0, pageSize: 5 };
+  const paginationModel = { page: 0, pageSize: 8 };
 
   const { currentUser } = useAuth(); 
   
      
     const [myArray, setMyArray] = useState([]);
-    const [post_ID, setPost_ID] = useState([]);
-    const [picPost, setPicPost] = useState(null);
+  
 
     const columns = [
       {
@@ -28,10 +27,10 @@ export default function Orders() {
         description: "all pcs offer.",
         width: 80,
         renderCell: (params)=>{
-         
+         const image = params.row.img
           return (
             <div>
-               <img src={picPost} alt="profile_picture" className="userListImg" />
+               <img src={image} alt="profile_picture" className="userListImg" />
             </div>
           )
         }
@@ -98,7 +97,7 @@ export default function Orders() {
         width: 130,
         renderCell: (params)=>{
            const parameter_id = params.row.id
-           console.log("parameter_id :: " , parameter_id)
+          // console.log("parameter_id :: " , parameter_id)
           return ( 
             <div     >
                    <Stack spacing={2} direction="row">
@@ -106,8 +105,6 @@ export default function Orders() {
                             <Button     variant="contained">   view   </Button>
                         </Link>
                   </Stack>
-                
-                 
             </div>
           )
         }
@@ -116,45 +113,103 @@ export default function Orders() {
     
       const rows = myArray  
 
-
-    
       const getUserData = async () => {
 
-      const myEmail = currentUser.email;
+              let array = [];
+              let id_offer = null ;
+              let new_obj = {} ;
+              
+              const myEmail = currentUser.email;
 
-      const docRef = doc(fireStoreDb, "users", myEmail);
-      const docSnap = await getDoc(docRef);
+              const docRef = doc(fireStoreDb, "users", myEmail);
+              const docSnap = await getDoc(docRef);
 
-      const uid = docSnap.data().owner_uid;
+              const uid = docSnap.data().owner_uid;
 
-      const  offersRef = collection(fireStoreDb, "offers"); 
-      const  ppostsRef = collection(fireStoreDb, "posts"); 
+              const  offersRef = collection(fireStoreDb, "offers"); 
 
-      const q = query(offersRef, where("manufacturer" , "==" , uid ));
-      onSnapshot(q, (snapshot) => {
-        let array = [];
+              const q =    query(offersRef, where("manufacturer" , "==" , uid ));
+              
+                          onSnapshot(q, (snapshot) => {
+
+                              snapshot.docs.forEach((doc) => {
+
+                                  id_offer = doc.id 
+                                  let new_object = doc.data() ;
+                                  let obj_01 = {id : id_offer  } ;
+                                  console.log("id : id_offer " ,  id_offer ) ;
+
+                                  const postRef = collection(fireStoreDb , "posts") ;
+
+                                      if(id_offer){
+                                    const qqqq = query(postRef ,   where("offer_01" , "==" , id_offer ))  
+                                  
+                                          onSnapshot(qqqq, (querySnapshot) => {
+                                      
+                                            querySnapshot.forEach((doc) => {
+
+                                              console.log("id_offer  001 " , id_offer) ;
+                                              console.log("post_id  001 " , doc.id) ;
+
+                                              let obj_02 = {img: doc.data().imageUrl
+                                              } ;
+                
+                                              new_obj = Object.assign(new_object , obj_01 , obj_02 ) ;
+
+                                                  array =  [...array, new_obj] ;
+                                              setMyArray(array) ;
+                              })
+                              })
+                                              }
+                                      if(id_offer){
+                                        const qqqq = query(postRef ,   where("offer_02" , "==" , id_offer ))  
+                                      
+                                              onSnapshot(qqqq, (querySnapshot) => {
+                                          
+                                                querySnapshot.forEach((doc) => {
+    
+                                                  console.log("id_offer  002 " , id_offer) ;
+                                                  console.log("post_id  002 " , doc.id) ;
+    
+                                                  let obj_02 = {img: doc.data().imageUrl
+                                                  } ;
+                    
+                                                  new_obj = Object.assign(new_object , obj_01 , obj_02 ) ;
+    
+                                                      array =  [...array, new_obj] ;
+                                                  setMyArray(array) ;
+                                  })
+                                  })
+                                              }
+                                      if(id_offer){
+                                            const qqqq = query(postRef ,   where("offer_03" , "==" , id_offer ))  
+                                          
+                                                  onSnapshot(qqqq, (querySnapshot) => {
+                                              
+                                                    querySnapshot.forEach((doc) => {
+        
+                                                      console.log("id_offer  003 " , id_offer) ;
+                                                      console.log("post_id  003 " , doc.id) ;
+        
+                                                      let obj_02 = {img: doc.data().imageUrl
+                                                      } ;
+                        
+                                                      new_obj = Object.assign(new_object , obj_01 , obj_02 ) ;
+        
+                                                          array =  [...array, new_obj] ;
+                                                      setMyArray(array) ;
+                                      })
+                                      })
+                                              }
+                              })})}
+     
+   // console.log("myArray" , myArray)
+
  
-       snapshot.docs.forEach((doc) => {
-          array.push({...doc.data() , id: doc.id})
-      
-      setPost_ID( array[0].post_ID );
-      setMyArray(array)
-      }) })
-    
-      const qqq = query(ppostsRef,  post_ID );
-
-      onSnapshot(qqq, (snapshot) => {
-      
-      snapshot.docs.forEach((doc) => {
-
-      setPicPost(doc.data().imageUrl)
-      }) })
-      
-    
-    };
       
   useEffect(  () => {
       getUserData();
+  
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
    
