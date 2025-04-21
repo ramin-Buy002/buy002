@@ -123,8 +123,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
 
                             </span>
                         </div>
-                        <span className="widgetSub">$ ....</span>
-                        <span>...</span>
+                        
                     </div>
             
                     
@@ -147,8 +146,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </div>
                             </span>
                         </div>
-                        <span className="widgetSub">....</span>
-                        <span>....</span>
+
                     </div>
                 <div className='icon'>
                     < FaListCheck className='icon'  />
@@ -166,8 +164,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </div>
                             </span>
                         </div>
-                        <span className="widgetSub"> ...</span>
-                        <span>.....</span>
+
                     </div>
                 <div className='icon'>
                     < FaPeopleGroup   className='iconPeople'  />
@@ -185,8 +182,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </div>
                             </span>
                         </div>
-                        <span className="widgetSub">....</span>
-                        <span>...</span>
+
                     </div>
                 <div className='icon'>
                     <TfiCommentAlt className='icon'  />

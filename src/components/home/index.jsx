@@ -79,7 +79,7 @@ const Home = ( ) => {
                     
             <div className=" ml-58 bg-gray-100 rounded-l-3xl">
              <h3    > ..</h3>
-                    <div class="mt-1 ml-5">
+                    <div className="header_001">
                      
                       <HomeMain users={users}  sum_money= {sum_money}   sum_count = {sum_count} />
                  
