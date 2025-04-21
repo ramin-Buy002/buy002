@@ -64,7 +64,7 @@ const Sidebar = () => {
                         textDecoration: "none",
                     })}
                 >
-                    Order List
+                   Offers / Order 
                   </NavLink>
                   </div>
                   <div className="p-1 mt-5 ml-5 flex flex-row " >

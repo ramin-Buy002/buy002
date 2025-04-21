@@ -1,6 +1,6 @@
 import React  from 'react'
 import "./HomeMain.css"
-import { useAuth } from '../../../contexts/authcontext';
+//   import { useAuth } from '../../../contexts/authcontext';
 import { FaSackDollar , FaListCheck , FaPeopleGroup } from "react-icons/fa6";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { IoIosArrowRoundUp } from "react-icons/io";
@@ -99,8 +99,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
         return `${(percent * 100).toFixed(0)}%`;
       };
 
+   //  const { currentUser } = useAuth(); 
 
-     const { currentUser } = useAuth(); 
   return (
    <div>
            <div className="headerWidget">
@@ -116,7 +116,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Total sales</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">$ {sum_money} </span>
+                            <span className="widgetMoney"> {sum_money}  </span>
+                            <span>$</span>
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
                             </div>
@@ -140,7 +141,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Orders Received</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">{sum_count}   pcs</span>
+                            <span className="widgetMoney">{sum_count}   </span>
+                            <span>pcs</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
@@ -158,7 +160,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Helper sale</span>
                         <div className="widgetMoneyContainer">
-                            <span className="helperSale">640 people</span>
+                            <span className="helperSale">640 </span>
+                            <span>people</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
@@ -176,7 +179,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                     <div className="widgetItem">
                         <span className="widgetTitle">Total Comment</span>
                         <div className="widgetMoneyContainer">
-                            <span className="widgetMoney">560 text</span>
+                            <span className="widgetMoney">560 </span>
+                            <span>text</span>
                             <span className="widgetMoneyRate">
                             <div className='icon01' >
                                 <IoIosArrowRoundUp     />
@@ -218,7 +222,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             <PieChart
                                             series={[
                                                 {
-                                                outerRadius: 90,
+                                                outerRadius: 77 ,
                                                 data,
                                                 arcLabel: getArcLabel,
                                                 },
@@ -258,13 +262,15 @@ const HomeMain = ({users , sum_money , sum_count }) => {
             <div>
               <RecentOrder />
             </div>
-            {currentUser.displayName
+
+
+            {/* {currentUser.displayName
              ? currentUser.displayName
              : currentUser.email}
            username : {users.username}  
            <div>
            owner_uid : {users.owner_uid}    
-           </div> 
+           </div>  */}
            
     </div>        
   )
