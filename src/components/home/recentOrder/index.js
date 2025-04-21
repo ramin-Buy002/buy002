@@ -45,7 +45,10 @@ const RecentOrder = () => {
 
         <div style={{ marginLeft:24 , marginTop:20}} >
           <div>
-            <h1  style={{  backgroundColor:"#727D73" , width: '97%' , height:27  , color:"#ffffff" }}  > .      ....    .    Recent Orders</h1>
+         
+            <h1  style={{  backgroundColor:"#727D73" , width: '97%' , height:27  , color:"#ffffff" }}  >
+              <span style={{  marginLeft:30 }}   >Recent Orders</span>
+            </h1>
           </div>
                     <Paper sx={{ height: 400, width: '97%' }}>
                             <DataGrid
