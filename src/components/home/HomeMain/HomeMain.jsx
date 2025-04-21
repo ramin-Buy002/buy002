@@ -7,6 +7,7 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 import {   CartesianGrid, Legend,  Line,  LineChart,  XAxis, YAxis } from 'recharts';
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import { FaSquare } from "react-icons/fa";
+import RecentOrder from '../recentOrder';
 
 const HomeMain = ({users , sum_money , sum_count }) => {
 
@@ -190,14 +191,14 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                 </div>
         
             </div>
-            <div class="flex flex-row h-130"  >
+            <div class="flex flex-row h-95"  >
                         <div class="  rounded-xl ml-4 mt-10 bg-white w-195   "  >
                             <span class=" mt-62   ml-90   "   >
                             Market Sales
                             </span>
                             <h1 class="text-white" >...</h1>
-                            <div class=" mt-22   "    >
-                            <LineChart width={750} height={400} data={data01}  marginTop={20}
+                            <div class=" mt-15   "    >
+                            <LineChart width={700} height={340} data={data01}  marginTop={20}
                                     margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis dataKey="name" />
@@ -254,8 +255,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                                 
                         </div>
             </div>
-            <div style={{marginTop:270}} >
-            <h1>...</h1>
+            <div>
+              <RecentOrder />
             </div>
             {currentUser.displayName
              ? currentUser.displayName
