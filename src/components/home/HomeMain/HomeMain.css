@@ -7,7 +7,7 @@
     display: flex;
     height: 13;
     width: 98%;
-    margin-bottom: 10px;
+    margin-bottom: 11px;
     margin-left: 3px;
     background-color: #fbfbfd;
 
@@ -16,7 +16,7 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 22px;
     padding-right: 10px;
     margin-left: 60px;
    
@@ -27,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    background-color: #fbfbfd  ;
+    background-color: #fdfdfd  ;
     box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
     cursor: pointer;
 }
@@ -37,7 +37,7 @@
 
     display: flex;
     justify-content: space-between;
-    background-color: #fbfbfd;
+    background-color: #fdfdfd;
     border-radius: 10px;
     box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
     cursor: pointer;
@@ -48,7 +48,7 @@
 
     display: flex;
     justify-content: space-between;
-    background-color: #fbfbfd;
+    background-color: #fdfdfd;
     border-radius: 10px;
     box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
     cursor: pointer;
@@ -59,7 +59,7 @@
 
     display: flex;
     justify-content: space-between;
-    background-color: #fbfbfd;
+    background-color: #fdfdfd;
     border-radius: 10px;
     box-shadow: rgba(0 ,0,0,0.35) 0px 5px 15px;
     cursor: pointer;
@@ -69,15 +69,15 @@
     margin-left: -10px;
    font-size: 35px;
    color: rgb(97, 97, 97);
-   margin-right: 15px;
-   margin-top: 7px;
+   margin-right: 22px;
+   margin-top: 13px;
    
 }
 .iconLan{
     
     font-size: 15px;
     color: rgb(255, 255, 255);
-    margin-left: 17px;
+    margin-left: 14px;
     margin-top: 15px;
     
   }
@@ -86,7 +86,7 @@
    font-size: 45px;
    color: rgb(97, 97, 97);
    margin-right: 15px;
-   margin-top: 7px;
+   margin-top: 15px;
    
 }
 .icon01{
@@ -150,13 +150,13 @@
 }
 .widgetMoney{
     color: rgb(23, 151, 6);
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     margin: 0px 12px;
 
 }
 .helperSale{
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     margin: 0px 0px;
     color: rgb(23, 151, 6);
@@ -165,4 +165,7 @@
 .widgetSub{
     margin: 7px 17px;
 
+}
+.Explaining{
+    font-size: 14px;
 }

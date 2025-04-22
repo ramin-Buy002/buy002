@@ -15,7 +15,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
     const date = new Date() ;
     const year = date.getFullYear() ;
     const month = date.getMonth() ;
-    const day = date.getDay() ;
+    const day = date.getDate() ;
 
     const data01 = [
         {
@@ -105,7 +105,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
    <div>
            <div className="headerWidget">
             <span  class="ml-4 h-8 mt-1"
-              > date & time  :    {year} , {month} , {day} </span>
+              > date & time  : {"  "}   {year} / {month + 1} / {day} </span>
             
            </div>
        <div className='widget' >
@@ -125,7 +125,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
 
                             </span>
                         </div>
-                        
+                        <span  className='Explaining' >in this week</span>
                     </div>
             
                     
@@ -149,7 +149,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </div>
                             </span>
                         </div>
-
+                        <span  className='Explaining' >in this week</span>
                     </div>
                 <div className='icon'>
                     < FaListCheck className='icon'  />
@@ -168,7 +168,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </div>
                             </span>
                         </div>
-
+                        <span  className='Explaining' >all sales</span>
                     </div>
                 <div className='icon'>
                     < FaPeopleGroup   className='iconPeople'  />
@@ -187,7 +187,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </div>
                             </span>
                         </div>
-
+                        <span  className='Explaining' >in this week</span>
                     </div>
                 <div className='icon'>
                     <TfiCommentAlt className='icon'  />
@@ -202,7 +202,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             </span>
                             <h1 class="text-white" >...</h1>
                             <div class=" mt-15   "    >
-                            <LineChart width={700} height={340} data={data01}  marginTop={20}
+                            <LineChart width={700} height={320} data={data01}  marginTop={20}
                                     margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis dataKey="name" />
@@ -218,7 +218,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                             <h2 class=" mt-40   ml-5   "   >
                               status orders
                             </h2>
-                            <div  class='flex  flex-row mt-10    '  >
+                            <div  class='flex  flex-row mt-1    '  >
                             <PieChart
                                             series={[
                                                 {
@@ -238,7 +238,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                                
                                  
                             </div>
-                            <div  className=' mt-5  ml-30' >  
+                            <div  className=' mt-0  ml-18' >  
                                     <div  className='flex'>     
                                         <FaSquare  className='circle01' />
                                     <h1   >shipment</h1>
@@ -254,6 +254,8 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                                 <div  className='flex'>     
                                         <FaSquare  className='circle04' />
                                     <h1>canceled</h1>
+                                    <span  className=' ml-20' >orders status this week</span>
+
                                 </div>    
                                 </div>
                                 
