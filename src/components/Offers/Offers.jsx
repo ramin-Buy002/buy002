@@ -121,9 +121,7 @@ const Offers = () => {
     
     const rows = new_Array_row
  
-    
       const getUserData = async () => {
-
 
        let customer_ID = null ;
        let new_obj = {} ;

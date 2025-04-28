@@ -12,20 +12,30 @@ import {  Link } from 'react-router-dom'
 
 export default function Orders() {
 
-  const paginationModel = { page: 0, pageSize: 8 };
+  const paginationModel = { page: 0, pageSize: 12 };
 
   const { currentUser } = useAuth(); 
-  
-     
+   
+    let [array_myOffers ] = useState([]);
+
     const [myArray, setMyArray] = useState([]);
-  
+
+    const [sum , setSum] = useState(1);
+
+    const [all_Array, setAll_Array] = useState([]);
+
+ 
+    let array_count = [] ;
+
+
+ 
 
     const columns = [
       {
         field: "post_ID",
         headerName: "Offers",
         description: "all pcs offer.",
-        width: 80,
+        width: 90,
         renderCell: (params)=>{
          const image = params.row.img
           return (
@@ -39,18 +49,18 @@ export default function Orders() {
         field: "id",
         headerName: "Offer_ID",
         description: "all pcs offer.",
-        width:160,
+        width:200,
       },{
         field: "Price",
         headerName: "Price",
         description: "all pcs offer.",
-        width: 60,
+        width: 120,
         renderCell: (params)=>{
           const price = params.row.Price
            
           return (
             <div>
-               <h2 class="text-red-500" > {price} $ </h2>
+               <h2 class=" ml-4 text-red-500" > {price} $ </h2>
             </div>
           )
         }
@@ -58,24 +68,57 @@ export default function Orders() {
         field: "status",
         headerName: "status",
         description: "all pcs offer.",
-        width: 70,
+        width: 100,
       }, {
         field: "total_pcs",
         headerName: "total_pcs",
         description: "all pcs offer.",
-        width: 80,
-      },{
-        field: "PercentSold",
-        headerName: "Percent Sold",
-        description: "all pcs offer.",
         width: 120,
-      },{
-        field: "numberOrders",
-        headerName: "Number_Orders",
+        renderCell: (params)=>{
+          let total_p = params.row.total_pcs ;
+           
+          return (
+            <div  className="flex"  >
+               <h2 class=" ml-5  " > {total_p } </h2>
+
+            </div>
+          )
+        }
+      }, {
+        field: "total_orders",
+        headerName: "total_orders",
         description: "all pcs offer.",
-        width: 150,
-   //     valueGetter: (value, row) => `${row.id || ""} ${row.Price || ""}`,
-      },{
+        width: 110,
+        renderCell: (params)=>{
+          let Total = params.row.total_orders ;
+           
+          return (
+            <div  className="flex"  >
+               <h2 class=" ml-6  " > {Total } </h2>
+
+            </div>
+          )
+        }
+      } , {
+        field: "Percent_Sold",
+        headerName: "Percent_Sold",
+        description: "all pcs offer.",
+        width: 140,
+        renderCell: (params)=>{
+          let Percent = params.row.Percent_Sold ;
+          let percent_ = Percent.toFixed(2) ;
+           
+          return (
+            <div  className="flex"  >
+               <h2 class=" ml-4 text-green-500 text-[18px]" > {percent_ } </h2>
+             
+               <h2   className="ml-3" >  % </h2>
+
+            </div>
+          )
+        }
+        //     valueGetter: (value, row) => `${row.id || ""} ${row.Price || ""}`,
+      }, {
         field: "created_At",
         headerName: "Created_At",
         description: "all pcs offer.",
@@ -97,7 +140,7 @@ export default function Orders() {
         width: 130,
         renderCell: (params)=>{
            const parameter_id = params.row.id
-          // console.log("parameter_id :: " , parameter_id)
+  
           return ( 
             <div     >
                    <Stack spacing={2} direction="row">
@@ -111,10 +154,10 @@ export default function Orders() {
       }
     ];
     
-      const rows = myArray  
+      const rows = all_Array   
 
       const getUserData = async () => {
-
+               
               let array = [];
               let id_offer = null ;
               let new_obj = {} ;
@@ -130,26 +173,24 @@ export default function Orders() {
 
               const q =    query(offersRef, where("manufacturer" , "==" , uid ));
               
-                          onSnapshot(q, (snapshot) => {
+                          onSnapshot(q,  (snapshot) => {
 
-                              snapshot.docs.forEach((doc) => {
+                              snapshot.docs.forEach ( (doc) => {
 
                                   id_offer = doc.id 
                                   let new_object = doc.data() ;
                                   let obj_01 = {id : id_offer  } ;
-                                  console.log("id : id_offer " ,  id_offer ) ;
 
-                                  const postRef = collection(fireStoreDb , "posts") ;
+                                  array_myOffers = [...array_myOffers, id_offer] ;
+
+                                  const postRef =   collection(fireStoreDb , "posts") ;
 
                                       if(id_offer){
                                     const qqqq = query(postRef ,   where("offer_01" , "==" , id_offer ))  
                                   
-                                          onSnapshot(qqqq, (querySnapshot) => {
+                                         onSnapshot(qqqq, (querySnapshot) => {
                                       
-                                            querySnapshot.forEach((doc) => {
-
-                                              console.log("id_offer  001 " , id_offer) ;
-                                              console.log("post_id  001 " , doc.id) ;
+                                            querySnapshot.forEach((doc) => { 
 
                                               let obj_02 = {img: doc.data().imageUrl
                                               } ;
@@ -166,10 +207,7 @@ export default function Orders() {
                                       
                                               onSnapshot(qqqq, (querySnapshot) => {
                                           
-                                                querySnapshot.forEach((doc) => {
-    
-                                                  console.log("id_offer  002 " , id_offer) ;
-                                                  console.log("post_id  002 " , doc.id) ;
+                                                querySnapshot.forEach((doc) => { 
     
                                                   let obj_02 = {img: doc.data().imageUrl
                                                   } ;
@@ -187,9 +225,7 @@ export default function Orders() {
                                                   onSnapshot(qqqq, (querySnapshot) => {
                                               
                                                     querySnapshot.forEach((doc) => {
-        
-                                                      console.log("id_offer  003 " , id_offer) ;
-                                                      console.log("post_id  003 " , doc.id) ;
+         
         
                                                       let obj_02 = {img: doc.data().imageUrl
                                                       } ;
@@ -201,17 +237,66 @@ export default function Orders() {
                                       })
                                       })
                                               }
-                              })})}
-     
-   // console.log("myArray" , myArray)
+                              })
+                              
 
+                              array_myOffers.forEach( (id_offers  ) => {
+                              
+                                let sum_count = 0 ;
+
+                                     const docRef_offer =  doc(fireStoreDb, "offers", id_offers);
+                                              onSnapshot(collection(docRef_offer, "orders"), (snapshot) => {  
+                                                snapshot.docs.forEach((doc)=> {
+
+                                                  let count = doc.data().count ;
+                                                  sum_count = sum_count + count  ;
+
+                                                })
+
+                                                  
+                                                array_count.push(sum_count ) ;
+                                                
+                                                if( myArray.length === array_count.length  && sum === 3  ){
  
-      
+                                                myArray.forEach(( obj , index )=>{
+            
+                                                  // console.log(" obj :: " , obj , " index :"  , index) ;
+                                             
+                                                 let object_02 = { total_orders : array_count[index]} ;
+                                                 let total_pcs = obj.total_pcs  ;
+                                                  
+                                                 let obj_percent =    (array_count[index]  / total_pcs) * 100   ;
+
+                                                //  console.log(" obj_percent  :: " , obj_percent ) ;
+
+                                                 let object_03 = { Percent_Sold : obj_percent } ;
+                                                 
+                                                 new_obj = Object.assign( obj , object_02  , object_03);
+                              
+                                                setAll_Array(myArray) ;
+                                                  
+                                               }
+                                               ) 
+                                        
+                                              } if (sum === 1) {
+                                                console.log(    "______-______"  , sum)
+                                                setSum( sum + 1 )
+                                                 
+                                              } if ( sum === 2 ){
+                                                console.log(    "______-______"  , sum)
+                                                setSum( sum + 1 )
+                                              }
+                                             })   
+                                                    }
+                                                  )  })
+                                                  }
+   console.log("all_Array :" , all_Array )
+
   useEffect(  () => {
       getUserData();
-  
+ 
       // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [ sum  ]);
    
   return (
     <div class="bg-sky-950  ">
@@ -221,7 +306,12 @@ export default function Orders() {
           <DataGrid
             rows={rows}
             columns={columns}
-            initialState={{ pagination: { paginationModel } }}
+            initialState={{
+              pagination: { paginationModel } ,
+              sorting: {
+                sortModel: [{ field: 'Percent_Sold', sort: 'desc' }],
+              },
+            }}
             pageSizeOptions={[5, 10]}
             disableRowSelectionOnClick
             checkboxSelection
