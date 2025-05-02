@@ -48,7 +48,7 @@ const AddPostSale = () => {
                 <div >
                      <Box
                     component="form"
-                    sx={{ '& .MuiTextField-root': { m: 2 , width: '19ch' , height:'4ch' } }}
+                    sx={{ '& .MuiTextField-root': { m: 2 , width: '19ch' , height:'3ch' } }}
                     noValidate
                     autoComplete="off"
                   >
@@ -57,7 +57,8 @@ const AddPostSale = () => {
                       <TextField
                           label=""
                           id="outlined-start-adornment"
-                          sx={{ m: 1, width: '25ch' }}
+                          sx={{ m: 1, width: '25ch' , "& .MuiOutlinedInput-input":{height:13}
+                           }}
                           slotProps={{
                             input: {
                               startAdornment: <InputAdornment position="start">price $ : </InputAdornment>
@@ -70,7 +71,7 @@ const AddPostSale = () => {
                       <TextField
                           label=""
                           id="outlined-start-adornment"
-                          sx={{ m: 1, width: '25ch' }}
+                          sx={{ m: 1, width: '25ch' , "& .MuiOutlinedInput-input":{height:13} }}
                           slotProps={{
                             input: {
                               startAdornment: <InputAdornment position="start">price $ : </InputAdornment>
@@ -83,7 +84,7 @@ const AddPostSale = () => {
                       <TextField
                           label=""
                           id="outlined-start-adornment"
-                          sx={{ m: 1, width: '25ch' }}
+                          sx={{ m: 1, width: '25ch' , "& .MuiOutlinedInput-input":{height:13} }}
                           slotProps={{
                             input: {
                               startAdornment: <InputAdornment position="start">price $ : </InputAdornment>
