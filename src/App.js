@@ -10,6 +10,7 @@ import Offers from "./components/Offers/Offers";
 import {    doc, getDoc  } from "firebase/firestore";
 import { fireStoreDb } from "./configuration/firebase-config";
 import { FaLanguage  , FaBell} from "react-icons/fa";
+import AddPostSale from "./components/addPostSale/AddPostSale";
 
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
               <Route exact path="/home" element={<Home />} />
               <Route exact path="/register" element={<Register />} />
               <Route exact path="/orders" element={<Orders />} /> 
+              <Route exact path="/addPostSale" element={<AddPostSale />} /> 
               <Route exact path="/orders/offers/:userId" element={<Offers />} />
             </Routes>
           </div>

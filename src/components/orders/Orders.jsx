@@ -267,7 +267,7 @@ export default function Orders() {
                                                   
                                                  let obj_percent =    (array_count[index]  / total_pcs) * 100   ;
 
-                                                //  console.log(" obj_percent  :: " , obj_percent ) ;
+                                                //  console.log(" obj_percent  ::   " , obj_percent ) ;
 
                                                  let object_03 = { Percent_Sold : obj_percent } ;
                                                  

@@ -13,7 +13,7 @@
     "@mui/x-charts": "^8.0.0-beta.3",
     "@mui/x-data-grid": "^7.28.2",
     "@tailwindcss/cli": "^4.0.17",
-    "@tailwindcss/postcss": "^4.0.17",
+    "@tailwindcss/postcss": "^4.1.5",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -23,6 +23,7 @@
     "firebase": "^11.3.1",
     "gh-pages": "^6.3.0",
     "npx": "^10.2.2",
+    "postcss-nested": "^7.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
@@ -34,8 +35,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "webpack serve --mode development",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:css": "postcss src/style.css -o build/style.css" ,
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -62,6 +65,7 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
-    "tailwindcss": "^4.0.17"
+    "tailwindcss": "^4.1.5",
+    "webpack-cli": "^6.0.1"
   }
 }

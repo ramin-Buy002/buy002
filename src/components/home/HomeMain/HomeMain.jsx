@@ -195,15 +195,15 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                 </div>
         
             </div>
-            <div class="flex flex-row h-95"  >
+            <div class="flex flex-row h-105"  >
                         <div class="  rounded-xl ml-4 mt-10 bg-white w-195   "  >
-                            <span class=" mt-62   ml-90   "   >
+                            <span class=" mt-2   ml-90   "   >
                             Market Sales
                             </span>
                             <h1 class="text-white" >...</h1>
-                            <div class=" mt-15   "    >
-                            <LineChart width={700} height={320} data={data01}  marginTop={20}
-                                    margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
+                            <div class=" mt-1   "    >
+                            <LineChart width={700} height={320} data={data01}  marginTop={2}
+                                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis dataKey="name" />
                                     <YAxis />
@@ -215,7 +215,7 @@ const HomeMain = ({users , sum_money , sum_count }) => {
                         </div>
                         </div>
                         <div class="  rounded-xl mt-10 ml-5 bg-white w-120  "  >
-                            <h2 class=" mt-40   ml-5   "   >
+                            <h2 class=" mt-2   ml-5   "   >
                               status orders
                             </h2>
                             <div  class='flex  flex-row mt-1    '  >

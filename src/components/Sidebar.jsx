@@ -70,7 +70,7 @@ const Sidebar = () => {
                   <div className="p-1 mt-5 ml-5 flex flex-row " >
                   <MdOutlineLocalShipping className="mr-1 mt-1 w-7" />
                   <NavLink
-                    to="/orders"
+                    to="/addPostSale"
                     style={({ isActive }) => ({
                         color: "white",
                         fontWeight: isActive ? "bold" : "normal",
@@ -83,7 +83,7 @@ const Sidebar = () => {
                   <div className="p-1 mt-5 ml-5 flex flex-row " >
                   <MdOutlineLocalShipping className="mr-1 mt-1 w-7" />
                   <NavLink
-                    to="/orders"
+                    to="/addPostSale"
                     style={({ isActive }) => ({
                         color: "white",
                         fontWeight: isActive ? "bold" : "normal",
