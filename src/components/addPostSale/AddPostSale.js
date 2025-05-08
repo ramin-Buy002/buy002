@@ -3,6 +3,12 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, InputAdornment, Tooltip } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import rare_main from "./../../assets/rare_main.jpg"
+import rare_small from "./../../assets/rare_small.jpg"
+import rare_small_01 from "./../../assets/rare_small01.jpg"
+import rare_small_02 from "./../../assets/rare_small02.jpg"
+import rare_small_03 from "./../../assets/rare_small03.jpg"
+
 
 const AddPostSale = () => {
 
@@ -12,20 +18,48 @@ const AddPostSale = () => {
  
   return (
     <div class="bg-sky-950  ">
-            <div className=" ml-58 bg-gray-50 rounded-l-3xl">
+            <div className=" ml-58 bg-gray-100 rounded-l-3xl">
              <h3> ..</h3>
+
+           <div  class="flex " >
+           <div  class="ml-33 mt-60 bg-amber-50 w-100 h-70 " >
+               <div class="mt-2 ml-2" >
+                    <TextField
+                    id="outlined-multiline-static"
+                    label="Caption : "
+                    multiline
+                    rows={10}
+                    placeholder='Write Caption ....'
+                  />
+               </div>
+
+             </div>
                     <div className=" flex row">
-                    
+                      
+                    <div  class=" bg-white  shadow-lg w-83 rounded-2xl h-168 ml-70 mb-30 -mt-9  "  >
                 
-                         
-                    <div  class=" bg-white  shadow-lg w-83  h-168 ml-200 mb-30 -mt-6  "  >
-                            <div  class=" flex bg-green-300  w-77  h-85 ml-3 mt-3  "  >
-                               <div  > 
-                                  <div  class=" bg-white  w-13  h-13  ml-60 mt-3 " ></div>
-                                  <div  class=" bg-white  w-13  h-13  ml-60 mt-3 " ></div>
-                                  <div  class=" bg-white  w-13  h-13  ml-60 mt-3 " ></div>
-                                  <div  class=" bg-white  w-13  h-13  ml-60 mt-3 " ></div>
-                               </div>
+                            <div  class=" flex bg-gray-400  w-77 rounded-xl h-85 ml-3 mt-3  "  >
+                                <img src={rare_main} alt="profile_picture" class=" w-76.5 h-84.5 ml-0.25 mt-0.25   
+                                rounded-xl " />
+
+                                  <div>
+                                      <div  class=" bg-gray-100  w-13  h-13 rounded-xl  -ml-15 mt-3" >
+                                      <img src={rare_small} alt="profile_picture" class=" w-12 h-12.5 ml-0.5 mt-0.5
+                                rounded-xl " />
+                                      </div>
+                                      <div  class=" bg-gray-100  w-13  h-13 rounded-xl  -ml-15 mt-3 " >
+                                      <img src={rare_small_01} alt="profile_picture" class=" w-12 h-12.5 ml-0.5 mt-1
+                                rounded-xl " />
+                                      </div>
+                                      <div  class=" bg-gray-100 w-13  h-13 rounded-xl   -ml-15 mt-3 " >
+                                      <img src={rare_small_02} alt="profile_picture" class=" w-12 h-12.5 ml-0.5 mt-1
+                                rounded-xl " />
+                                      </div>
+                                      <div  class=" bg-gray-100  w-13  h-13 rounded-xl  -ml-15 mt-3 " >
+                                      <img src={rare_small_03} alt="profile_picture" class=" w-12 h-12.5 ml-0.5 mt-1
+                                rounded-xl " />
+                                      </div>
+                                  </div>
                             </div>
                 <div>
                      <Box
@@ -37,7 +71,7 @@ const AddPostSale = () => {
     
     
                       <div class="ml-6 mt-3">
-                       <span  class="text-blue-400">
+                       <span  class="">
                         Caption :  
                        </span>
                       
@@ -58,7 +92,7 @@ const AddPostSale = () => {
                       <TextField
                           label="offer_01"
                           inputProps={{
-                            style: { fontSize: 14  }
+                            style: { fontSize: 14 ,  }
                         }}
                           placeholder=" price ..."
                           id="outlined-start-adornment"
@@ -190,6 +224,7 @@ const AddPostSale = () => {
                     </div>
                     
             </div>
+           </div>
        </div>
   )
 }
