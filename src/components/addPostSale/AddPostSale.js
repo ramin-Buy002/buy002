@@ -22,7 +22,7 @@ const AddPostSale = () => {
              <h3> ..</h3>
 
            <div  class="flex " >
-           <div  class="ml-33 mt-60 bg-amber-50 w-100 h-70 " >
+           <div  class="ml-33 mt-80 bg-amber-50 w-130 h-70 " >
                <div class="mt-2 ml-2" >
                     <TextField
                     id="outlined-multiline-static"
@@ -30,13 +30,14 @@ const AddPostSale = () => {
                     multiline
                     rows={10}
                     placeholder='Write Caption ....'
+                    style={{width :"505px"}}
                   />
                </div>
 
              </div>
                     <div className=" flex row">
                       
-                    <div  class=" bg-white  shadow-lg w-83 rounded-2xl h-168 ml-70 mb-30 -mt-9  "  >
+                    <div  class=" bg-white  shadow-lg w-83 rounded-2xl h-168 ml-50 mb-30 -mt-9  "  >
                 
                             <div  class=" flex bg-gray-400  w-77 rounded-xl h-85 ml-3 mt-3  "  >
                                 <img src={rare_main} alt="profile_picture" class=" w-76.5 h-84.5 ml-0.25 mt-0.25   
@@ -70,12 +71,9 @@ const AddPostSale = () => {
                   >
     
     
-                      <div class="ml-6 mt-3">
-                       <span  class="">
-                        Caption :  
-                       </span>
-                      
-                      </div>
+                  <div className="font-sans ml-5 mt-3 ">
+                    <h1 className="font-serif text-1xl text-gray-600">Caption :</h1>
+                  </div>
                     
                 
                      </Box>
