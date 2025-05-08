@@ -15,6 +15,8 @@ const AddPostSale = () => {
   const[loading , setLoading] = useState(null) ;
   const [name, setName] = useState("");
 
+
+  console.log("text multiline : " , name)
  
   return (
     <div class="bg-sky-950  ">
@@ -24,23 +26,12 @@ const AddPostSale = () => {
            <div  class="flex " >
            <div  class="ml-33 mt-80 bg-amber-50 w-130 h-70 " >
             
-               {/* <div>
-               <TextField
-                error={name.length === 0}
-                helperText={!name.length ? 'name is required' : ''}
-                value={name}
-                label="Enter your name"
-                onChange={(e) => {
-                    setName(e.target.value);
-                }}
-            />
-            <h3>Your Enter Value is: {name} </h3>
-               </div> */}
+               
 
                <div class="mt-2 ml-2" >
                     <TextField
                     error={name.length === 0}
-                    helperText={!name.length ? 'name is required' : ''}
+                    helperText={!name.length ? '' : ''}
                     value={name}
                     id="outlined-multiline-static"
                     label="Caption : "
@@ -94,15 +85,19 @@ const AddPostSale = () => {
                   >
     
     
-                  <div className="font-sans ml-5 mt-3 ">
-                    <h1 className="font-serif text-1xl text-gray-600">Caption :  </h1>
-                    <p>{name}</p>
+                  <div className="  h-10 w-70    flex font-sans ml-5 mt-2">
+                    {/* <h1 className="font-serif flex-row text-1xl text-gray-600">Caption :   </h1> */}
+                    <div style={{ width: 270, whiteSpace: 'nowrap' }}>
+                    <p  class= " font-serif text-gray-400 " >Caption :</p>
+                    <p class="overflow-hidden text-ellipsis text-sm ml-3"> {name} </p>
+
+                  </div>
                   </div>
                     
                 
                      </Box>
                 </div>    
-                <div class="ml-1 mt-10" >
+                <div class="ml-1 " >
                      <Box
                     component="form"
                     // sx={{ '& .MuiTextField-root': { m: 2 , width: '19ch' , height:'3ch' } }}
@@ -110,11 +105,11 @@ const AddPostSale = () => {
                     autoComplete="off"
                   >
                   
-                      <div   class="flex flex-row ml-3">
+                      <div   class="flex flex-row ml-3 mt-4">
                       <TextField
                           label="offer_01"
                           inputProps={{
-                            style: { fontSize: 14 ,  }
+                            style: { fontSize: 12 ,  }
                         }}
                           placeholder=" price ..."
                           id="outlined-start-adornment"
@@ -133,7 +128,7 @@ const AddPostSale = () => {
                          <TextField
                           label=""
                           inputProps={{
-                            style: { fontSize: 15  }
+                            style: { fontSize: 12  }
                         }}
                           id="outlined-start-adornment"
                           placeholder=" pcs ..."
@@ -152,7 +147,7 @@ const AddPostSale = () => {
                       <TextField
                           label="offer_02"
                           inputProps={{
-                            style: { fontSize: 15  }
+                            style: { fontSize: 12  }
                         }}
                           placeholder=" price ..."
                           id="outlined-start-adornment"
@@ -171,7 +166,7 @@ const AddPostSale = () => {
                          <TextField
                           label=""
                           inputProps={{
-                            style: { fontSize: 15  }
+                            style: { fontSize: 12  }
                         }}
                           placeholder=" pcs ..."
                           id="outlined-start-adornment"
@@ -189,7 +184,7 @@ const AddPostSale = () => {
                       <TextField
                           label="offer_03"
                           inputProps={{
-                            style: { fontSize: 15  }
+                            style: { fontSize: 12  }
                         }}
                           placeholder=" price ..."
                           id="outlined-start-adornment"
@@ -208,7 +203,7 @@ const AddPostSale = () => {
                          <TextField
                           label=""
                           inputProps={{
-                            style: { fontSize: 15  }
+                            style: { fontSize: 12  }
                         }}
                           placeholder=" pcs ..."
                           id="outlined-start-adornment"
