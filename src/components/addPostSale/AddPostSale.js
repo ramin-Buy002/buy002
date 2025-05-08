@@ -13,7 +13,7 @@ import rare_small_03 from "./../../assets/rare_small03.jpg"
 const AddPostSale = () => {
 
   const[loading , setLoading] = useState(null) ;
-
+  const [name, setName] = useState("");
 
  
   return (
@@ -23,14 +23,37 @@ const AddPostSale = () => {
 
            <div  class="flex " >
            <div  class="ml-33 mt-80 bg-amber-50 w-130 h-70 " >
+            
+               {/* <div>
+               <TextField
+                error={name.length === 0}
+                helperText={!name.length ? 'name is required' : ''}
+                value={name}
+                label="Enter your name"
+                onChange={(e) => {
+                    setName(e.target.value);
+                }}
+            />
+            <h3>Your Enter Value is: {name} </h3>
+               </div> */}
+
                <div class="mt-2 ml-2" >
                     <TextField
+                    error={name.length === 0}
+                    helperText={!name.length ? 'name is required' : ''}
+                    value={name}
                     id="outlined-multiline-static"
                     label="Caption : "
+                    InputLabelProps={{
+                      style: { color: '#121212' , fontFamily:"satisfies" }
+                    }}
                     multiline
                     rows={10}
                     placeholder='Write Caption ....'
                     style={{width :"505px"}}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                  }}
                   />
                </div>
 
@@ -72,7 +95,8 @@ const AddPostSale = () => {
     
     
                   <div className="font-sans ml-5 mt-3 ">
-                    <h1 className="font-serif text-1xl text-gray-600">Caption :</h1>
+                    <h1 className="font-serif text-1xl text-gray-600">Caption :  </h1>
+                    <p>{name}</p>
                   </div>
                     
                 
