@@ -133,6 +133,7 @@ const AddPostSale = () => {
   };
 
   const upload_pic = async () => {
+
     
     const storage = getStorage();
     const storageRef = ref(storage, uuidv4());
@@ -152,7 +153,6 @@ const AddPostSale = () => {
         array.push({ imageUrl });
       });
     });
-
     const storageRef_02 = ref(storage, uuidv4());
     const image_02 = await fetch(small_img_02);
     const bytes_02 = await image_02.blob();
@@ -161,6 +161,7 @@ const AddPostSale = () => {
         array.push({ imageUrl });
       });
     });
+
     const storageRef_03 = ref(storage, uuidv4());
     const image_03 = await fetch(small_img_03);
     const bytes_03 = await image_03.blob();
@@ -169,6 +170,7 @@ const AddPostSale = () => {
         array.push({ imageUrl });
       });
     });
+
     const storageRef_04 = ref(storage, uuidv4());
     const image_04 = await fetch(small_img_04);
     const bytes_04 = await image_04.blob();
@@ -176,11 +178,14 @@ const AddPostSale = () => {
       getDownloadURL(snapshot.ref).then((imageUrl) => {
         array.push({ imageUrl });
         
-        console.log("array", array);
+        console.log("array_0001111", array);
       });
-    }) };
+    })
+    setTimeout(upload_post , 4000) ;
+  };
 
     const upload_post = async() => {
+      console.log("0006");
 
     const uploadPost_ = addDoc(collection(fireStoreDb, "posts"), {
       mode: "sale",
@@ -462,7 +467,7 @@ const AddPostSale = () => {
                   <div className="  h-10 w-70    flex font-sans ml-5 mt-2">
                     {/* <h1 className="font-serif flex-row text-1xl text-gray-600">Caption :   </h1> */}
                     <div style={{ width: 270, whiteSpace: "nowrap" }}>
-                      <p class=" font-serif text-gray-400 ">Caption :</p>
+                      <p class=" font-serif text-gray-400 ">Caption ::</p>
                       <p class="overflow-hidden text-ellipsis text-sm ml-3">
                         {" "}
                         {name}{" "}
@@ -646,7 +651,7 @@ const AddPostSale = () => {
                         onClick={ async () => {
                         setLoading(true);
                         await  upload_pic();
-                        await upload_post();
+                        // await upload_post();
                         }}
                         loading={loading}
                         component="label"
