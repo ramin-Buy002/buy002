@@ -11,6 +11,7 @@ import {    doc, getDoc  } from "firebase/firestore";
 import { fireStoreDb } from "./configuration/firebase-config";
 import { FaLanguage  , FaBell} from "react-icons/fa";
 import AddPostSale from "./components/addPostSale/AddPostSale";
+import Crypto from "./components/crypto/Crypto";
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
               <Route exact path="/home" element={<Home />} />
               <Route exact path="/register" element={<Register />} />
               <Route exact path="/orders" element={<Orders />} /> 
+              <Route exact path="/crypto" element={<Crypto />} /> 
               <Route exact path="/addPostSale" element={<AddPostSale />} /> 
               <Route exact path="/orders/offers/:userId" element={<Offers />} />
             </Routes>

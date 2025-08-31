@@ -106,6 +106,8 @@ const Sidebar = () => {
                     Reports
                   </NavLink>
                   </div>
+
+                  
                   <div className="p-1 mt-5 ml-5 flex flex-row " >
                   < MdAccountBalanceWallet  className="mr-1 mt-1 w-8" />
                   <NavLink
@@ -117,6 +119,20 @@ const Sidebar = () => {
                     })}
                 >
                     Wallet
+                  </NavLink>
+                  </div>
+
+                  <div className="p-1 mt-5 ml-5 flex flex-row " >
+                  < MdAccountBalanceWallet  className="mr-1 mt-1 w-8" />
+                  <NavLink
+                    to="/crypto"
+                    style={({ isActive }) => ({
+                        color: "white",
+                        fontWeight: isActive ? "bold" : "normal",
+                        textDecoration: "none",
+                    })}
+                >
+                    Crypto
                   </NavLink>
                   </div>
 
