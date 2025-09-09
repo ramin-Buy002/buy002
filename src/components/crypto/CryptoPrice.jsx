@@ -3,11 +3,18 @@ import React, { useState, useEffect } from "react";
 const CryptoPrice = () => {
   const [priceBTC, setPriceBTC] = useState(null);
   const [priceETH, setPriceETH] = useState(null);
+  const [new001 , setNew001 ] = useState([0,1,2,3,4,5,6,7,8]);
+  
+  var div_xrp_Floki =  [] ;
+  
+  console.log("div_xrp_floki   0001  "  , div_xrp_Floki ) ;
+
   const symbolBTC = "XRPUSDT"; // Example: Bitcoin to USDT
   const symbolETH = "FLOKIUSDT"; // Example: Bitcoin to USDT
 
   useEffect(() => {
     const fetchPrice = async () => {
+
       try {
         const responseBTC = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolBTC}`
@@ -27,19 +34,25 @@ const CryptoPrice = () => {
 
     fetchPrice();
     
-  // console.log("xrp ::: " , priceBTC )
+    const intervalId = setInterval(fetchPrice, 10000);
 
-    const intervalId = setInterval(fetchPrice, 1000);
-
-    // Clean up the interval when the component is unmounted
     return () => clearInterval(intervalId);
-  }, []); // The empty array ensures this effect runs only once when the component mounts
+  }, []);  
 
   console.log("xrp ::: " , priceBTC )  ;
-  const divisionResult   = priceBTC / priceETH
+  const divisionResult   = priceBTC / priceETH ;
 
+  new001.unshift(divisionResult.toFixed(2)) ;
+  new001.pop()
+
+  // new001 = [ ...new_div_xrp_Flok , divisionResult  ] ;
+
+  console.log("new001" , new001) ;
+  // console.log("new_div_xrp_Floki" , new_div_xrp_Floki) ;
+
+  
   return (
-    <div className="ml-100   mt-15  ">
+    <div className="ml-70   mt-15  ">
       {priceBTC ? (
         <div>
           <p> XRP . . . . : : : : . . . {priceBTC} $   </p>
@@ -55,9 +68,21 @@ const CryptoPrice = () => {
         <p>Loading price...</p>
       )}
 
-      <div  className="ml-100   mt-15 "  >
-        <p>  Division Result  :::   {divisionResult }   </p>
+      <div  className="ml-1   mt-15 "  >
+        <h  className="ml-3  bg-amber-400   " >  XRP/FLOKI   </h>    
+        <h  className="   ml-8 "   >(( { new001[0] }  ))     </h>
+        <h  className="   ml-8 "   >(( { new001[1] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[2] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[3] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[4] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[5] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[6] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[7] }  )) </h>
+        <h  className="   ml-8 "   >(( { new001[8] }  )) </h>
+       
       </div>
+ 
+
     </div>
   );
 };
