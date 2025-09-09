@@ -69,16 +69,16 @@ const CryptoPrice = () => {
       )}
 
       <div  className="ml-1   mt-15 "  >
-        <h  className="ml-3  bg-amber-400   " >  XRP/FLOKI   </h>    
-        <h  className="   ml-8 "   >(( { new001[0] }  ))     </h>
-        <h  className="   ml-8 "   >(( { new001[1] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[2] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[3] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[4] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[5] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[6] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[7] }  )) </h>
-        <h  className="   ml-8 "   >(( { new001[8] }  )) </h>
+        <p  className="ml-3  bg-amber-400   " >  XRP/FLOKI   </p>    
+        <p  className="   ml-8 "   >(( { new001[0] }  ))     </p>
+        <p  className="   ml-8 "   >(( { new001[1] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[2] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[3] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[4] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[5] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[6] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[7] }  )) </p>
+        <p  className="   ml-8 "   >(( { new001[8] }  )) </p>
        
       </div>
  
