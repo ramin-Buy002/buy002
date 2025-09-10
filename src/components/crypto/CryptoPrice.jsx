@@ -43,7 +43,7 @@ const CryptoPrice = () => {
 
     fetchPrice();
 
-    const intervalId = setInterval(fetchPrice, 10000);
+    const intervalId = setInterval(fetchPrice, 15000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -51,7 +51,7 @@ const CryptoPrice = () => {
 //////////
   const divisionResult_XRP_FLOKI = priceXRP / priceFLOKI;
 
-  const base_xrp_floki = 27819
+  const base_xrp_floki = 3.0322 / 0.0001064 
   const persent = ((divisionResult_XRP_FLOKI / base_xrp_floki ) - 1 ) * 100 ;
   console.log("persent " , persent)
 
@@ -108,19 +108,19 @@ divDog_Floki.pop();
             {" "}
             XRP/FLOKI{" "}
           </p>
-          <h1 className=" flex flex-row  ml-15 mt-2 ">(( {divXrp_floki[0]} )) {divXrp_floki_persent > 0 ? (
-                         <p    className= "text-red-500  ml-2 "  >((  % {divXrp_floki_persent[0]}))</p>
+          <h1 className=" flex flex-row  ml-15 mt-2 ">(( {divXrp_floki[0]} )) {divXrp_floki_persent[0] > 0 ? (
+                         <p    className= "text-green-500  ml-2 "  >((  % {divXrp_floki_persent[0] } ))</p>
                             ) : (
-                              <p    className= "text-green-500  ml-2 "  >((  % {divXrp_floki_persent[0]}))</p>
+                              <p    className= "text-red-500  ml-2 "  >((  % {divXrp_floki_persent[0] } ))</p>
                             ) } </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[1]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[1]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[2]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[3]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[4]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[5]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[6]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[7]}))</p>  </h1>
-          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[8]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[1]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[1] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[2] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[3] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[4] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[5] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[6] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[7] } ))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[8] } ))</p>  </h1>
         </div>
       
         <div className="ml-0  mt-10 w-45 ">
