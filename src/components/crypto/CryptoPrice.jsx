@@ -6,6 +6,8 @@ const CryptoPrice = () => {
   const [priceDOG, setPriceDOG] = useState(null);
 
   const [divXrp_floki, setDivXrp_floki] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divXrp_floki_persent, setDivXrp_floki_persent] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+
   const [divXrp_doge, setDivXrp_dog] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   const [divDog_Floki, setDivDog_Floki] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
@@ -48,6 +50,13 @@ const CryptoPrice = () => {
 
 //////////
   const divisionResult_XRP_FLOKI = priceXRP / priceFLOKI;
+
+  const base_xrp_floki = 27819
+  const persent = ((divisionResult_XRP_FLOKI / base_xrp_floki ) - 1 ) * 100 ;
+  console.log("persent " , persent)
+
+  divXrp_floki_persent.unshift(persent.toFixed(2)) ;
+  divXrp_floki_persent.pop();
 
   divXrp_floki.unshift(divisionResult_XRP_FLOKI.toFixed(2));
   divXrp_floki.pop();
@@ -99,15 +108,19 @@ divDog_Floki.pop();
             {" "}
             XRP/FLOKI{" "}
           </p>
-          <p className="   ml-15 mt-2 ">(( {divXrp_floki[0]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[1]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[2]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[3]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[4]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[5]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[6]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[7]} )) </p>
-          <p className="   ml-15 ">(( {divXrp_floki[8]} )) </p>
+          <h1 className=" flex flex-row  ml-15 mt-2 ">(( {divXrp_floki[0]} )) {divXrp_floki_persent > 0 ? (
+                         <p    className= "text-red-500  ml-2 "  >((  % {divXrp_floki_persent[0]}))</p>
+                            ) : (
+                              <p    className= "text-green-500  ml-2 "  >((  % {divXrp_floki_persent[0]}))</p>
+                            ) } </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[1]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[1]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[2]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[3]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[4]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[5]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[6]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[7]}))</p>  </h1>
+          <h1 className=" flex flex-row  ml-15 ">(( {divXrp_floki[8]} ))  <p    className= "text-green-500  ml-2 "  >(( % {divXrp_floki_persent[8]}))</p>  </h1>
         </div>
       
         <div className="ml-0  mt-10 w-45 ">
