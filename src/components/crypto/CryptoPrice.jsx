@@ -797,7 +797,7 @@ const CryptoPrice = () => {
         <div className="ml-0  text-sm  mt-8 w-45 ">
           <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
             {" "}
-            LINK/XRB{" "}
+            LINK/XRP{" "}
           </p>
           <h1 className=" flex flex-row  ml-10 mt-2 ">
             (( {divLINK_XRP[0]} )){" "}
@@ -1040,128 +1040,7 @@ const CryptoPrice = () => {
           </h1>
         </div>
 
-        <div className="ml-0  text-sm  mt-8 w-45 ">
-          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
-            {" "}
-            LINK/ARB{" "}
-          </p>
-          <h1 className=" flex flex-row  ml-10 mt-2 ">
-            (( {divLINK_ARB[0]} )){" "}
-            {divLINK_ARB_persent[0] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[0]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[0]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  ">
-          (( {divLINK_ARB[1]} )){" "}
-            {divLINK_ARB_persent[1] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[1]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[1]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  ">
-          (( {divLINK_ARB[2]} )){" "}
-            {divLINK_ARB_persent[2] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[2]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[2]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  ">
-          (( {divLINK_ARB[3]} )){" "}
-            {divLINK_ARB_persent[3] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[3]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[3]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10 ">
-          (( {divLINK_ARB[4]} )){" "}
-            {divLINK_ARB_persent[4] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[4]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[4]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  ">
-          (( {divLINK_ARB[5]} )){" "}
-            {divLINK_ARB_persent[5] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[5]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[5]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  not-visited:">
-          (( {divLINK_ARB[6]} )){" "}
-            {divLINK_ARB_persent[6] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[6]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[6]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  ">
-          (( {divLINK_ARB[7]} )){" "}
-            {divLINK_ARB_persent[7] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[7]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[7]} ))
-              </p>
-            )}{" "}
-          </h1>
-
-          <h1 className=" flex flex-row  ml-10  ">
-          (( {divLINK_ARB[8]} )){" "}
-            {divLINK_ARB_persent[8] > 0 ? (
-              <p className="text-green-500  ml-2 ">
-                (( % {divLINK_ARB_persent[8]} ))
-              </p>
-            ) : (
-              <p className="text-red-500  ml-2 ">
-                (( % {divLINK_ARB_persent[8]} ))
-              </p>
-            )}{" "}
-          </h1>
-        </div>
+  
 
 
 
@@ -1533,6 +1412,129 @@ const CryptoPrice = () => {
             ) : (
               <p className="text-red-500  ml-2 ">
                 (( % {divLINK_Doge_persent[8]} ))
+              </p>
+            )}{" "}
+          </h1>
+        </div>
+
+        <div className="ml-0  text-sm  mt-8 w-45 ">
+          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
+            {" "}
+            LINK/ARB{" "}
+          </p>
+          <h1 className=" flex flex-row  ml-10 mt-2 ">
+            (( {divLINK_ARB[0]} )){" "}
+            {divLINK_ARB_persent[0] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[0]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[0]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_ARB[1]} )){" "}
+            {divLINK_ARB_persent[1] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[1]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[1]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_ARB[2]} )){" "}
+            {divLINK_ARB_persent[2] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[2]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[2]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_ARB[3]} )){" "}
+            {divLINK_ARB_persent[3] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[3]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[3]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10 ">
+          (( {divLINK_ARB[4]} )){" "}
+            {divLINK_ARB_persent[4] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[4]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[4]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_ARB[5]} )){" "}
+            {divLINK_ARB_persent[5] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[5]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[5]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  not-visited:">
+          (( {divLINK_ARB[6]} )){" "}
+            {divLINK_ARB_persent[6] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[6]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[6]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_ARB[7]} )){" "}
+            {divLINK_ARB_persent[7] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[7]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[7]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_ARB[8]} )){" "}
+            {divLINK_ARB_persent[8] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_ARB_persent[8]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_ARB_persent[8]} ))
               </p>
             )}{" "}
           </h1>
