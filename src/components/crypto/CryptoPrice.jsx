@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 const CryptoPrice = () => {
-  const XRP = 2.906;
-  const FLOKI = 0.0001064;
+
+  const XRP = 3.02 ;
+  const FLOKI = 0.0001064 ;
   const DOGE = 0.2498 ;
-  const ARB = 0.572 ;
-  const LINK = 24.32 ;
+  const ARB = 0.5220  ;
+  const LINK = 23.830 ;
  
 
-  const [priceXRP, setPriceXRP] = useState(null);
-  const [priceFLOKI, setPriceFLOKI] = useState(null);
-  const [priceDOGE, setPriceDOGE] = useState(null);
-  const [priceARB, setPriceARB] = useState(null);
-  const [priceLINK, setPriceLINK] = useState(null);
+  const [priceXRP, setPriceXRP] = useState(null) ;
+  const [priceFLOKI, setPriceFLOKI] = useState(null) ;
+  const [priceDOGE, setPriceDOGE] = useState(null) ;
+  const [priceARB, setPriceARB] = useState(null) ;
+  const [priceLINK, setPriceLINK] = useState(null) ;
  
 
   const [divXrp_floki, setDivXrp_floki] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
