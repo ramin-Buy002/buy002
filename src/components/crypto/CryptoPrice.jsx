@@ -304,7 +304,7 @@ const CryptoPrice = () => {
           </p>
 
           <h1 className=" flex flex-row text-sm ml-10 mt-2 ">
-            (( {divXrp_floki[0]} )){" "}
+            {divXrp_floki[0]} {" "}
             {divXrp_floki_persent[0] > 0 ? (
               <p className="text-green-500 text-1xl ml-2 ">
                 (( % {divXrp_floki_persent[0]} ))
@@ -317,7 +317,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row text-sm ml-10  ">
-            (( {divXrp_floki[1]} )){" "}
+             {divXrp_floki[1]} {" "}
             {divXrp_floki_persent[1] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[1]} ))
@@ -330,7 +330,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row text-sm ml-10  ">
-            (( {divXrp_floki[2]} )){" "}
+              {divXrp_floki[2]}  {" "}
             {divXrp_floki_persent[2] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[2]} ))
@@ -343,7 +343,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row text-sm ml-10  ">
-            (( {divXrp_floki[3]} )){" "}
+             {divXrp_floki[3]}  {" "}
             {divXrp_floki_persent[3] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[3]} ))
@@ -356,7 +356,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  text-sm ml-10 ">
-            (( {divXrp_floki[4]} )){" "}
+              {divXrp_floki[4]}  {" "}
             {divXrp_floki_persent[4] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[4]} ))
@@ -369,7 +369,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row text-sm ml-10  ">
-            (( {divXrp_floki[5]} )){" "}
+             {divXrp_floki[5]} {" "}
             {divXrp_floki_persent[5] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[5]} ))
@@ -382,7 +382,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10 text-sm not-visited:">
-            (( {divXrp_floki[6]} )){" "}
+             {divXrp_floki[6]} {" "}
             {divXrp_floki_persent[6] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[6]} ))
@@ -395,7 +395,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row text-sm ml-10  ">
-            (( {divXrp_floki[7]} )){" "}
+              {divXrp_floki[7]} {" "}
             {divXrp_floki_persent[7] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[7]} ))
@@ -408,7 +408,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row text-sm  ml-10  ">
-            (( {divXrp_floki[8]} )){" "}
+              {divXrp_floki[8]} {" "}
             {divXrp_floki_persent[8] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divXrp_floki_persent[8]} ))
@@ -552,7 +552,7 @@ const CryptoPrice = () => {
           </p>
 
           <h1 className=" flex flex-row  ml-10 mt-2 ">
-            (( {divDog_Floki[0]} )){" "}
+             {divDog_Floki[0]} {" "}
             {divDoge_floki_persent[0] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[0]} ))
@@ -565,7 +565,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10  ">
-            (( {divDog_Floki[1]} )){" "}
+              {divDog_Floki[1]} {" "}
             {divDoge_floki_persent[1] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[1]} ))
@@ -578,7 +578,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10  ">
-            (( {divDog_Floki[2]} )){" "}
+             {divDog_Floki[2]} {" "}
             {divDoge_floki_persent[2] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[2]} ))
@@ -591,7 +591,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10  ">
-            (( {divDog_Floki[3]} )){" "}
+              {divDog_Floki[3]} {" "}
             {divDoge_floki_persent[3] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[3]} ))
@@ -604,7 +604,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10  ">
-            (( {divDog_Floki[4]} )){" "}
+             {divDog_Floki[4]} {" "}
             {divDoge_floki_persent[4] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[4]} ))
@@ -617,7 +617,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10 ">
-            (( {divDog_Floki[5]} )){" "}
+              {divDog_Floki[5]} {" "}
             {divDoge_floki_persent[5] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[5]} ))
@@ -630,7 +630,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10  ">
-            (( {divDog_Floki[6]} )){" "}
+             {divDog_Floki[6]} {" "}
             {divDoge_floki_persent[6] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[6]} ))
@@ -643,7 +643,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10 ">
-            (( {divDog_Floki[7]} )){" "}
+             {divDog_Floki[7]} {" "}
             {divDoge_floki_persent[7] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[7]} ))
@@ -656,7 +656,7 @@ const CryptoPrice = () => {
           </h1>
 
           <h1 className=" flex flex-row  ml-10  ">
-            (( {divDog_Floki[8]} )){" "}
+             {divDog_Floki[8]} {" "}
             {divDoge_floki_persent[8] > 0 ? (
               <p className="text-green-500  ml-2 ">
                 (( % {divDoge_floki_persent[8]} ))
