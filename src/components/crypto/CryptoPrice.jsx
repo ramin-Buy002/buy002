@@ -84,6 +84,11 @@ const CryptoPrice = () => {
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
+  const [divLINK_NEAR, setDivLINK_NEAR] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divLINK_NEAR_persent, setDivLINK_NEAR_persent] = useState([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+
   const symbolXRP = "XRPUSDT"; 
   const symbolFLOKI = "FLOKIUSDT";  
   const symbolDOG = "DOGEUSDT";  
@@ -316,6 +321,20 @@ const CryptoPrice = () => {
   divNear_ARB.pop();
 
   ///////////  ------------------------------------------------------------------------------
+
+  const divisionResult_LINK_NEAR = priceLINK / priceNEAR ;
+
+  const base_LINK_NEAR = LINK / NEAR ;
+  const persent_LINK_NEAR = (divisionResult_LINK_NEAR / base_LINK_NEAR - 1) * 100;
+
+  divLINK_NEAR_persent.unshift(persent_LINK_NEAR.toFixed(1));
+  divLINK_NEAR_persent.pop();
+
+  divLINK_NEAR.unshift(divisionResult_LINK_NEAR.toFixed(1));
+  divLINK_NEAR.pop();
+ 
+
+  ////////////  -----------------------------------------------------------------------------
   
   return (
     <div className="ml-70   mt-8  ">
@@ -1495,6 +1514,94 @@ const CryptoPrice = () => {
 
  
         </div>
+
+
+        <div className="ml-0  text-sm  mt-8 w-45 ">
+          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
+            {" "}
+            LINK/NEAR{" "}
+          </p>
+          <h1 className=" flex flex-row  ml-10 mt-2 ">
+            (( {divLINK_NEAR[0]} )){" "}
+            {divLINK_NEAR_persent[0] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[0]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[0]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_NEAR[1]} )){" "}
+            {divLINK_NEAR_persent[1] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[1]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[1]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_NEAR[2]} )){" "}
+            {divLINK_NEAR_persent[2] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[2]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[2]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_NEAR[3]} )){" "}
+            {divLINK_NEAR_persent[3] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[3]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[3]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10 ">
+          (( {divLINK_NEAR[4]} )){" "}
+            {divLINK_NEAR_persent[4] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[4]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[4]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+          <h1 className=" flex flex-row  ml-10  ">
+          (( {divLINK_NEAR[5]} )){" "}
+            {divLINK_NEAR_persent[5] > 0 ? (
+              <p className="text-green-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[5]} ))
+              </p>
+            ) : (
+              <p className="text-red-500  ml-2 ">
+                (( % {divLINK_NEAR_persent[5]} ))
+              </p>
+            )}{" "}
+          </h1>
+
+ 
+        </div>
+ 
 
       </div>
     </div>
