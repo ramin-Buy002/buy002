@@ -6,7 +6,7 @@ const CryptoPrice = () => {
   const FLOKI = 0.0001088 ;
   const DOGE = 0.2960    ;
   const ARB = 0.5220  ;
-  const LINK = 23.99 ;
+  const LINK = 24.88 ;
   const NEAR = 2.74 ;
   const ONDO = 1.11 ; 
   const ADA = 0.89 ;
@@ -145,8 +145,8 @@ const CryptoPrice = () => {
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
-  const [divAVAX_ONDO , setDivAVAX_ONDO ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
-  const [divAVAX_ONDO_persent, setDivAVAX_ONDO_persent] = useState([
+  const [divAVAX_DOGE , setDivAVAX_DOGE ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divAVAX_DOGE_persent, setDivAVAX_DOGE_persent] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
@@ -553,16 +553,16 @@ const CryptoPrice = () => {
   ///////////  ------------------------------------------------------------------------------
 
     
-  const divisionResult_AVAX_ONDO = priceAVAX / priceONDO ;
+  const divisionResult_AVAX_DOGE = priceAVAX / priceDOGE ;
 
-  const base_AVAX_ONDO = AVAX / ONDO ;
-  const persent_AVAX_ONDO = (divisionResult_AVAX_ONDO / base_AVAX_ONDO - 1) * 100;
+  const base_AVAX_DOGE = AVAX / DOGE ;
+  const persent_AVAX_DOGE = (divisionResult_AVAX_DOGE / base_AVAX_DOGE - 1) * 100;
 
-  divAVAX_ONDO_persent.unshift(persent_AVAX_ONDO.toFixed(1));
-  divAVAX_ONDO_persent.pop();
+  divAVAX_DOGE_persent.unshift(persent_AVAX_DOGE.toFixed(1));
+  divAVAX_DOGE_persent.pop();
 
-  divAVAX_ONDO.unshift(divisionResult_AVAX_ONDO.toFixed(1));
-  divAVAX_ONDO.pop();
+  divAVAX_DOGE.unshift(divisionResult_AVAX_DOGE.toFixed(1));
+  divAVAX_DOGE.pop();
  
 
   ////////////  ----------------------------------------------------------------------------- 
@@ -618,9 +618,9 @@ const CryptoPrice = () => {
                     <p>Loading price...</p>
                   )}
 
-    {priceONDO ? (
+    {priceAVAX ? (
                     <div>
-                      <p> ONDO . . . . : : : : . . . . ((  {priceONDO} $ )) {" "}  . .  . . . . . . .  . .  .  Price_Buy .  . . . . {ONDO}  </p>
+                      <p> AVAX . . . . : : : : . . . . ((  {priceAVAX} $ )) {" "}  . .  . . . . . . .  . .  .  Price_Buy .  . . . . {AVAX}  </p>
                     </div>
                   ) : (
                     <p>Loading price...</p>
@@ -2623,82 +2623,82 @@ const CryptoPrice = () => {
           <div className="ml-0  text-sm  mt-8 w-45 ">
             <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
               {" "}
-              AVAX/ONDO{" "}
+              AVAX/DOGE{" "}
             </p>
             <h1 className=" flex flex-row  ml-10 mt-2 ">
-              (( {divAVAX_ONDO[0]} )){" "}
-              {divAVAX_ONDO_persent[0] > 0 ? (
+              (( {divAVAX_DOGE[0]} )){" "}
+              {divAVAX_DOGE_persent[0] > 0 ? (
                 <p className="text-green-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[0]} ))
+                  (( % {divAVAX_DOGE_persent[0]} ))
                 </p>
               ) : (
                 <p className="text-red-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[0]} ))
+                  (( % {divAVAX_DOGE_persent[0]} ))
                 </p>
               )}{" "}
             </h1>
 
             <h1 className=" flex flex-row  ml-10  ">
-            (( {divLINK_ONDO[1]} )){" "}
-              {divLINK_ONDO_persent[1] > 0 ? (
+            (( {divAVAX_DOGE[1]} )){" "}
+              {divAVAX_DOGE_persent[1] > 0 ? (
                 <p className="text-green-500  ml-2 ">
-                  (( % {divLINK_ONDO_persent[1]} ))
+                  (( % {divAVAX_DOGE_persent[1]} ))
                 </p>
               ) : (
                 <p className="text-red-500  ml-2 ">
-                  (( % {divLINK_ONDO_persent[1]} ))
+                  (( % {divAVAX_DOGE_persent[1]} ))
                 </p>
               )}{" "}
             </h1>
 
             <h1 className=" flex flex-row  ml-10  ">
-            (( {divAVAX_ONDO[2]} )){" "}
-              {divAVAX_ONDO_persent[2] > 0 ? (
+            (( {divAVAX_DOGE[2]} )){" "}
+              {divAVAX_DOGE_persent[2] > 0 ? (
                 <p className="text-green-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[2]} ))
+                  (( % {divAVAX_DOGE_persent[2]} ))
                 </p>
               ) : (
                 <p className="text-red-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[2]} ))
+                  (( % {divAVAX_DOGE_persent[2]} ))
                 </p>
               )}{" "}
             </h1>
 
             <h1 className=" flex flex-row  ml-10  ">
-            (( {divAVAX_ONDO[3]} )){" "}
-              {divAVAX_ONDO_persent[3] > 0 ? (
+            (( {divAVAX_DOGE[3]} )){" "}
+              {divAVAX_DOGE_persent[3] > 0 ? (
                 <p className="text-green-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[3]} ))
+                  (( % {divAVAX_DOGE_persent[3]} ))
                 </p>
               ) : (
                 <p className="text-red-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[3]} ))
+                  (( % {divAVAX_DOGE_persent[3]} ))
                 </p>
               )}{" "}
             </h1>
 
             <h1 className=" flex flex-row  ml-10 ">
-            (( {divAVAX_ONDO[4]} )){" "}
-              {divAVAX_ONDO_persent[4] > 0 ? (
+            (( {divAVAX_DOGE[4]} )){" "}
+              {divAVAX_DOGE_persent[4] > 0 ? (
                 <p className="text-green-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[4]} ))
+                  (( % {divAVAX_DOGE_persent[4]} ))
                 </p>
               ) : (
                 <p className="text-red-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[4]} ))
+                  (( % {divAVAX_DOGE_persent[4]} ))
                 </p>
               )}{" "}
             </h1>
 
             <h1 className=" flex flex-row  ml-10  ">
-            (( {divAVAX_ONDO[5]} )){" "}
-              {divAVAX_ONDO_persent[5] > 0 ? (
+            (( {divAVAX_DOGE[5]} )){" "}
+              {divAVAX_DOGE_persent[5] > 0 ? (
                 <p className="text-green-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[5]} ))
+                  (( % {divAVAX_DOGE_persent[5]} ))
                 </p>
               ) : (
                 <p className="text-red-500  ml-2 ">
-                  (( % {divAVAX_ONDO_persent[5]} ))
+                  (( % {divAVAX_DOGE_persent[5]} ))
                 </p>
               )}{" "}
             </h1>
