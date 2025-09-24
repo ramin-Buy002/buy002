@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 
 const CryptoPrice = () => {
 
+
+  
+    
+ 
+
   const XRP = 2.85 ;
   const FLOKI = 0.000088 ;
   const DOGE = 0.2391    ;
@@ -120,7 +125,7 @@ const CryptoPrice = () => {
   const symbolNEAR = "NEARUSDT";  
   const symbolADA = "ADAUSDT";  
   const symbolAVAX = "AVAXUSDT";  
-  const symbolHYPE = "HYPERLIQUIDUSDT";  
+  const symbolHYPE = "HYPE-USDT";  
  
 
   useEffect(() => {
@@ -179,12 +184,21 @@ const CryptoPrice = () => {
 
         
         const responseHYPE = await fetch(
-          `https://api.binance.com/api/v3/ticker/price?symbol=${symbolHYPE}`
+          `https://api.binance.com/api/v3/ticker/price?symbol=${symbolAVAX}`
+
         );
         const dataHYPE = await responseHYPE.json();
-        setPriceHYPE(dataHYPE.price);
+        setPriceHYPE(dataHYPE.code);
 
-        console.log("HYPE ::::" , dataHYPE)
+
+              const response001 = await fetch(
+            `https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=HYPE-USDT`
+              );
+        const data = await response001.json();
+
+          console.log(" response001 :::: " , response001)
+
+        console.log(" DATA ::::" , data )
         
        
 
