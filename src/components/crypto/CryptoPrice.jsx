@@ -26,7 +26,7 @@ const CryptoPrice = () => {
   const [priceNEAR , setPriceNEAR ] = useState(null) ;
   const [priceADA , setPriceADA ] = useState(null) ;
   const [priceAVAX , setPriceAVAX ] = useState(null) ;
-  const [priceHYPE , setPriceHYPE ] = useState(45.2610000) ;
+  const [priceHYPE , setPriceHYPE ] = useState(45.7120000) ;
  
  
 
