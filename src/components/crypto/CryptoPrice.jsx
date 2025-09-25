@@ -3,25 +3,27 @@ import React, { useState, useEffect } from "react";
 const CryptoPrice = () => {
 
 
-  
+  //  buy  or sell  price 
+
   const XRP = 2.85 ;
-  const FLOKI = 0.000088 ;
-  const DOGE = 0.2391    ;
-  const LINK = 21.04 ;
+  const DOGE = 0.241    ;
+  const LINK = 20.93 ;
   const NEAR = 3.05 ;
   const ADA = 0.82 ;
   const AVAX = 33.87 ;
   const HYPE = 44.70 ;
  
 
+
+  // update price
+
   const [priceXRP , setPriceXRP ] = useState(null) ;
-  const [priceFLOKI , setPriceFLOKI ] = useState(null) ;
   const [priceDOGE , setPriceDOGE ] = useState(null) ;
   const [priceLINK , setPriceLINK ] = useState(null) ;
   const [priceNEAR , setPriceNEAR ] = useState(null) ;
   const [priceADA , setPriceADA ] = useState(null) ;
   const [priceAVAX , setPriceAVAX ] = useState(null) ;
-  const [priceHYPE , setPriceHYPE ] = useState(46.220000) ;
+  const [priceHYPE , setPriceHYPE ] = useState(42.650000) ;    
  
  
 
@@ -48,13 +50,7 @@ const CryptoPrice = () => {
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
-  
-  const [divLINK_floki, setDivLINK_floki ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
-  const [divLINK_floki_persent, setDivLINK_floki_persent] = useState([
-    0, 1, 2, 3, 4, 5, 6, 7, 8,
-  ]);
-
-
+ 
 
   const [divLINK_Doge, setDivLINK_Doge] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   const [divLINK_Doge_persent, setDivLINK_Doge_persent] = useState([
@@ -456,13 +452,6 @@ const CryptoPrice = () => {
         <p>Loading price...</p>
       )}
 
-      {priceFLOKI ? (
-        <div>
-          <p> FLOKI . . : : : : . . . . . (( {priceFLOKI} $ )) {" "}  . .  . . . . . . .  . . . . .  Price_Buy . . . . . {FLOKI} </p>
-        </div>
-      ) : (
-        <p>Loading price...</p>
-      )}
 
       {priceDOGE ? (
               <div>
