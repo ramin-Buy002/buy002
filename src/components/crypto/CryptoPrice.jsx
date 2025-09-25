@@ -4,29 +4,24 @@ const CryptoPrice = () => {
 
 
   
-    
- 
-
   const XRP = 2.85 ;
   const FLOKI = 0.000088 ;
   const DOGE = 0.2391    ;
-  const ARB = 0.45  ;
   const LINK = 21.04 ;
-  const NEAR = 2.98 ;
-  const ADA = 0.805 ;
+  const NEAR = 3.05 ;
+  const ADA = 0.82 ;
   const AVAX = 33.87 ;
-  const HYPE = 47.90 ;
+  const HYPE = 44.70 ;
  
 
   const [priceXRP , setPriceXRP ] = useState(null) ;
   const [priceFLOKI , setPriceFLOKI ] = useState(null) ;
   const [priceDOGE , setPriceDOGE ] = useState(null) ;
-  const [priceARB , setPriceARB ] = useState(null) ;
   const [priceLINK , setPriceLINK ] = useState(null) ;
   const [priceNEAR , setPriceNEAR ] = useState(null) ;
   const [priceADA , setPriceADA ] = useState(null) ;
   const [priceAVAX , setPriceAVAX ] = useState(null) ;
-  const [priceHYPE , setPriceHYPE ] = useState(45.7120000) ;
+  const [priceHYPE , setPriceHYPE ] = useState(46.220000) ;
  
  
 
@@ -48,8 +43,8 @@ const CryptoPrice = () => {
   ]);
 
  
-  const [divLINK_ARB, setDivLINK_ARB] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
-  const [divLINK_ARB_persent, setDivLINK_ARB_persent] = useState([
+  const [divLINK_ADA, setDivLINK_ADA ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divLINK_ADA_persent, setDivLINK_ADA_persent] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
@@ -59,10 +54,7 @@ const CryptoPrice = () => {
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
-  const [divARB_Doge, setDivARB_Doge] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
-  const [divARB_Doge_persent, setDivARB_Doge_persent] = useState([
-    0, 1, 2, 3, 4, 5, 6, 7, 8,
-  ]);
+
 
   const [divLINK_Doge, setDivLINK_Doge] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   const [divLINK_Doge_persent, setDivLINK_Doge_persent] = useState([
@@ -79,10 +71,7 @@ const CryptoPrice = () => {
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
-  const [divNear_ARB, setDivNear_ARB] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
-  const [divNear_ARB_persent, setDivNear_ARB_persent] = useState([
-    0, 1, 2, 3, 4, 5, 6, 7, 8,
-  ]);
+   
 
   const [divLINK_NEAR, setDivLINK_NEAR] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   const [divLINK_NEAR_persent, setDivLINK_NEAR_persent] = useState([
@@ -131,16 +120,17 @@ const CryptoPrice = () => {
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
+  const [divHYPE_NEAR , setDivHYPE_NEAR ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divHYPE_NEAR_persent, setDivHYPE_NEAR_persent] = useState([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
 
   const symbolXRP = "XRPUSDT"; 
-  const symbolFLOKI = "FLOKIUSDT";  
   const symbolDOG = "DOGEUSDT";  
-  const symbolARB = "ARBUSDT";  
   const symbolLINK = "LINKUSDT";  
   const symbolNEAR = "NEARUSDT";  
   const symbolADA = "ADAUSDT";  
   const symbolAVAX = "AVAXUSDT";  
-  const symbolHYPE = "HYPE-USDT";  
  
 
   useEffect(() => {
@@ -152,11 +142,6 @@ const CryptoPrice = () => {
         const dataXRP = await responseXRP.json();
         setPriceXRP(dataXRP.price);
 
-        const responseFLOKI = await fetch(
-          `https://api.binance.com/api/v3/ticker/price?symbol=${symbolFLOKI}`
-        );
-        const dataFLOKI = await responseFLOKI.json();
-        setPriceFLOKI(dataFLOKI.price);
 
         const responseDOG = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolDOG}`
@@ -164,11 +149,7 @@ const CryptoPrice = () => {
         const dataDOG = await responseDOG.json();
         setPriceDOGE(dataDOG.price);
 
-        const responseARB = await fetch(
-          `https://api.binance.com/api/v3/ticker/price?symbol=${symbolARB}`
-        );
-        const dataARB = await responseARB.json();
-        setPriceARB(dataARB.price);
+       
 
         const responseLINK = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolLINK}`
@@ -189,6 +170,8 @@ const CryptoPrice = () => {
         );
         const dataADA = await responseADA.json();
         setPriceADA(dataADA.price);
+
+        console.log("ADA  ::::" , dataADA.price)
 
 
         const responseAVAX = await fetch(
@@ -255,49 +238,21 @@ const CryptoPrice = () => {
 
   ////////////  -----------------------------------------------------------------------------
 
+  const divisionResult_LINK_ADA = priceLINK / priceADA ;
+
+  const base_LINK_ADA = LINK / ADA ;
+  const persent_LINK_ADA = (divisionResult_LINK_ADA / base_LINK_ADA - 1) * 100;
+
+  divLINK_ADA_persent.unshift(persent_LINK_ADA.toFixed(1));
+  divLINK_ADA_persent.pop();
+
+  divLINK_ADA.unshift(divisionResult_LINK_ADA.toFixed(1));
+  divLINK_ADA.pop();
  
 
-  const divisionResult_LINK_ARB = priceLINK / priceARB ;
+  ////////////  -----------------------------------------------------------------------------
 
-  const base_LINK_ARB = LINK / ARB ;
-  const persent_LINK_ARB = (divisionResult_LINK_ARB / base_LINK_ARB - 1) * 100;
-
-  divLINK_ARB_persent.unshift(persent_LINK_ARB.toFixed(1));
-  divLINK_ARB_persent.pop();
-
-  divLINK_ARB.unshift(divisionResult_LINK_ARB.toFixed(1));
-  divLINK_ARB.pop();
  
-
-  ////////////  ------------------------------------------------------------------------------
-
-  const divisionResult_LINK_floki = priceLINK / priceFLOKI ;
-
-  const base_LINK_floki = LINK / FLOKI ;
-  const persent_LINK_floki = (divisionResult_LINK_floki / base_LINK_floki - 1) * 100;
-
-  divLINK_floki_persent.unshift(persent_LINK_floki.toFixed(1));
-  divLINK_floki_persent.pop();
-
-  divLINK_floki.unshift(divisionResult_LINK_floki.toFixed(1));
-  divLINK_floki.pop();
- 
-
-  ////////////  ------------------------------------------------------------------------------
-
-  const divisionResult_ARB_Doge = priceARB / priceDOGE ;
-
-  const base_ARB_Doge = ARB / DOGE ;
-  const persent_ARB_Doge = (divisionResult_ARB_Doge / base_ARB_Doge - 1) * 100;
-
-  divARB_Doge_persent.unshift(persent_ARB_Doge.toFixed(1));
-  divARB_Doge_persent.pop();
-
-  divARB_Doge.unshift(divisionResult_ARB_Doge.toFixed(1));
-  divARB_Doge.pop();
- 
-  /////////// --------------------------------------------------------------------------------
-
   const divisionResult_LINK_Doge = priceLINK / priceDOGE ;
 
   const base_LINK_Doge = LINK / DOGE ;
@@ -338,18 +293,7 @@ const CryptoPrice = () => {
 
   ///////////  ------------------------------------------------------------------------------
 
-  const divisionResult_NEAR_ARB = priceNEAR / priceARB;
-
-  const base_near_ARB = NEAR / ARB;
-  const persent_NEAR_ARB = (divisionResult_NEAR_ARB / base_near_ARB - 1) * 100;
-
-  divNear_ARB_persent.unshift(persent_NEAR_ARB.toFixed(1));
-  divNear_ARB_persent.pop();
-
-  divNear_ARB.unshift(divisionResult_NEAR_ARB.toFixed(1));
-  divNear_ARB.pop();
-
-  ///////////  ------------------------------------------------------------------------------
+ 
 
   const divisionResult_LINK_NEAR = priceLINK / priceNEAR ;
 
@@ -481,6 +425,20 @@ const CryptoPrice = () => {
 
   divHYPE_AVAX.unshift(divisionResult_HYPE_AVAX.toFixed(1));
   divHYPE_AVAX.pop();
+ 
+
+  ////////////  -----------------------------------------------------------------------------
+
+  const divisionResult_HYPE_NEAR = priceHYPE / priceNEAR ;
+
+  const base_HYPE_NEAR = HYPE / NEAR ;
+  const persent_HYPE_NEAR = (divisionResult_HYPE_NEAR / base_HYPE_NEAR - 1) * 100;
+
+  divHYPE_NEAR_persent.unshift(persent_HYPE_NEAR.toFixed(1));
+  divHYPE_NEAR_persent.pop();
+
+  divHYPE_NEAR.unshift(divisionResult_HYPE_NEAR.toFixed(1));
+  divHYPE_NEAR.pop();
  
 
   ////////////  -----------------------------------------------------------------------------
@@ -1507,440 +1465,355 @@ const CryptoPrice = () => {
 
             
                                         </div>
+
+                                        <div className="ml-0  text-sm  mt-8 w-45 ">
+                                          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                            {" "}
+                                            HYPE/NEAR{" "}
+                                          </p>
+                                          <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                            (( {divHYPE_NEAR[0]} )){" "}
+                                            {divHYPE_NEAR_persent[0] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[0]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[0]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_NEAR[1]} )){" "}
+                                            {divHYPE_NEAR_persent[1] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[1]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[1]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_NEAR[2]} )){" "}
+                                            {divHYPE_NEAR_persent[2] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[2]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[2]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_NEAR[3]} )){" "}
+                                            {divHYPE_NEAR_persent[3] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[3]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[3]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10 ">
+                                          (( {divHYPE_NEAR[4]} )){" "}
+                                            {divHYPE_NEAR_persent[4] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[4]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[4]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_NEAR[5]} )){" "}
+                                            {divHYPE_NEAR_persent[5] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[5]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_NEAR_persent[5]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+        
+                                    </div>
                          
 
                       </div>
 
               <div className=" flex flex-row " >
-                <div className="ml-0  text-sm  mt-8 w-45 ">
-                      <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
-                        {" "}
-                        NEAR/DOGE{" "}
-                      </p>
-                      <h1 className=" flex flex-row  ml-10 mt-2 ">
-                        (( {divNear_doge[0]} )){" "}
-                        {divNear_doge_persent[0] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_doge_persent[0]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_doge_persent[0]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_doge[1]} )){" "}
-                        {divNear_doge_persent[1] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_doge_persent[1]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_doge_persent[1]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_doge[2]} )){" "}
-                        {divNear_doge_persent[2] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_doge_persent[2]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_doge_persent[2]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_doge[3]} )){" "}
-                        {divNear_doge_persent[3] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_doge_persent[3]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_doge_persent[3]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10 ">
-                      (( {divNear_doge[4]} )){" "}
-                        {divNear_doge_persent[4] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_doge_persent[4]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_doge_persent[4]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_doge[5]} )){" "}
-                        {divNear_doge_persent[5] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_doge_persent[5]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_doge_persent[5]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-        
-                </div>
-
-                <div className="ml-0  text-sm  mt-8 w-45 ">
-                      <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
-                        {" "}
-                        NEAR/ARB{" "}
-                      </p>
-                      <h1 className=" flex flex-row  ml-10 mt-2 ">
-                        (( {divNear_ARB[0]} )){" "}
-                        {divNear_ARB_persent[0] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ARB_persent[0]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ARB_persent[0]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ARB[1]} )){" "}
-                        {divNear_ARB_persent[1] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ARB_persent[1]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ARB_persent[1]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ARB[2]} )){" "}
-                        {divNear_ARB_persent[2] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ARB_persent[2]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ARB_persent[2]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ARB[3]} )){" "}
-                        {divNear_ARB_persent[3] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ARB_persent[3]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ARB_persent[3]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10 ">
-                      (( {divNear_ARB[4]} )){" "}
-                        {divNear_ARB_persent[4] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ARB_persent[4]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ARB_persent[4]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ARB[5]} )){" "}
-                        {divNear_ARB_persent[5] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ARB_persent[5]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ARB_persent[5]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-        
-                </div>
 
 
-                <div className="ml-0  text-sm  mt-8 w-45 ">
-                  <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
-                    {" "}
-                    LINK/NEAR{" "}
-                  </p>
-                  <h1 className=" flex flex-row  ml-10 mt-2 ">
-                    (( {divLINK_NEAR[0]} )){" "}
-                    {divLINK_NEAR_persent[0] > 0 ? (
-                      <p className="text-green-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[0]} ))
-                      </p>
-                    ) : (
-                      <p className="text-red-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[0]} ))
-                      </p>
-                    )}{" "}
-                  </h1>
-
-                  <h1 className=" flex flex-row  ml-10  ">
-                  (( {divLINK_NEAR[1]} )){" "}
-                    {divLINK_NEAR_persent[1] > 0 ? (
-                      <p className="text-green-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[1]} ))
-                      </p>
-                    ) : (
-                      <p className="text-red-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[1]} ))
-                      </p>
-                    )}{" "}
-                  </h1>
-
-                  <h1 className=" flex flex-row  ml-10  ">
-                  (( {divLINK_NEAR[2]} )){" "}
-                    {divLINK_NEAR_persent[2] > 0 ? (
-                      <p className="text-green-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[2]} ))
-                      </p>
-                    ) : (
-                      <p className="text-red-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[2]} ))
-                      </p>
-                    )}{" "}
-                  </h1>
-
-                  <h1 className=" flex flex-row  ml-10  ">
-                  (( {divLINK_NEAR[3]} )){" "}
-                    {divLINK_NEAR_persent[3] > 0 ? (
-                      <p className="text-green-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[3]} ))
-                      </p>
-                    ) : (
-                      <p className="text-red-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[3]} ))
-                      </p>
-                    )}{" "}
-                  </h1>
-
-                  <h1 className=" flex flex-row  ml-10 ">
-                  (( {divLINK_NEAR[4]} )){" "}
-                    {divLINK_NEAR_persent[4] > 0 ? (
-                      <p className="text-green-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[4]} ))
-                      </p>
-                    ) : (
-                      <p className="text-red-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[4]} ))
-                      </p>
-                    )}{" "}
-                  </h1>
-
-                  <h1 className=" flex flex-row  ml-10  ">
-                  (( {divLINK_NEAR[5]} )){" "}
-                    {divLINK_NEAR_persent[5] > 0 ? (
-                      <p className="text-green-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[5]} ))
-                      </p>
-                    ) : (
-                      <p className="text-red-500  ml-2 ">
-                        (( % {divLINK_NEAR_persent[5]} ))
-                      </p>
-                    )}{" "}
-                  </h1>
-
-        
-                </div>
-        
-              
-
-                <div className="ml-0  text-sm  mt-8 w-45 ">
-                      <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
-                        {" "}
-                        NEAR/ADA{" "}
-                      </p>
-                      <h1 className=" flex flex-row  ml-10 mt-2 ">
-                        (( {divNear_ADA[0]} )){" "}
-                        {divNear_ADA_persent[0] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ADA_persent[0]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ADA_persent[0]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ADA[1]} )){" "}
-                        {divNear_ADA_persent[1] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ADA_persent[1]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ADA_persent[1]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ADA[2]} )){" "}
-                        {divNear_ADA_persent[2] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ADA_persent[2]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ADA_persent[2]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ADA[3]} )){" "}
-                        {divNear_ADA_persent[3] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ADA_persent[3]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ADA_persent[3]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10 ">
-                      (( {divNear_ADA[4]} )){" "}
-                        {divNear_ADA_persent[4] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ADA_persent[4]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ADA_persent[4]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-                      <h1 className=" flex flex-row  ml-10  ">
-                      (( {divNear_ADA[5]} )){" "}
-                        {divNear_ADA_persent[5] > 0 ? (
-                          <p className="text-green-500  ml-2 ">
-                            (( % {divNear_ADA_persent[5]} ))
-                          </p>
-                        ) : (
-                          <p className="text-red-500  ml-2 ">
-                            (( % {divNear_ADA_persent[5]} ))
-                          </p>
-                        )}{" "}
-                      </h1>
-
-        
-                </div>
-
-                <div className="ml-0  text-sm  mt-8 w-45 ">
-                                    <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                  <div className="ml-0  text-sm  mt-8 w-45 ">
+                                    <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
                                       {" "}
-                                      ARB/DOGE {" "}
+                                      LINK/NEAR{" "}
                                     </p>
-                                    <h1 className=" flex flex-row  ml-15 mt-2 ">
-                                      (( {divARB_Doge[0]} )){" "}
-                                      {divARB_Doge_persent[0] > 0 ? (
+                                    <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                      (( {divLINK_NEAR[0]} )){" "}
+                                      {divLINK_NEAR_persent[0] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[0]} ))
+                                          (( % {divLINK_NEAR_persent[0]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[0]} ))
+                                          (( % {divLINK_NEAR_persent[0]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
-                                    <h1 className=" flex flex-row  ml-15  ">
-                                    (( {divARB_Doge[1]} )){" "}
-                                      {divARB_Doge_persent[1] > 0 ? (
+                                    <h1 className=" flex flex-row  ml-10  ">
+                                    (( {divLINK_NEAR[1]} )){" "}
+                                      {divLINK_NEAR_persent[1] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[1]} ))
+                                          (( % {divLINK_NEAR_persent[1]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[1]} ))
+                                          (( % {divLINK_NEAR_persent[1]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
-                                    <h1 className=" flex flex-row  ml-15  ">
-                                    (( {divARB_Doge[2]} )){" "}
-                                      {divARB_Doge_persent[2] > 0 ? (
+                                    <h1 className=" flex flex-row  ml-10  ">
+                                    (( {divLINK_NEAR[2]} )){" "}
+                                      {divLINK_NEAR_persent[2] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[2]} ))
+                                          (( % {divLINK_NEAR_persent[2]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[2]} ))
+                                          (( % {divLINK_NEAR_persent[2]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
-                                    <h1 className=" flex flex-row  ml-15  ">
-                                    (( {divARB_Doge[3]} )){" "}
-                                      {divARB_Doge_persent[3] > 0 ? (
+                                    <h1 className=" flex flex-row  ml-10  ">
+                                    (( {divLINK_NEAR[3]} )){" "}
+                                      {divLINK_NEAR_persent[3] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[3]} ))
+                                          (( % {divLINK_NEAR_persent[3]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[3]} ))
+                                          (( % {divLINK_NEAR_persent[3]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
-                                    <h1 className=" flex flex-row  ml-15 ">
-                                    (( {divARB_Doge[4]} )){" "}
-                                      {divARB_Doge_persent[4] > 0 ? (
+                                    <h1 className=" flex flex-row  ml-10 ">
+                                    (( {divLINK_NEAR[4]} )){" "}
+                                      {divLINK_NEAR_persent[4] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[4]} ))
+                                          (( % {divLINK_NEAR_persent[4]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[4]} ))
+                                          (( % {divLINK_NEAR_persent[4]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
-                                    <h1 className=" flex flex-row  ml-15  ">
-                                    (( {divARB_Doge[5]} )){" "}
-                                      {divARB_Doge_persent[5] > 0 ? (
+                                    <h1 className=" flex flex-row  ml-10  ">
+                                    (( {divLINK_NEAR[5]} )){" "}
+                                      {divLINK_NEAR_persent[5] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[5]} ))
+                                          (( % {divLINK_NEAR_persent[5]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divARB_Doge_persent[5]} ))
+                                          (( % {divLINK_NEAR_persent[5]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
+
+                          
+                                  </div>
+
+                                  <div className="ml-0  text-sm  mt-8 w-45 ">
+                                        <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                          {" "}
+                                          NEAR/DOGE{" "}
+                                        </p>
+                                        <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                          (( {divNear_doge[0]} )){" "}
+                                          {divNear_doge_persent[0] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_doge_persent[0]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_doge_persent[0]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_doge[1]} )){" "}
+                                          {divNear_doge_persent[1] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_doge_persent[1]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_doge_persent[1]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_doge[2]} )){" "}
+                                          {divNear_doge_persent[2] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_doge_persent[2]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_doge_persent[2]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_doge[3]} )){" "}
+                                          {divNear_doge_persent[3] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_doge_persent[3]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_doge_persent[3]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10 ">
+                                        (( {divNear_doge[4]} )){" "}
+                                          {divNear_doge_persent[4] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_doge_persent[4]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_doge_persent[4]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_doge[5]} )){" "}
+                                          {divNear_doge_persent[5] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_doge_persent[5]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_doge_persent[5]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                          
+                                  </div>
+
+                                  
+                                  <div className="ml-0  text-sm  mt-8 w-45 ">
+                                        <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                          {" "}
+                                          NEAR/ADA{" "}
+                                        </p>
+                                        <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                          (( {divNear_ADA[0]} )){" "}
+                                          {divNear_ADA_persent[0] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[0]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[0]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_ADA[1]} )){" "}
+                                          {divNear_ADA_persent[1] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[1]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[1]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_ADA[2]} )){" "}
+                                          {divNear_ADA_persent[2] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[2]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[2]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_ADA[3]} )){" "}
+                                          {divNear_ADA_persent[3] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[3]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[3]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10 ">
+                                        (( {divNear_ADA[4]} )){" "}
+                                          {divNear_ADA_persent[4] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[4]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[4]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                        (( {divNear_ADA[5]} )){" "}
+                                          {divNear_ADA_persent[5] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[5]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divNear_ADA_persent[5]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
                           
                                   </div>
 
@@ -2030,91 +1903,97 @@ const CryptoPrice = () => {
                           
                                   </div>
 
+                                  
                                   <div className="ml-0  text-sm  mt-8 w-45 ">
                                     <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
                                       {" "}
-                                      LINK/ARB{" "}
+                                      LINK/ADA{" "}
                                     </p>
                                     <h1 className=" flex flex-row  ml-10 mt-2 ">
-                                      (( {divLINK_ARB[0]} )){" "}
-                                      {divLINK_ARB_persent[0] > 0 ? (
+                                      (( {divLINK_ADA[0]} )){" "}
+                                      {divLINK_ADA_persent[0] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[0]} ))
+                                          (( % {divLINK_ADA_persent[0]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[0]} ))
+                                          (( % {divLINK_ADA_persent[0]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
                                     <h1 className=" flex flex-row  ml-10  ">
-                                    (( {divLINK_ARB[1]} )){" "}
-                                      {divLINK_ARB_persent[1] > 0 ? (
+                                    (( {divLINK_ADA[1]} )){" "}
+                                      {divLINK_ADA_persent[1] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[1]} ))
+                                          (( % {divLINK_ADA_persent[1]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[1]} ))
+                                          (( % {divLINK_ADA_persent[1]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
                                     <h1 className=" flex flex-row  ml-10  ">
-                                    (( {divLINK_ARB[2]} )){" "}
-                                      {divLINK_ARB_persent[2] > 0 ? (
+                                    (( {divLINK_ADA[2]} )){" "}
+                                      {divLINK_ADA_persent[2] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[2]} ))
+                                          (( % {divLINK_ADA_persent[2]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[2]} ))
+                                          (( % {divLINK_ADA_persent[2]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
                                     <h1 className=" flex flex-row  ml-10  ">
-                                    (( {divLINK_ARB[3]} )){" "}
-                                      {divLINK_ARB_persent[3] > 0 ? (
+                                    (( {divLINK_ADA[3]} )){" "}
+                                      {divLINK_ADA_persent[3] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[3]} ))
+                                          (( % {divLINK_ADA_persent[3]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[3]} ))
+                                          (( % {divLINK_ADA_persent[3]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
                                     <h1 className=" flex flex-row  ml-10 ">
-                                    (( {divLINK_ARB[4]} )){" "}
-                                      {divLINK_ARB_persent[4] > 0 ? (
+                                    (( {divLINK_ADA[4]} )){" "}
+                                      {divLINK_ADA_persent[4] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[4]} ))
+                                          (( % {divLINK_ADA_persent[4]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[4]} ))
+                                          (( % {divLINK_ADA_persent[4]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
                                     <h1 className=" flex flex-row  ml-10  ">
-                                    (( {divLINK_ARB[5]} )){" "}
-                                      {divLINK_ARB_persent[5] > 0 ? (
+                                    (( {divLINK_ADA[5]} )){" "}
+                                      {divLINK_ADA_persent[5] > 0 ? (
                                         <p className="text-green-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[5]} ))
+                                          (( % {divLINK_ADA_persent[5]} ))
                                         </p>
                                       ) : (
                                         <p className="text-red-500  ml-2 ">
-                                          (( % {divLINK_ARB_persent[5]} ))
+                                          (( % {divLINK_ADA_persent[5]} ))
                                         </p>
                                       )}{" "}
                                     </h1>
 
                           
                                   </div>
+
+                            
+
+                                  
+
 
               </div>
 
