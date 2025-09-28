@@ -5,13 +5,13 @@ const CryptoPrice = () => {
 
   //  buy  or sell  price 
 
-  const XRP = 2.85 ;
-  const DOGE = 0.241    ;
+  const XRP = 2.77 ;
+  const DOGE = 0.2301    ;
   const LINK = 20.93 ;
-  const NEAR = 3.05 ;
-  const ADA = 0.82 ;
-  const AVAX = 33.87 ;
-  const HYPE = 44.70 ;
+  const NEAR = 2.705 ;
+  const ADA = 0.782 ;
+  const AVAX = 28.56 ;
+  const HYPE = 44.860 ;
  
 
 
@@ -23,7 +23,7 @@ const CryptoPrice = () => {
   const [priceNEAR , setPriceNEAR ] = useState(null) ;
   const [priceADA , setPriceADA ] = useState(null) ;
   const [priceAVAX , setPriceAVAX ] = useState(null) ;
-  const [priceHYPE , setPriceHYPE ] = useState(42.650000) ;    
+  const [priceHYPE , setPriceHYPE ] = useState(null) ;    
  
  
 
@@ -177,8 +177,19 @@ const CryptoPrice = () => {
         setPriceAVAX(dataAVAX.price);
 
         
-      
-        
+
+        console.log("001" )
+        const responseHYPE = await fetch(
+          `https://api.coingecko.com/api/v3/simple/price?ids=Hyperliquid&vs_currencies=usd`
+
+        );
+
+        const dataHYPE = await responseHYPE.json();
+        console.log("hype" , dataHYPE.hyperliquid.usd )
+
+
+        setPriceHYPE(dataHYPE.hyperliquid.usd  );
+
        
 
       } catch (error) {
