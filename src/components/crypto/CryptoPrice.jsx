@@ -10,8 +10,8 @@ const CryptoPrice = () => {
   const [LINK , setBuyLINK ] = useState(21.16) ;
   const [NEAR , setBuyNEAR ] = useState(2.71) ;
   const [ADA , setBuyADA ] = useState(0.79) ;
-  const [AVAX , setBuyAVAX ] = useState(28.95) ;
-  const [HYPE , setBuyHYPE ] = useState(45.60) ;
+  const [AVAX , setBuyAVAX ] = useState(29.14) ;
+  const [HYPE , setBuyHYPE ] = useState(46.75) ;
 
   
 
@@ -203,7 +203,7 @@ const CryptoPrice = () => {
 
     fetchPrice();
 
-    const intervalId = setInterval(fetchPrice, 30000);
+    const intervalId = setInterval(fetchPrice, 10000);
 
     return () => clearInterval(intervalId);
   }, []);
