@@ -16,13 +16,6 @@ const CryptoPrice = () => {
   
 
 
-  // const XRP = 2.77 ;
-  // const DOGE = 0.2301    ;
-  // const LINK = 20.93 ;
-  // const NEAR = 2.705 ;
-  // const ADA = 0.782 ;
-  // const AVAX = 28.56 ;
-  // const HYPE = 44.860 ;
  
 
 
