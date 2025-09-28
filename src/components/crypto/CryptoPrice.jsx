@@ -5,13 +5,24 @@ const CryptoPrice = () => {
 
   //  buy  or sell  price 
 
-  const XRP = 2.77 ;
-  const DOGE = 0.2301    ;
-  const LINK = 20.93 ;
-  const NEAR = 2.705 ;
-  const ADA = 0.782 ;
-  const AVAX = 28.56 ;
-  const HYPE = 44.860 ;
+  const [XRP , setBuyXRP ] = useState(2.82) ;
+  const [DOGE , setBuyDOGE ] = useState(0.2313) ;
+  const [LINK , setBuyLINK ] = useState(21.16) ;
+  const [NEAR , setBuyNEAR ] = useState(2.71) ;
+  const [ADA , setBuyADA ] = useState(0.79) ;
+  const [AVAX , setBuyAVAX ] = useState(28.95) ;
+  const [HYPE , setBuyHYPE ] = useState(45.60) ;
+
+  
+
+
+  // const XRP = 2.77 ;
+  // const DOGE = 0.2301    ;
+  // const LINK = 20.93 ;
+  // const NEAR = 2.705 ;
+  // const ADA = 0.782 ;
+  // const AVAX = 28.56 ;
+  // const HYPE = 44.860 ;
  
 
 
@@ -456,8 +467,17 @@ const CryptoPrice = () => {
   return (
     <div className="ml-70   mt-8  ">
       {priceXRP ? (
-        <div>
-          <p> XRP . . . . : : : : . . . . . (( {priceXRP} $ ))  {" "}  . .  . . . . . . .  . .  . .  .  Price_Buy . . .  . .  {XRP}   </p>
+        <div className=" flex flex-row " >
+          <h1  className=" mt-2 " > XRP . . . . : : : : . . . . . (( {priceXRP} $ ))  {" "}  .  .  .. . . .  Price_Buy . . .  . ..  {XRP}       </h1>
+
+                      <input
+                          type="number"
+                          value={XRP}
+                          onChange={(e) => setBuyXRP(e.target.value)}
+                          className="border p-2   ml-6  w-20  "
+                          placeholder=""
+                        />
+
         </div>
       ) : (
         <p>Loading price...</p>
@@ -465,48 +485,91 @@ const CryptoPrice = () => {
 
 
       {priceDOGE ? (
-              <div>
-                <p> DOGE . . . . : : : : . . . (( {priceDOGE} $ ))  {" "}  . .  . . . . . .  .  . .  .  Price_Buy . . . . . . {DOGE}  </p>
+              
+        <div className=" flex flex-row mt-2 " >
+                <h1 className=" mt-2 "  > DOGE . . . . : : : : . . . (( {priceDOGE} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {DOGE}  </h1>
+                <input
+                          type="number"
+                          value={DOGE}
+                          onChange={(e) => setBuyDOGE(e.target.value)}
+                          className="border p-2   ml-6  w-20  "
+                          placeholder=""
+                        />
               </div>
             ) : (
               <p>Loading price...</p>
             )}
 
       {priceDOGE ? (
-              <div>
-                <p> ADA . . . . : : : : . . . . . (( {priceADA } $ ))  {" "}  . .  . . . . . . .  . .  .  . .  Price_Buy . . . . {ADA}  </p>
-              </div>
+             <div className=" flex flex-row mt-2 " >
+             <h1 className=" mt-2 "  > ADA . . . . : : : : . . .. (( {priceADA} $ ))  {" "}  . .  . . .  . .  .  Price_Buy . . . .  . {ADA}  </h1>
+             <input
+                       type="number"
+                       value={ADA}
+                       onChange={(e) => setBuyADA(e.target.value)}
+                       className="border p-2   ml-6  w-20  "
+                       placeholder=""
+                     />
+           </div>
             ) : (
               <p>Loading price...</p>
             )}
 
       {priceLINK ? (
-                    <div>
-                      <p> LINK . . . . : : : : . . . . ((  {priceLINK} $ )) {" "}  . .  . . . . . . .  . .  .  Price_Buy .  . . . . {LINK}  </p>
-                    </div>
+                    <div className=" flex flex-row mt-2 " >
+                    <h1 className=" mt-2 "  > LINK . . . . : : : : . . . (( {priceLINK} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {LINK}  </h1>
+                    <input
+                              type="number"
+                              value={LINK}
+                              onChange={(e) => setBuyLINK(e.target.value)}
+                              className="border p-2   ml-6  w-20  "
+                              placeholder=""
+                            />
+                  </div>
                   ) : (
                     <p>Loading price...</p>
                   )}
     {priceNEAR ? (
-                    <div>
-                      <p> NEAR . . . . : : : : . . . . ((  {priceNEAR} $ )) {" "}  . .  . . . . . . .  . .  .  Price_Buy .  . . . . {NEAR}  </p>
-                    </div>
-                  ) : (
-                    <p>Loading price...</p>
-                  )}
-
-    {priceAVAX ? (
-                    <div>
-                      <p> AVAX . . . . : : : : . . . . ((  {priceAVAX} $ )) {" "}  . .  . . . . . . .  . .  .  Price_Buy .  . . . . {AVAX}  </p>
-                    </div>
-                  ) : (
-                    <p>Loading price...</p>
-                  )}
-
-    {priceAVAX ? (
-                        <div>
-                          <p> HYPE . . . . : : : : . . . . ((  {priceHYPE} $ )) {" "}  . .  . . . . . . .  . .  .  Price_Buy .  . . . . {HYPE}  </p>
+                          <div className=" flex flex-row mt-2 " >
+                          <h1 className=" mt-2 "  > NEAR . . . . : : : : . . . (( {priceNEAR} $ ))  {" "}  . .  .  . .  ..  Price_Buy . . . . . . {NEAR}  </h1>
+                          <input
+                                    type="number"
+                                    value={NEAR}
+                                    onChange={(e) => setBuyNEAR(e.target.value)}
+                                    className="border p-2   ml-6  w-20  "
+                                    placeholder=""
+                                  />
                         </div>
+                  ) : (
+                    <p>Loading price...</p>
+                  )}
+
+    {priceAVAX ? (
+                           <div className=" flex flex-row mt-2 " >
+                           <h1 className=" mt-2 "  > AVAX . . . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
+                           <input
+                                     type="number"
+                                     value={AVAX}
+                                     onChange={(e) => setBuyAVAX(e.target.value)}
+                                     className="border p-2   ml-6  w-20  "
+                                     placeholder=""
+                                   />
+                         </div>
+                  ) : (
+                    <p>Loading price...</p>
+                  )}
+
+    {priceAVAX ? (
+                           <div className=" flex flex-row mt-2 " >
+                           <h1 className=" mt-2 "  > HYPE . . . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
+                           <input
+                                     type="number"
+                                     value={HYPE}
+                                     onChange={(e) => setBuyHYPE(e.target.value)}
+                                     className="border p-2   ml-6  w-20  "
+                                     placeholder=""
+                                   />
+                         </div>
                       ) : (
                         <p>Loading price...</p>
                       )}
