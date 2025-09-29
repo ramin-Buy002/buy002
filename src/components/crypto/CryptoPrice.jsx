@@ -6,12 +6,12 @@ const CryptoPrice = () => {
   //  buy  or sell  price 
 
   const [XRP , setBuyXRP ] = useState(2.82) ;
-  const [DOGE , setBuyDOGE ] = useState(0.2329) ;
+  const [DOGE , setBuyDOGE ] = useState(0.2320) ;
   const [LINK , setBuyLINK ] = useState(21.16) ;
   const [NEAR , setBuyNEAR ] = useState(2.71) ;
   const [ADA , setBuyADA ] = useState(0.79) ;
-  const [AVAX , setBuyAVAX ] = useState(29.66) ;
-  const [HYPE , setBuyHYPE ] = useState(46.75) ;
+  const [AVAX , setBuyAVAX ] = useState(29.10) ;
+  const [HYPE , setBuyHYPE ] = useState(45.79) ;
 
   
 
@@ -90,8 +90,15 @@ const CryptoPrice = () => {
   ]);
   
 
+   
+
   const [divAVAX_DOGE , setDivAVAX_DOGE ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   const [divAVAX_DOGE_persent, setDivAVAX_DOGE_persent] = useState([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+
+  const [divADA_DOGE , setDivADA_DOGE ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divADA_DOGE_persent, setDivADA_DOGE_persent] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
@@ -122,6 +129,22 @@ const CryptoPrice = () => {
 
   const [divHYPE_NEAR , setDivHYPE_NEAR ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   const [divHYPE_NEAR_persent, setDivHYPE_NEAR_persent] = useState([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+
+  
+  const [divHYPE_DOGE , setDivHYPE_DOGE ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divHYPE_DOGE_persent, setDivHYPE_DOGE_persent] = useState([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+
+  const [divHYPE_LINK , setDivHYPE_LINK ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divHYPE_LINK_persent, setDivHYPE_LINK_persent] = useState([
+    0, 1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+
+  const [divHYPE_ADA , setDivHYPE_ADA ] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  const [divHYPE_ADA_persent, setDivHYPE_ADA_persent] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8,
   ]);
 
@@ -454,7 +477,64 @@ const CryptoPrice = () => {
 
   ////////////  -----------------------------------------------------------------------------
  
+  const divisionResult_HYPE_DOGE = priceHYPE / priceDOGE ;
 
+  const base_HYPE_DOGE = HYPE / DOGE ;
+  const persent_HYPE_DOGE = (divisionResult_HYPE_DOGE / base_HYPE_DOGE - 1) * 100;
+
+  divHYPE_DOGE_persent.unshift(persent_HYPE_DOGE.toFixed(1));
+  divHYPE_DOGE_persent.pop();
+
+  divHYPE_DOGE.unshift(divisionResult_HYPE_DOGE.toFixed(1));
+  divHYPE_DOGE.pop();
+ 
+
+  ////////////  -----------------------------------------------------------------------------
+
+   
+  const divisionResult_ADA_DOGE = priceADA / priceDOGE ;
+
+  const base_ADA_DOGE = ADA / DOGE ;
+  const persent_ADA_DOGE = (divisionResult_HYPE_DOGE / base_HYPE_DOGE - 1) * 100;
+
+  divADA_DOGE_persent.unshift(persent_ADA_DOGE.toFixed(1));
+  divADA_DOGE_persent.pop();
+
+  divADA_DOGE.unshift(divisionResult_ADA_DOGE.toFixed(1));
+  divADA_DOGE.pop();
+ 
+
+  ////////////  -----------------------------------------------------------------------------
+
+  const divisionResult_HYPE_LINK = priceHYPE / priceLINK ;
+
+  const base_HYPE_LINK = HYPE / LINK ;
+  const persent_HYPE_LINK = (divisionResult_HYPE_LINK / base_HYPE_LINK - 1) * 100;
+
+  divHYPE_LINK_persent.unshift(persent_HYPE_LINK.toFixed(1));
+  divHYPE_LINK_persent.pop();
+
+  divHYPE_LINK.unshift(divisionResult_HYPE_LINK.toFixed(1));
+  divHYPE_LINK.pop();
+
+ 
+
+  ////////////  -----------------------------------------------------------------------------
+
+  const divisionResult_HYPE_ADA = priceHYPE / priceADA ;
+
+  const base_HYPE_ADA = HYPE / ADA ;
+  const persent_HYPE_ADA = (divisionResult_HYPE_ADA / base_HYPE_ADA - 1) * 100;
+
+  divHYPE_ADA_persent.unshift(persent_HYPE_ADA.toFixed(1));
+  divHYPE_ADA_persent.pop();
+
+  divHYPE_ADA.unshift(divisionResult_HYPE_ADA.toFixed(1));
+  divHYPE_ADA.pop();
+
+ 
+
+  ////////////  -----------------------------------------------------------------------------
 
 
   return (
@@ -480,7 +560,7 @@ const CryptoPrice = () => {
       {priceDOGE ? (
               
         <div className=" flex flex-row mt-2 " >
-                <h1 className=" mt-2 "  > DOGE . . . . ( 881 usdt ) . . : : : : . . . (( {priceDOGE} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {DOGE}  </h1>
+                <h1 className=" mt-2 "  > DOGE . . . . ( ................................................ 881 usdt ) . . : : : : . . . (( {priceDOGE} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {DOGE}  </h1>
                 <input
                           type="number"
                           value={DOGE}
@@ -539,7 +619,7 @@ const CryptoPrice = () => {
 
     {priceAVAX ? (
                            <div className=" flex flex-row mt-2 " >
-                           <h1 className=" mt-2 "  > AVAX . . . . ( 1237 usdt ) . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
+                           <h1 className=" mt-2 "  > AVAX . . . . ( ............................................................................ 1237 usdt ) . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
                            <input
                                      type="number"
                                      value={AVAX}
@@ -554,7 +634,7 @@ const CryptoPrice = () => {
 
     {priceAVAX ? (
                            <div className=" flex flex-row mt-2 " >
-                           <h1 className=" mt-2 "  > HYPE . . . . ( 497 usdt ) . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
+                           <h1 className=" mt-2 "  > HYPE . . . . ( ................................................ 497 usdt ) . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
                            <input
                                      type="number"
                                      value={HYPE}
@@ -1086,6 +1166,94 @@ const CryptoPrice = () => {
         
                                     </div>
 
+                                    <div className="ml-0  text-sm  mt-8 w-45 ">
+                                        <p className="  ml-10  bg-amber-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                          {" "}
+                                          ADA/DOGE{" "}
+                                        </p>
+                                        <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                          (( {divADA_DOGE[0]} )){" "}
+                                          {divADA_DOGE_persent[0] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[0]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[0]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divADA_DOGE[1]} )){" "}
+                                          {divADA_DOGE_persent[1] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[1]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[1]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divADA_DOGE[2]} )){" "}
+                                          {divADA_DOGE_persent[2] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[2]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[2]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divADA_DOGE[3]} )){" "}
+                                          {divADA_DOGE_persent[3] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[3]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[3]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10 ">
+                                          (( {divADA_DOGE[4]} )){" "}
+                                          {divADA_DOGE_persent[4] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[4]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[4]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                                        <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divADA_DOGE[5]} )){" "}
+                                          {divADA_DOGE_persent[5] > 0 ? (
+                                            <p className="text-green-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[5]} ))
+                                            </p>
+                                          ) : (
+                                            <p className="text-red-500  ml-2 ">
+                                              (( % {divADA_DOGE_persent[5]} ))
+                                            </p>
+                                          )}{" "}
+                                        </h1>
+
+                          
+                                    </div>
+
+                                     
+
                      </div>
 
 
@@ -1607,6 +1775,93 @@ const CryptoPrice = () => {
 
         
                                     </div>
+
+
+                                    <div className="ml-0  text-sm  mt-8 w-45 ">
+                                          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                            {" "}
+                                            HYPE/ADA{" "}
+                                          </p>
+                                          <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                            (( {divHYPE_ADA[0]} )){" "}
+                                            {divHYPE_ADA_persent[0] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[0]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[0]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_ADA[1]} )){" "}
+                                            {divHYPE_ADA_persent[1] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[1]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[1]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_ADA[2]} )){" "}
+                                            {divHYPE_ADA_persent[2] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[2]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[2]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_ADA[3]} )){" "}
+                                            {divHYPE_ADA_persent[3] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[3]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[3]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10 ">
+                                          (( {divHYPE_ADA[4]} )){" "}
+                                            {divHYPE_ADA_persent[4] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[4]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[4]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_ADA[5]} )){" "}
+                                            {divHYPE_ADA_persent[5] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[5]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_ADA_persent[5]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+        
+                                    </div>
                          
 
                       </div>
@@ -2045,6 +2300,180 @@ const CryptoPrice = () => {
 
                           
                                   </div>
+
+
+                                  <div className="ml-0  text-sm  mt-8 w-45 ">
+                                          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                            {" "}
+                                            HYPE/DOGE{" "}
+                                          </p>
+                                          <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                            (( {divHYPE_DOGE[0]} )){" "}
+                                            {divHYPE_DOGE_persent[0] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[0]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[0]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_DOGE[1]} )){" "}
+                                            {divHYPE_DOGE_persent[1] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[1]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[1]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_DOGE[2]} )){" "}
+                                            {divHYPE_DOGE_persent[2] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[2]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[2]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_DOGE[3]} )){" "}
+                                            {divHYPE_DOGE_persent[3] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[3]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[3]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10 ">
+                                          (( {divHYPE_DOGE[4]} )){" "}
+                                            {divHYPE_DOGE_persent[4] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[4]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[4]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_DOGE[5]} )){" "}
+                                            {divHYPE_DOGE_persent[5] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[5]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_DOGE_persent[5]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+        
+                                    </div>
+
+
+                                    <div className="ml-0  text-sm  mt-8 w-45 ">
+                                          <p className="  ml-10  bg-blue-400  flex flex-row justify-between border rounded-lg p-3 ">
+                                            {" "}
+                                            HYPE/LINK{" "}
+                                          </p>
+                                          <h1 className=" flex flex-row  ml-10 mt-2 ">
+                                            (( {divHYPE_LINK[0]} )){" "}
+                                            {divHYPE_LINK_persent[0] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[0]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[0]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_LINK[1]} )){" "}
+                                            {divHYPE_LINK_persent[1] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[1]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[1]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_LINK[2]} )){" "}
+                                            {divHYPE_LINK_persent[2] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[2]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[2]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_LINK[3]} )){" "}
+                                            {divHYPE_LINK_persent[3] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[3]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[3]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10 ">
+                                          (( {divHYPE_LINK[4]} )){" "}
+                                            {divHYPE_LINK_persent[4] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[4]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[4]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+                                          <h1 className=" flex flex-row  ml-10  ">
+                                          (( {divHYPE_LINK[5]} )){" "}
+                                            {divHYPE_LINK_persent[5] > 0 ? (
+                                              <p className="text-green-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[5]} ))
+                                              </p>
+                                            ) : (
+                                              <p className="text-red-500  ml-2 ">
+                                                (( % {divHYPE_LINK_persent[5]} ))
+                                              </p>
+                                            )}{" "}
+                                          </h1>
+
+        
+                                    </div>
 
                             
 
