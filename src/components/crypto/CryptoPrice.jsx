@@ -6,11 +6,11 @@ const CryptoPrice = () => {
   //  buy  or sell  price 
 
   const [XRP , setBuyXRP ] = useState(2.82) ;
-  const [DOGE , setBuyDOGE ] = useState(0.2320) ;
+  const [DOGE , setBuyDOGE ] = useState(0.2321) ;
   const [LINK , setBuyLINK ] = useState(21.16) ;
   const [NEAR , setBuyNEAR ] = useState(2.71) ;
   const [ADA , setBuyADA ] = useState(0.79) ;
-  const [AVAX , setBuyAVAX ] = useState(29.10) ;
+  const [AVAX , setBuyAVAX ] = useState(28.98) ;
   const [HYPE , setBuyHYPE ] = useState(45.79) ;
 
   
@@ -619,7 +619,7 @@ const CryptoPrice = () => {
 
     {priceAVAX ? (
                            <div className=" flex flex-row mt-2 " >
-                           <h1 className=" mt-2 "  > AVAX . . . . ( ............................................................................ 1237 usdt ) . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
+                           <h1 className=" mt-2 "  > AVAX . . . . ( ........................... ......................... 782 usdt ) . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
                            <input
                                      type="number"
                                      value={AVAX}
@@ -634,7 +634,7 @@ const CryptoPrice = () => {
 
     {priceAVAX ? (
                            <div className=" flex flex-row mt-2 " >
-                           <h1 className=" mt-2 "  > HYPE . . . . ( ................................................ 497 usdt ) . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
+                           <h1 className=" mt-2 "  > HYPE . . . . ( ..................................................................... 931 usdt ) . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
                            <input
                                      type="number"
                                      value={HYPE}
