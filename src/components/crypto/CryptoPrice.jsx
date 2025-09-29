@@ -541,7 +541,7 @@ const CryptoPrice = () => {
     <div className="ml-70   mt-8  ">
       {priceXRP ? (
         <div className=" flex flex-row " >
-          <h1  className=" mt-2 " > XRP . . . . ( 146 usdt ) . . : : : : . . . . . (( {priceXRP} $ ))  {" "}  .  .  .. . . .  Price_Buy . . .  . ..  {XRP}       </h1>
+          <h1  className=" mt-2 " > XRP . . . . . . : : : : . . . . . (( {priceXRP} $ ))  {" "}  .  .  .. . . .  Price_Buy . . .  . ..  {XRP}       </h1>
 
                       <input
                           type="number"
@@ -560,7 +560,7 @@ const CryptoPrice = () => {
       {priceDOGE ? (
               
         <div className=" flex flex-row mt-2 " >
-                <h1 className=" mt-2 "  > DOGE . . . . ( ................................................ 881 usdt ) . . : : : : . . . (( {priceDOGE} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {DOGE}  </h1>
+                <h1 className=" mt-2 "  > DOGE . . . . . . : : : : . . . (( {priceDOGE} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {DOGE}  </h1>
                 <input
                           type="number"
                           value={DOGE}
@@ -575,7 +575,7 @@ const CryptoPrice = () => {
 
       {priceDOGE ? (
              <div className=" flex flex-row mt-2 " >
-             <h1 className=" mt-2 "  > ADA . . . . ( 27 usdt ) . . : : : : . . .. (( {priceADA} $ ))  {" "}  . .  . . .  . .  .  Price_Buy . . . .  . {ADA}  </h1>
+             <h1 className=" mt-2 "  > ADA . . . .   . . : : : : . . .. (( {priceADA} $ ))  {" "}  . .  . . .  . .  .  Price_Buy . . . .  . {ADA}  </h1>
              <input
                        type="number"
                        value={ADA}
@@ -590,7 +590,7 @@ const CryptoPrice = () => {
 
       {priceLINK ? (
                     <div className=" flex flex-row mt-2 " >
-                    <h1 className=" mt-2 "  > LINK . . . ( 0 usdt ) .  . . : : : : . . . (( {priceLINK} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {LINK}  </h1>
+                    <h1 className=" mt-2 "  > LINK . . .   .  . . : : : : . . . (( {priceLINK} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . . . {LINK}  </h1>
                     <input
                               type="number"
                               value={LINK}
@@ -604,7 +604,7 @@ const CryptoPrice = () => {
                   )}
     {priceNEAR ? (
                           <div className=" flex flex-row mt-2 " >
-                          <h1 className=" mt-2 "  > NEAR . . . . ( 202 usdt ) . . : : : : . . . (( {priceNEAR} $ ))  {" "}  . .  .  . .  ..  Price_Buy . . . . . . {NEAR}  </h1>
+                          <h1 className=" mt-2 "  > NEAR . . . .   . . : : : : . . . (( {priceNEAR} $ ))  {" "}  . .  .  . .  ..  Price_Buy . . . . . . {NEAR}  </h1>
                           <input
                                     type="number"
                                     value={NEAR}
@@ -619,7 +619,7 @@ const CryptoPrice = () => {
 
     {priceAVAX ? (
                            <div className=" flex flex-row mt-2 " >
-                           <h1 className=" mt-2 "  > AVAX . . . . ( ........................... ......................... 782 usdt ) . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
+                           <h1 className=" mt-2 "  > AVAX . . . .  . . : : : : . . . (( {priceAVAX} $ ))  {" "}  . .  .  . .  .  Price_Buy . . . . .. {AVAX}  </h1>
                            <input
                                      type="number"
                                      value={AVAX}
@@ -634,7 +634,7 @@ const CryptoPrice = () => {
 
     {priceAVAX ? (
                            <div className=" flex flex-row mt-2 " >
-                           <h1 className=" mt-2 "  > HYPE . . . . ( ..................................................................... 931 usdt ) . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
+                           <h1 className=" mt-2 "  > HYPE . . . .   . . : : : : . . . . . (( {priceHYPE} $ ))  {" "}  . .. . . . .   .  . .  .  Price_Buy . . . . . . {HYPE}  </h1>
                            <input
                                      type="number"
                                      value={HYPE}
