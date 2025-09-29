@@ -6,12 +6,12 @@ const CryptoPrice = () => {
   //  buy  or sell  price 
 
   const [XRP , setBuyXRP ] = useState(2.82) ;
-  const [DOGE , setBuyDOGE ] = useState(0.2312) ;
+  const [DOGE , setBuyDOGE ] = useState( 0.23315 ) ;
   const [LINK , setBuyLINK ] = useState(21.16) ;
   const [NEAR , setBuyNEAR ] = useState(2.71) ;
-  const [ADA , setBuyADA ] = useState(0.79) ;
+  const [ADA , setBuyADA ] = useState(0.80 ) ;
   const [AVAX , setBuyAVAX ] = useState(30.08) ;
-  const [HYPE , setBuyHYPE ] = useState(46.12) ;
+  const [HYPE , setBuyHYPE ] = useState(45.41 ) ;
 
   
 
