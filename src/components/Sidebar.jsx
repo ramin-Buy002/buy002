@@ -111,14 +111,14 @@ const Sidebar = () => {
                   <div className="p-1 mt-5 ml-5 flex flex-row " >
                   < MdAccountBalanceWallet  className="mr-1 mt-1 w-8" />
                   <NavLink
-                    to="/orders"
+                    to="/Trade"
                     style={({ isActive }) => ({
                         color: "white",
                         fontWeight: isActive ? "bold" : "normal",
                         textDecoration: "none",
                     })}
                 >
-                    Wallet
+                    Trade_Coin
                   </NavLink>
                   </div>
 
