@@ -6,13 +6,13 @@ function Trade() {
   const Coins = ["XRP", "DOGE" , "ADA" , "LINK", "NEAR", "AVAX", "HYPE"];
 
   const [dataCoins, setDataCoins] = useState( [
-    { nameCoin : "XRP"  , firstPrice : 2.8903 ,  nowPrice : 0 , buy_cell_price : 0  },
-    { nameCoin : "DOGE" , firstPrice : 0.2334 ,  nowPrice : 0 , buy_cell_price : 0 }, 
-    { nameCoin : "ADA"  , firstPrice : 0.8067 ,  nowPrice : 0 , buy_cell_price : 0  },
-    { nameCoin : "LINK"  , firstPrice : 21.5405 ,  nowPrice : 0 , buy_cell_price : 0  },
-    { nameCoin : "NEAR"  , firstPrice : 2.9705  ,  nowPrice : 0 , buy_cell_price : 0  },
-    { nameCoin : "AVAX"  , firstPrice : 30.7806 ,  nowPrice : 0 , buy_cell_price : 0  },
-    { nameCoin : "HYPE"  , firstPrice : 46.4060  ,  nowPrice : 0 , buy_cell_price : 0 } 
+    { nameCoin : "XRP"  , firstPrice : 2.8903 ,  nowPrice : 0 , buy_cell_price : 2.8903  },
+    { nameCoin : "DOGE" , firstPrice : 0.2334 ,  nowPrice : 0 , buy_cell_price : 0.2334 }, 
+    { nameCoin : "ADA"  , firstPrice : 0.8067 ,  nowPrice : 0 , buy_cell_price : 0.8067 },
+    { nameCoin : "LINK"  , firstPrice : 21.5405 ,  nowPrice : 0 , buy_cell_price : 21.5405 },
+    { nameCoin : "NEAR"  , firstPrice : 2.9705  ,  nowPrice : 0 , buy_cell_price : 2.9705 },
+    { nameCoin : "AVAX"  , firstPrice : 30.7806 ,  nowPrice : 0 , buy_cell_price : 30.7806 },
+    { nameCoin : "HYPE"  , firstPrice : 46.4060  ,  nowPrice : 0 , buy_cell_price : 46.4060 } 
          ] ) ;
 
 
