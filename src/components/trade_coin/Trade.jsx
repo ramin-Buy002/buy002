@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from "react";
 
 function Trade() {
+
+
   const Coins = ["XRP", "DOGE" , "ADA" , "LINK", "NEAR", "AVAX", "HYPE"];
+
+  const [dataCoins, setDataCoins] = useState( [
+    { nameCoin : "XRP"  , firstPrice : 2.8903 ,  nowPrice : 0 , buy_cell_price : 0  },
+    { nameCoin : "DOGE" , firstPrice : 0.2334 ,  nowPrice : 0 , buy_cell_price : 0 }, 
+    { nameCoin : "ADA"  , firstPrice : 0.8067 ,  nowPrice : 0 , buy_cell_price : 0  },
+    { nameCoin : "LINK"  , firstPrice : 21.5405 ,  nowPrice : 0 , buy_cell_price : 0  },
+    { nameCoin : "NEAR"  , firstPrice : 2.9705  ,  nowPrice : 0 , buy_cell_price : 0  },
+    { nameCoin : "AVAX"  , firstPrice : 30.7806 ,  nowPrice : 0 , buy_cell_price : 0  },
+    { nameCoin : "HYPE"  , firstPrice : 46.4060  ,  nowPrice : 0 , buy_cell_price : 0 } 
+         ] ) ;
+
 
   const [results, setResults] = useState([]);
 
@@ -21,6 +34,9 @@ function Trade() {
   const [priceAVAX, setPriceAVAX] = useState(null);
   const [priceHYPE, setPriceHYPE] = useState(null);
 
+ 
+
+
   const symbolXRP = "XRPUSDT";
   const symbolDOG = "DOGEUSDT";
   const symbolLINK = "LINKUSDT";
@@ -30,6 +46,8 @@ function Trade() {
 
   useEffect(() => {
     const fetchPrice = async () => {
+      GetDataCoin();
+
       try {
         const responseXRP = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolXRP}`
@@ -37,11 +55,24 @@ function Trade() {
         const dataXRP = await responseXRP.json();
         setPriceXRP(dataXRP.price);
 
-        const responseDOG = await fetch(
+        const coinXRP = dataCoins.find(c => c.nameCoin === "XRP" );
+        if (coinXRP) {
+          coinXRP.nowPrice =  dataXRP.price ;  
+          setDataCoins([...dataCoins]);  
+        }
+
+
+        const responseDOGE = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolDOG}`
         );
-        const dataDOG = await responseDOG.json();
-        setPriceDOGE(dataDOG.price);
+        const dataDOGE = await responseDOGE.json();
+        setPriceDOGE(dataDOGE.price);
+
+        const coinDOGE = dataCoins.find(c => c.nameCoin === "DOGE" );
+        if (coinDOGE) {
+          coinDOGE.nowPrice =  dataDOGE.price ;  
+          setDataCoins([...dataCoins]);  
+        }
 
         const responseLINK = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolLINK}`
@@ -49,11 +80,24 @@ function Trade() {
         const dataLINK = await responseLINK.json();
         setPriceLINK(dataLINK.price);
 
+        const coinLINK = dataCoins.find(c => c.nameCoin === "LINK" );
+        if (coinLINK) {
+          coinLINK.nowPrice =  dataLINK.price ;  
+          setDataCoins([...dataCoins]);  
+        }
+
+
         const responseNEAR = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolNEAR}`
         );
         const dataNEAR = await responseNEAR.json();
         setPriceNEAR(dataNEAR.price);
+
+        const coinNEAR = dataCoins.find(c => c.nameCoin === "NEAR" );
+        if (coinNEAR) {
+          coinNEAR.nowPrice =  dataNEAR.price ;  
+          setDataCoins([...dataCoins]);  
+        }
 
         const responseADA = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolADA}`
@@ -61,7 +105,11 @@ function Trade() {
         const dataADA = await responseADA.json();
         setPriceADA(dataADA.price);
 
-        console.log("ADA  ::::", dataADA.price);
+        const coinADA = dataCoins.find(c => c.nameCoin === "ADA" );
+        if (coinADA) {
+          coinADA.nowPrice =  dataADA.price ;  
+          setDataCoins([...dataCoins]);  
+        }
 
         const responseAVAX = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolAVAX}`
@@ -69,41 +117,69 @@ function Trade() {
         const dataAVAX = await responseAVAX.json();
         setPriceAVAX(dataAVAX.price);
 
-        console.log("001");
+        const coinAVAX = dataCoins.find(c => c.nameCoin === "AVAX" );
+        if (coinAVAX) {
+          coinAVAX.nowPrice =  dataAVAX.price ;  
+          setDataCoins([...dataCoins]);  
+        }
+
         const responseHYPE = await fetch(
           `https://api.coingecko.com/api/v3/simple/price?ids=Hyperliquid&vs_currencies=usd`
         );
 
         const dataHYPE = await responseHYPE.json();
-        console.log("hype", dataHYPE.hyperliquid.usd);
-
         setPriceHYPE(dataHYPE.hyperliquid.usd);
+
+        const coinHYPE = dataCoins.find(c => c.nameCoin === "HYPE" );
+        if (coinHYPE) {
+          coinHYPE.nowPrice =  dataHYPE.hyperliquid.usd ;  
+          setDataCoins([...dataCoins]);  
+        }
+
+
+
       } catch (error) {
         console.error("Error fetching crypto price:", error);
       }
     };
 
+
     fetchPrice();
     PercentageCalculation();
 
-    const intervalId = setInterval(fetchPrice, 10000);
+    const intervalId = setInterval( fetchPrice, 10000);
 
     return () => clearInterval(intervalId);
   }, []);
 
-  const ratios = [] ;
+  const Labl_Name = [] ;
+  const Data_Coins = [] ;
+
+  const GetDataCoin = (()=> {
+
+    Coins.forEach((a, i) => {
+
+    console.log("coins ::" , a )
+
+    console.log("Data_Coins_002 :: " , dataCoins) ;
+    
+  })
+
+  } )
+
+
 
   const PercentageCalculation = (()=> {
     Coins.forEach((a, i) => {
       Coins.forEach((b, j) => {
         if (j > i && b !== 0) {
        
-          ratios.push( a + " / " + b);
+          Labl_Name.push( a + " / " + b);
         
         }})
   })
 
- setResults([...ratios]);
+ setResults([...Labl_Name]);
 
 })
 
