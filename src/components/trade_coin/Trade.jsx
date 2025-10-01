@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 
 function Trade() {
 
-
   const Coins = ["XRP", "DOGE" , "ADA" , "LINK", "NEAR", "AVAX", "HYPE"];
 
   const [dataCoins, setDataCoins] = useState( [
-    { nameCoin : "XRP"  , firstPrice : 2.8903 ,  nowPrice : 0 , buy_cell_price : 2.8903  },
-    { nameCoin : "DOGE" , firstPrice : 0.2334 ,  nowPrice : 0 , buy_cell_price : 0.2334 }, 
-    { nameCoin : "ADA"  , firstPrice : 0.8067 ,  nowPrice : 0 , buy_cell_price : 0.8067 },
-    { nameCoin : "LINK"  , firstPrice : 21.5405 ,  nowPrice : 0 , buy_cell_price : 21.5405 },
-    { nameCoin : "NEAR"  , firstPrice : 2.9705  ,  nowPrice : 0 , buy_cell_price : 2.9705 },
-    { nameCoin : "AVAX"  , firstPrice : 30.7806 ,  nowPrice : 0 , buy_cell_price : 30.7806 },
-    { nameCoin : "HYPE"  , firstPrice : 46.4060  ,  nowPrice : 0 , buy_cell_price : 46.4060 } 
+    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 0 , buy_cell_price : 2.8903  },
+    { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_cell_price : 0.2334 }, 
+    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_cell_price : 0.8067 },
+    { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_cell_price : 21.5405 },
+    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_cell_price : 2.9705 },
+    { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_cell_price : 30.7806 },
+    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_cell_price : 46.4060 } 
          ] ) ;
 
 
@@ -55,11 +54,12 @@ function Trade() {
         const dataXRP = await responseXRP.json();
         setPriceXRP(dataXRP.price);
 
-        const coinXRP = dataCoins.find(c => c.nameCoin === "XRP" );
-        if (coinXRP) {
-          coinXRP.nowPrice =  dataXRP.price ;  
-          setDataCoins([...dataCoins]);  
-        }
+        const myData = dataCoins.map(coin =>
+          coin.nameCoin === "XRP" ? { ...coin, nowPrice: dataXRP.price } : coin
+        );
+
+        setDataCoins(myData);
+      
 
 
         const responseDOGE = await fetch(
@@ -136,11 +136,14 @@ function Trade() {
           setDataCoins([...dataCoins]);  
         }
 
+         console.log(" my data ::: " , myData)
+
 
 
       } catch (error) {
         console.error("Error fetching crypto price:", error);
       }
+
     };
 
 
@@ -151,6 +154,8 @@ function Trade() {
 
     return () => clearInterval(intervalId);
   }, []);
+
+
 
   const Labl_Name = [] ;
   const Data_Coins = [] ;
