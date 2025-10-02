@@ -199,16 +199,42 @@ function Trade() {
       <div className=" flex  flex-row      ">
         <div className="ml-70   ">
 
-          <h1>The best for trading</h1>
+          {/* <h1>The best for trading</h1> */}
+
+          <div >
+
 
           <u1   >
 
             {results.map((r, index) => (
-              <p className="  ml-2  mt-2  bg-blue-200  justify-between border rounded-lg p-3   "  key={index}>{r.label}</p>
+
+              <div className="flex flex_row">
+
+              <div className="flex-row" >
+                    
+                   
+                    <p className="  ml-2  mt-2  bg-blue-200  justify-between border rounded-lg p-3   "  key={index}>{r.label}</p>
+                   
+              </div>
+              <div>
+                   
+                    <h1>percent</h1>
+
+
+              </div>
+              <div>
+
+
+        </div>
+
+        </div>
+
+
             ))}
-
           </u1>
-
+          
+          </div>
+         
         </div>
 
         <div className="ml-70    ">
