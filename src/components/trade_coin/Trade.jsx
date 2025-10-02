@@ -63,9 +63,9 @@ function Trade() {
   useEffect(() => {
     const fetchPrice = async () => {
       try {
-        const updatedCoins = [...dataCoins]; // کپی از state
+        const updatedCoins = [...dataCoins]; 
 
-        // بایننس
+       
         for (let coin of Object.keys(symbols)) {
           const res = await fetch(
             `https://api.binance.com/api/v3/ticker/price?symbol=${symbols[coin]}`
@@ -76,7 +76,7 @@ function Trade() {
           if (coinObj) coinObj.nowPrice = parseFloat(data.price);
         }
 
-        // هایپ از کوین‌گکو
+     
         const resHype = await fetch(
           `https://api.coingecko.com/api/v3/simple/price?ids=Hyperliquid&vs_currencies=usd`
         );
@@ -84,8 +84,8 @@ function Trade() {
         const hypeCoin = updatedCoins.find((c) => c.nameCoin === "HYPE");
         if (hypeCoin) hypeCoin.nowPrice = dataHype.hyperliquid.usd;
 
-        setDataCoins(updatedCoins);       // آپدیت استیت
-        PercentageCalculation(updatedCoins); // بعدش محاسبه
+        setDataCoins(updatedCoins);        
+        PercentageCalculation(updatedCoins); 
       } catch (err) {
         console.error("Error fetching:", err);
       }
