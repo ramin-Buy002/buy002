@@ -60,7 +60,7 @@ function Trade() {
 
         const coinXRP = Copy_data_coins.find(c => c.nameCoin === "XRP" );
         if (coinXRP) {
-          coinXRP.nowPrice =  dataXRP.price ;  
+          coinXRP.nowPrice =  parseFloat(dataXRP.price) ;  
         }
 
         const responseDOGE = await fetch(
@@ -71,7 +71,7 @@ function Trade() {
 
         const coinDOGE = dataCoins.find(c => c.nameCoin === "DOGE" );
         if (coinDOGE) {
-          coinDOGE.nowPrice =  dataDOGE.price ;  
+          coinDOGE.nowPrice =  parseFloat(dataDOGE.price) ;  
         }
 
         const responseLINK = await fetch(
@@ -82,7 +82,7 @@ function Trade() {
 
         const coinLINK = dataCoins.find(c => c.nameCoin === "LINK" );
         if (coinLINK) {
-          coinLINK.nowPrice =  dataLINK.price ;  
+          coinLINK.nowPrice =  parseFloat(dataLINK.price) ;  
 
         }
 
@@ -95,7 +95,7 @@ function Trade() {
 
         const coinNEAR = dataCoins.find(c => c.nameCoin === "NEAR" );
         if (coinNEAR) {
-          coinNEAR.nowPrice =  dataNEAR.price ;  
+          coinNEAR.nowPrice =  parseFloat(dataNEAR.price) ;  
 
         }
 
@@ -107,7 +107,7 @@ function Trade() {
 
         const coinADA = dataCoins.find(c => c.nameCoin === "ADA" );
         if (coinADA) {
-          coinADA.nowPrice =  dataADA.price ;  
+          coinADA.nowPrice =  parseFloat(dataADA.price) ;  
 
         }
 
@@ -119,7 +119,7 @@ function Trade() {
 
         const coinAVAX = dataCoins.find(c => c.nameCoin === "AVAX" );
         if (coinAVAX) {
-          coinAVAX.nowPrice =  dataAVAX.price ;  
+          coinAVAX.nowPrice =  parseFloat(dataAVAX.price) ;  
 
         }
 
@@ -133,7 +133,7 @@ function Trade() {
         const coinHYPE = dataCoins.find(c => c.nameCoin === "HYPE" );
         if (coinHYPE) {
         
-          coinHYPE.nowPrice =  dataHYPE.hyperliquid.usd.toString() ;  
+          coinHYPE.nowPrice =  dataHYPE.hyperliquid.usd;  
 
         }
 
@@ -143,7 +143,7 @@ function Trade() {
         console.error("Error fetching crypto price:", error);
       }
 
-      // console.log("Copy ********************** " , Copy_data_coins) ;
+      console.log("Copy ********************** " , Copy_data_coins[0]) ;
 
     };
 
@@ -164,7 +164,7 @@ function Trade() {
 
     Copy_data_coins.forEach((a, i) => {
 
-    console.log("coins ::" , a.nameCoin )
+    // console.log("coins ::" , a.nameCoin )
 
     // console.log("Data_Coins_002 :: " , dataCoins) ;
     
@@ -172,14 +172,15 @@ function Trade() {
 
   } )
 
-
+// parseFloat(str)
 
   const PercentageCalculation = (()=> {
     Copy_data_coins.forEach((a, i) => {
       Copy_data_coins.forEach((b, j) => {
         if (j > i && b !== 0) {
+        
        
-          Data_percent.push({label : a.nameCoin + " / " + b.nameCoin  ,  coin_name_01 : a.nameCoin , coin_name_02 : b.nameCoin});
+          Data_percent.push({label : a.nameCoin + " / " + b.nameCoin  ,  coin_name_01 : a.nameCoin , coin_name_02 : b.nameCoin , percent : a.nowPrice  });
         
         }})
   })
@@ -189,7 +190,7 @@ function Trade() {
 })
 
 
-  console.log(" array_ratios " , results )
+  console.log(" array_ratios " , results[0] )
 
 
 
