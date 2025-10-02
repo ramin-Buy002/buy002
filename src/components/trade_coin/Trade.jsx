@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 function Trade() {
 
+
   const Coins = ["XRP", "DOGE" , "ADA" , "LINK", "NEAR", "AVAX", "HYPE"];
 
   const [dataCoins, setDataCoins] = useState( [
@@ -54,13 +55,13 @@ function Trade() {
         const dataXRP = await responseXRP.json();
         setPriceXRP(dataXRP.price);
 
-        const myData = dataCoins.map(coin =>
-          coin.nameCoin === "XRP" ? { ...coin, nowPrice: dataXRP.price } : coin
-        );
+        const coinXRP = dataCoins.find(c => c.nameCoin === "XRP" );
+        if (coinXRP) {
+          coinXRP.nowPrice =  dataXRP.price ;  
+          setDataCoins([...dataCoins]);  
+        }
 
-        setDataCoins(myData);
-      
-
+     
 
         const responseDOGE = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolDOG}`
@@ -136,14 +137,11 @@ function Trade() {
           setDataCoins([...dataCoins]);  
         }
 
-         console.log(" my data ::: " , myData)
-
 
 
       } catch (error) {
         console.error("Error fetching crypto price:", error);
       }
-
     };
 
 
@@ -154,8 +152,6 @@ function Trade() {
 
     return () => clearInterval(intervalId);
   }, []);
-
-
 
   const Labl_Name = [] ;
   const Data_Coins = [] ;
