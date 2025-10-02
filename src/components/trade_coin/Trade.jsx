@@ -34,7 +34,7 @@ function Trade() {
   const [priceAVAX, setPriceAVAX] = useState(null);
   const [priceHYPE, setPriceHYPE] = useState(null);
 
- 
+  let Copy_data_coins = [] ;
 
 
   const symbolXRP = "XRPUSDT";
@@ -48,6 +48,9 @@ function Trade() {
     const fetchPrice = async () => {
       GetDataCoin();
 
+      Copy_data_coins = dataCoins.map(coin => ({ ...coin }));
+
+
       try {
         const responseXRP = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolXRP}`
@@ -55,13 +58,10 @@ function Trade() {
         const dataXRP = await responseXRP.json();
         setPriceXRP(dataXRP.price);
 
-        const coinXRP = dataCoins.find(c => c.nameCoin === "XRP" );
+        const coinXRP = Copy_data_coins.find(c => c.nameCoin === "XRP" );
         if (coinXRP) {
           coinXRP.nowPrice =  dataXRP.price ;  
-          setDataCoins([...dataCoins]);  
         }
-
-     
 
         const responseDOGE = await fetch(
           `https://api.binance.com/api/v3/ticker/price?symbol=${symbolDOG}`
@@ -72,7 +72,6 @@ function Trade() {
         const coinDOGE = dataCoins.find(c => c.nameCoin === "DOGE" );
         if (coinDOGE) {
           coinDOGE.nowPrice =  dataDOGE.price ;  
-          setDataCoins([...dataCoins]);  
         }
 
         const responseLINK = await fetch(
@@ -84,7 +83,7 @@ function Trade() {
         const coinLINK = dataCoins.find(c => c.nameCoin === "LINK" );
         if (coinLINK) {
           coinLINK.nowPrice =  dataLINK.price ;  
-          setDataCoins([...dataCoins]);  
+
         }
 
 
@@ -97,7 +96,7 @@ function Trade() {
         const coinNEAR = dataCoins.find(c => c.nameCoin === "NEAR" );
         if (coinNEAR) {
           coinNEAR.nowPrice =  dataNEAR.price ;  
-          setDataCoins([...dataCoins]);  
+
         }
 
         const responseADA = await fetch(
@@ -109,7 +108,7 @@ function Trade() {
         const coinADA = dataCoins.find(c => c.nameCoin === "ADA" );
         if (coinADA) {
           coinADA.nowPrice =  dataADA.price ;  
-          setDataCoins([...dataCoins]);  
+
         }
 
         const responseAVAX = await fetch(
@@ -121,7 +120,7 @@ function Trade() {
         const coinAVAX = dataCoins.find(c => c.nameCoin === "AVAX" );
         if (coinAVAX) {
           coinAVAX.nowPrice =  dataAVAX.price ;  
-          setDataCoins([...dataCoins]);  
+
         }
 
         const responseHYPE = await fetch(
@@ -133,8 +132,9 @@ function Trade() {
 
         const coinHYPE = dataCoins.find(c => c.nameCoin === "HYPE" );
         if (coinHYPE) {
-          coinHYPE.nowPrice =  dataHYPE.hyperliquid.usd ;  
-          setDataCoins([...dataCoins]);  
+        
+          coinHYPE.nowPrice =  dataHYPE.hyperliquid.usd.toString() ;  
+
         }
 
 
@@ -142,7 +142,11 @@ function Trade() {
       } catch (error) {
         console.error("Error fetching crypto price:", error);
       }
+
+      // console.log("Copy ********************** " , Copy_data_coins) ;
+
     };
+
 
 
     fetchPrice();
@@ -153,16 +157,16 @@ function Trade() {
     return () => clearInterval(intervalId);
   }, []);
 
-  const Labl_Name = [] ;
+  const Data_percent = [] ;
   const Data_Coins = [] ;
 
   const GetDataCoin = (()=> {
 
-    Coins.forEach((a, i) => {
+    Copy_data_coins.forEach((a, i) => {
 
-    console.log("coins ::" , a )
+    console.log("coins ::" , a.nameCoin )
 
-    console.log("Data_Coins_002 :: " , dataCoins) ;
+    // console.log("Data_Coins_002 :: " , dataCoins) ;
     
   })
 
@@ -171,21 +175,21 @@ function Trade() {
 
 
   const PercentageCalculation = (()=> {
-    Coins.forEach((a, i) => {
-      Coins.forEach((b, j) => {
+    Copy_data_coins.forEach((a, i) => {
+      Copy_data_coins.forEach((b, j) => {
         if (j > i && b !== 0) {
        
-          Labl_Name.push( a + " / " + b);
+          Data_percent.push({label : a.nameCoin + " / " + b.nameCoin  ,  coin_name_01 : a.nameCoin , coin_name_02 : b.nameCoin});
         
         }})
   })
 
- setResults([...Labl_Name]);
+ setResults([...Data_percent]);
 
 })
 
 
-  // console.log(" array_ratios " , results )
+  console.log(" array_ratios " , results )
 
 
 
@@ -199,7 +203,7 @@ function Trade() {
           <u1   >
 
             {results.map((r, index) => (
-              <p className="  ml-2  mt-2  bg-blue-200  justify-between border rounded-lg p-3   "  key={index}>{r}</p>
+              <p className="  ml-2  mt-2  bg-blue-200  justify-between border rounded-lg p-3   "  key={index}>{r.label}</p>
             ))}
 
           </u1>
