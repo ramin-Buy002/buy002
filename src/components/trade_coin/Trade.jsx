@@ -43,8 +43,9 @@ function Trade() {
     
       // divXrp_ADA.unshift(divisionResult_XRP_ADA.toFixed(1));
       // divXrp_ADA.pop();
+      // (num * 100).toFixed(2) + " %";
       
-        const  Result_Percent =     ( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100 
+        const  Result_Percent =     (( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100 ).toFixed(2)  ;
 
       return Result_Percent ; 
           
@@ -76,6 +77,9 @@ function Trade() {
         }
       });
     });
+
+    Data_percent.sort((a, b) => Math.abs(b.percent) - Math.abs(a.percent));
+
     setResults(Data_percent);
   };
 
@@ -144,7 +148,7 @@ function Trade() {
 
                   <div className="mt-5 ml-5" >
                       
-                        <h1>{r.percent}</h1>
+                        <h1 className=" font-bold  ml-8 "  >{r.percent} {"  "}  % </h1>
 
                   </div>
               <div>
