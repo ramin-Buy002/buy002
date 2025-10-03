@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from "react";
 
+
+
 function Trade() {
 
-
-  const Coins = ["XRP", "DOGE" , "ADA" , "LINK", "NEAR", "AVAX", "HYPE"];
-  
-
   const [dataCoins, setDataCoins] = useState( [
-    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 22 , buy_cell_price : 2.8903  },
-    { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_cell_price : 0.2334 }, 
-    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_cell_price : 0.8067 },
-    { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_cell_price : 21.5405 },
-    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_cell_price : 2.9705 },
-    { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_cell_price : 30.7806 },
-    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_cell_price : 46.4060 } 
+    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 22 , buy_sell_price : 2.8903  },
+    { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_sell_price : 0.2334 }, 
+    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_sell_price : 0.8067 },
+    { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_sell_price : 21.5405 },
+    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_sell_price : 2.9705 },
+    { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_sell_price : 30.7806 },
+    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 46.4060 } 
          ] ) ;
 
 
   const [results, setResults] = useState([]);
 
-
-  const [buyXRP, setBuyXRP] = useState(2.8759);
-  const [buyDOGE, setBuyDOGE] = useState(0.23837);
-  const [buyLINK, setBuyLINK] = useState(21.16);
-  const [buyNEAR, setBuyNEAR] = useState(2.72);
-  const [buyADA, setBuyADA] = useState(0.7971);
-  const [buyAVAX, setBuyAVAX] = useState(29.88);
-  const [buyHYPE, setBuyHYPE] = useState(45.06);
-
- 
 
   const symbols = {
     XRP: "XRPUSDT",
@@ -56,8 +44,6 @@ function Trade() {
     });
     setResults(Data_percent);
   };
-
-
 
 
   useEffect(() => {
@@ -151,9 +137,23 @@ function Trade() {
 
                   <div   >
                     
-                        <p className="  ml-2  mt-2  bg-blue-50  justify-between border rounded-lg p-3  w-200  " 
-                         key={index}>{r.nameCoin} {"\u00A0\u00A0\u00A0\u00A0\u00A0"}{r.nowPrice} {"   "} $  
-                         {"\u00A0\u00A0\u00A0\u00A0\u00A0"} pcs :: {r.pcs } </p>
+                  <p
+                                key={index}
+                                className="ml-2 mt-2 bg-blue-50 flex justify-between border rounded-lg p-3 w-[680px]"
+                              >
+                                <span className="text-emerald-950 font-bold">{r.nameCoin}</span>
+
+                                <span  className="ml-6">
+                                  {r.nowPrice} <span className="text-gray-500">$</span>
+                                </span>
+
+                                <span className="ml-8 font-bold" >pcs {"  "}: {r.pcs}</span>
+
+                                <span  className="ml-8 " >firstPrice {"  "} : {r.firstPrice}</span>
+
+                                <span  className="ml-8   mr-9 " >buy_sell_price {"  "} : {r.buy_sell_price}</span>
+                              </p>
+
                    
                   </div>
  
