@@ -14,6 +14,8 @@ function Trade() {
     { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 46.4060 } 
          ] ) ;
 
+  
+  const [ percent_coin , setPercent_coin ] = useState([]) ;
 
   const [results, setResults] = useState([]);
 
@@ -29,15 +31,45 @@ function Trade() {
 
 
   const PercentageCalculation = (coins) => {
+
+     const Culcu = (( A_price , B_price , A_buy_sell_price , B_buy_sell_price ) =>{
+      // const divisionResult_XRP_ADA = priceXRP / priceADA ;
+
+      // const base_xrp_ADA = XRP / ADA;
+      // const persent_xrp_ADA = (divisionResult_XRP_ADA / base_xrp_ADA - 1) * 100;
+    
+      // divXrp_ADA_persent.unshift(persent_xrp_ADA.toFixed(1));
+      // divXrp_ADA_persent.pop();
+    
+      // divXrp_ADA.unshift(divisionResult_XRP_ADA.toFixed(1));
+      // divXrp_ADA.pop();
+      return(
+        (  ( ( A_price / A_buy_sell_price  ) / ( B_price / B_buy_sell_price )) - 1  )    )  
+
+          
+     })
+
     const Data_percent = [];
     coins.forEach((a, i) => {
       coins.forEach((b, j) => {
+
+
+
+        const A_price = a.nowPrice ;
+        const B_price = b.nowPrice ;
+        
+        const A_buy_sell_price = a.buy_sell_price ;
+        const B_buy_sell_price = b.buy_sell_price ;
+
+       setPercent_coin(Culcu(A_price , B_price , A_buy_sell_price , B_buy_sell_price )) ;
+
         if (j > i && b.nowPrice !== 0) {
+
           Data_percent.push({
             label: `${a.nameCoin} / ${b.nameCoin}`,
             coin_name_01: a.nameCoin,
             coin_name_02: b.nameCoin,
-            percent: a.nowPrice,
+            percent: percent_coin ,
           });
         }
       });
@@ -80,7 +112,7 @@ function Trade() {
     fetchPrice();
     const intervalId = setInterval(fetchPrice, 10000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [percent_coin]);
 
   console.log("Results :: " , results ) ; 
   console.log("Coin_DATA :: " , dataCoins ) ; 
