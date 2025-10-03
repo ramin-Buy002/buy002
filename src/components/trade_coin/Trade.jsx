@@ -5,13 +5,13 @@ import React, { useState, useEffect } from "react";
 function Trade() {
 
   const [dataCoins, setDataCoins] = useState( [
-    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 0 , buy_sell_price : 3.0279  },
+    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 0 , buy_sell_price : 3.0454  },
     { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_sell_price : 0.25562 }, 
     { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_sell_price : 0.8549 },
     { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_sell_price : 22.31 },
     { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_sell_price : 2.925 },
     { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_sell_price : 30.24 },
-    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 48.98 } 
+    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 50.72 } 
          ] ) ;
 
   
@@ -45,7 +45,7 @@ function Trade() {
       // divXrp_ADA.pop();
       // (num * 100).toFixed(2) + " %";
       
-        const  Result_Percent =     (( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100 )  ;
+        const  Result_Percent =     ( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100   ;
 
       return Result_Percent ; 
           
@@ -127,14 +127,15 @@ function Trade() {
 
   return (
     <div className="ml-20   mt-8  ">
+      
       <div className=" flex  flex-row      ">
         <div className="ml-70   ">
 
           <h1>The best for trading</h1>
 
-          <div >
+          
 
-          <u1   >
+          <ul>
 
             {results.map((r, index) => (
 
@@ -146,21 +147,15 @@ function Trade() {
                    
                   </div>
 
-                  <div className="mt-5 ml-5" >
+                  <div className="mt-5 ml-5  text-red-600 " >
                       
-                  <h1
-                            className={`font-bold ml-8 ${
-                              Math.abs(r.percent) >= 2
-                                ? "text-orange-600 animate-pulse"  
-                                : r.percent > 0
-                                ? "text-green-600"
-                                : "text-red-600"
-                            }`}
-                          >
+                          <p className=    "" >
                             {r.percent.toFixed(2)}%
-                          </h1>
+                          </p>
+
 
                   </div>
+
               <div>
 
         </div>
@@ -168,16 +163,16 @@ function Trade() {
         </div>
 
             ))}
-          </u1>
+             </ul>
           
           </div>
          
-        </div>
+        
 
                 <div className="ml-70    ">
                       <div >
 
-          <u1   >
+                      <ul>
 
             {dataCoins.map((r, index) => (
 
@@ -200,6 +195,7 @@ function Trade() {
                                 <span  className="ml-8 " >firstPrice {"  "} : {r.firstPrice}</span>
 
                                 <span  className="ml-8   mr-9 " >buy_sell_price {"  "} : {r.buy_sell_price}</span>
+
                               </p>
 
                    
@@ -212,7 +208,7 @@ function Trade() {
         </div>
 
             ))}
-          </u1>
+          </ul>
           
           </div>
 
