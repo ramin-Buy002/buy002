@@ -5,13 +5,13 @@ import React, { useState, useEffect } from "react";
 function Trade() {
 
   const [dataCoins, setDataCoins] = useState( [
-    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 22 , buy_sell_price : 2.8903  },
-    { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_sell_price : 0.2334 }, 
-    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_sell_price : 0.8067 },
-    { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_sell_price : 21.5405 },
-    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_sell_price : 2.9705 },
-    { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_sell_price : 30.7806 },
-    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 46.4060 } 
+    { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 0 , buy_sell_price : 3.0279  },
+    { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_sell_price : 0.25562 }, 
+    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_sell_price : 0.8549 },
+    { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_sell_price : 22.31 },
+    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_sell_price : 2.925 },
+    { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_sell_price : 30.24 },
+    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 48.98 } 
          ] ) ;
 
   
@@ -45,7 +45,7 @@ function Trade() {
       // divXrp_ADA.pop();
       // (num * 100).toFixed(2) + " %";
       
-        const  Result_Percent =     (( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100 ).toFixed(2)  ;
+        const  Result_Percent =     (( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100 )  ;
 
       return Result_Percent ; 
           
@@ -148,7 +148,17 @@ function Trade() {
 
                   <div className="mt-5 ml-5" >
                       
-                        <h1 className=" font-bold  ml-8 "  >{r.percent} {"  "}  % </h1>
+                  <h1
+                            className={`font-bold ml-8 ${
+                              Math.abs(r.percent) >= 2
+                                ? "text-orange-600 animate-pulse"  
+                                : r.percent > 0
+                                ? "text-green-600"
+                                : "text-red-600"
+                            }`}
+                          >
+                            {r.percent.toFixed(2)}%
+                          </h1>
 
                   </div>
               <div>
