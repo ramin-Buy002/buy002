@@ -83,7 +83,12 @@ const CryptoPrice = () => {
     const maxItem = filtered.reduce((max, item) => 
       Math.abs(item.percent) > Math.abs(max.percent) ? item : max
     , filtered[0]);
-      
+
+        const temp = maxItem.coin_name_01 ;
+        maxItem.coin_name_01 = maxItem.coin_name_02 ;
+        maxItem.coin_name_02 = temp;
+
+
     setHi_percent_coin(maxItem) ;
 
       console.log("hi_percent_coin" , hi_percent_coin.coin_name_01 , hi_percent_coin.coin_name_02)  ;
@@ -179,13 +184,13 @@ const CryptoPrice = () => {
 
                   <div   >
                     
-                        <p className="  ml-2  mt-2  bg-blue-200  justify-between border rounded-lg p-3   "  key={index}>{r.label}</p>
+                        <p className="  ml-2  mt-3  bg-blue-200  justify-between border rounded-lg p-3   "  key={index}>{r.label}</p>
                    
                   </div>
 
                   <div className="mt-5 ml-5  text-red-200 " >
                       
-                          <p className=    " ml-5 " >
+                          <p className=  " ml-5 " >
                             {r.percent.toFixed(2)}%
                           </p>
 
