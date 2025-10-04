@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 
+const CryptoPrice = () => {
 
 
-function Trade() {
 
   const [dataCoins, setDataCoins] = useState( [
     { nameCoin : "XRP"   , pcs : 0 , firstPrice : 2.8903 ,  nowPrice : 0 , buy_sell_price : 3.0454  },
     { nameCoin : "DOGE"  , pcs : 0 , firstPrice : 0.2334 ,  nowPrice : 0 , buy_sell_price : 0.25562 }, 
-    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_sell_price : 0.8549 },
+    { nameCoin : "ADA"   , pcs : 0 , firstPrice : 0.8067 ,  nowPrice : 0 , buy_sell_price : 0.8708 },
     { nameCoin : "LINK"  , pcs : 0 , firstPrice : 21.5405 ,  nowPrice : 0 , buy_sell_price : 22.31 },
-    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_sell_price : 2.925 },
+    { nameCoin : "NEAR"  , pcs : 0 , firstPrice : 2.9705  ,  nowPrice : 0 , buy_sell_price : 3.053 },
     { nameCoin : "AVAX"  , pcs : 0 , firstPrice : 30.7806 ,  nowPrice : 0 , buy_sell_price : 30.24 },
-    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 50.72 } 
+    { nameCoin : "HYPE"  , pcs : 0 , firstPrice : 46.4060  ,  nowPrice : 0 , buy_sell_price : 50.01 } 
          ] ) ;
 
   
-  const [ percent_coin , setPercent_coin ] = useState([]) ;
+  const [ hi_percent_coin , setHi_percent_coin ] = useState([]) ;
 
   const [results, setResults] = useState([]);
 
@@ -33,17 +33,7 @@ function Trade() {
   const PercentageCalculation = (coins) => {
 
      const Culcu = (( A_price , B_price , A_buy_sell_price , B_buy_sell_price ) =>{
-      // const divisionResult_XRP_ADA = priceXRP / priceADA ;
-
-      // const base_xrp_ADA = XRP / ADA;
-      // const persent_xrp_ADA = (divisionResult_XRP_ADA / base_xrp_ADA - 1) * 100;
-    
-      // divXrp_ADA_persent.unshift(persent_xrp_ADA.toFixed(1));
-      // divXrp_ADA_persent.pop();
-    
-      // divXrp_ADA.unshift(divisionResult_XRP_ADA.toFixed(1));
-      // divXrp_ADA.pop();
-      // (num * 100).toFixed(2) + " %";
+ 
       
         const  Result_Percent =     ( (  ( A_price / A_buy_sell_price ) / ( B_price / B_buy_sell_price ) ) - 1 ) * 100   ;
 
@@ -52,6 +42,7 @@ function Trade() {
      })
 
     const Data_percent = [];
+
     coins.forEach((a, i) => {
       coins.forEach((b, j) => {
 
@@ -81,6 +72,16 @@ function Trade() {
     Data_percent.sort((a, b) => Math.abs(b.percent) - Math.abs(a.percent));
 
     setResults(Data_percent);
+    const filtered = Data_percent.filter(item => Math.abs(item.percent) > 2);
+ 
+    const maxItem = filtered.reduce((max, item) => 
+      Math.abs(item.percent) > Math.abs(max.percent) ? item : max
+    , filtered[0]);
+      
+    setHi_percent_coin(maxItem) ;
+
+      console.log("hi_percent_coin" , hi_percent_coin.coin_name_01 , hi_percent_coin.coin_name_02)  ;
+    
   };
 
 
@@ -156,6 +157,8 @@ function Trade() {
 
                   </div>
 
+                 
+
               <div>
 
         </div>
@@ -166,10 +169,22 @@ function Trade() {
              </ul>
           
           </div>
+
+
+                  <div className=" ml-20  mt-3 "  >
+
+                         <h1 className=" font-bold  " > List Buy & Sell</h1>
+                        <h1  className=" text-blue-200  mt-5 ml-2 "  >  <span >   Sell  </span>  
+                        <span className=" ml-5 "  >   {hi_percent_coin.coin_name_01   } </span>    </h1>
+
+                        <h1 className=" ml-2 " >  <span>   Buy  </span>  
+                        <span className=" ml-5 "  >   {hi_percent_coin.coin_name_02   } </span>    </h1>
+                      
+                  </div>
          
         
-
-                <div className="ml-70    ">
+ 
+                <div className="ml-40    ">
                       <div >
 
                       <ul>
@@ -221,4 +236,6 @@ function Trade() {
   );
 }
 
-export default Trade;
+
+export default CryptoPrice;
+
