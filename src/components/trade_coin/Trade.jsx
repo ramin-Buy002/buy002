@@ -174,26 +174,26 @@ const CryptoPrice = () => {
                   <div className=" ml-20  mt-3 "  >
 
                          <h1 className=" font-bold  " > List Buy & Sell</h1>
-                        <h1  className=" text-blue-200  mt-5 ml-2 "  >  <span >   Sell  </span>  
+                        <h1  className=" text-blue-200  mt-5 ml-2 "  >  <span >   Sell {"  "} : </span>  
                         <span className=" ml-5 "  >   {hi_percent_coin.coin_name_01   } </span>    </h1>
 
-                        <h1 className=" ml-2 " >  <span>   Buy  </span>  
+                        <h1 className=" ml-2 " >  <span>   Buy  {"   "} :      </span>  
                         <span className=" ml-5 "  >   {hi_percent_coin.coin_name_02   } </span>    </h1>
                       
                   </div>
          
         
  
-                <div className="ml-40    ">
+                <div className="ml-10    ">
                       <div >
 
                       <ul>
 
             {dataCoins.map((r, index) => (
 
-              <div className="flex flex_row">
+              <div className="flex flex_row ml-30 ">
 
-                  <div   >
+                  <div  >
                     
                   <p
                                 key={index}
@@ -215,22 +215,45 @@ const CryptoPrice = () => {
 
                    
                   </div>
- 
-              <div>
-
-        </div>
+               
+  
 
         </div>
 
             ))}
           </ul>
+
           
           </div>
 
+                <div  className="  mt-10  -ml-13"  >
+                      <p>
+
+                                  <span className="     text-2xl "  >   A =   </span> 
+                                  <span   className="     text-2xl "  > ∑ </span>
+                                  <span   className="     text-1xl "  > ( price_now * pcs_now  )  =  </span>
+
+                      </p>
+                      <p className="  mt-3 " >
+
+                                  <span className="     text-2xl "  >   B =   </span> 
+                                  <span   className="     text-2xl "  > ∑ </span>
+                                  <span   className="     text-1xl "  > ( price_now * pcs_first  )  =  </span>
+
+                      </p>
+                      <p  className="  mt-3 " >
+
+                                    <span className="     text-2xl "  >  C =   </span> 
+                                    <span   className="     text-2xl "  > ∑ </span>
+                                    <span   className="     text-1xl "  > ( price_first * pcs_now  )  =  </span>
+
+                       </p>
+                </div>
       
  
  
                 </div>
+
       </div>
     </div>
   );
