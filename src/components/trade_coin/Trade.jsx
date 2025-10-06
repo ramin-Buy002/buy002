@@ -4,12 +4,12 @@ import * as hl from "@nktkas/hyperliquid";
 const Trade = () => {
   const [dataCoins, setDataCoins] = useState([
     { nameCoin: "XRP", first_pcs: 10, now_pcs: 11, firstPrice: 2.8903, nowPrice: 0, buy_sell_price: 3.0454 },
-    { nameCoin: "DOGE", first_pcs: 0, now_pcs: 0, firstPrice: 0.2334, nowPrice: 0, buy_sell_price: 0.25562 },
-    { nameCoin: "ADA", first_pcs: 0, now_pcs: 0, firstPrice: 0.8067, nowPrice: 0, buy_sell_price: 0.8708 },
-    { nameCoin: "LINK", first_pcs: 0, now_pcs: 0, firstPrice: 21.5405, nowPrice: 0, buy_sell_price: 22.31 },
-    { nameCoin: "NEAR", first_pcs: 0, now_pcs: 0, firstPrice: 2.9705, nowPrice: 0, buy_sell_price: 3.053 },
-    { nameCoin: "AVAX", first_pcs: 0, now_pcs: 0, firstPrice: 30.7806, nowPrice: 0, buy_sell_price: 30.24 },
-    { nameCoin: "HYPE", first_pcs: 0, now_pcs: 0, firstPrice: 46.4060, nowPrice: 0, buy_sell_price: 50.01 },
+    { nameCoin: "DOGE", first_pcs: 10, now_pcs: 11, firstPrice: 0.2334, nowPrice: 0, buy_sell_price: 0.25562 },
+    { nameCoin: "ADA", first_pcs: 10, now_pcs: 11, firstPrice: 0.8067, nowPrice: 0, buy_sell_price: 0.8708 },
+    { nameCoin: "LINK", first_pcs: 10, now_pcs: 11, firstPrice: 21.5405, nowPrice: 0, buy_sell_price: 22.31 },
+    { nameCoin: "NEAR", first_pcs: 10, now_pcs: 11, firstPrice: 2.9705, nowPrice: 0, buy_sell_price: 3.053 },
+    { nameCoin: "AVAX", first_pcs: 10, now_pcs: 11 , firstPrice: 30.7806, nowPrice: 0, buy_sell_price: 30.24 },
+    { nameCoin: "HYPE", first_pcs: 10, now_pcs: 11 , firstPrice: 46.4060, nowPrice: 0, buy_sell_price: 50.01 },
   ]);
 
   const [hi_percent_coin, setHi_percent_coin] = useState({});
@@ -20,11 +20,13 @@ const Trade = () => {
   const [d, setD] = useState(0);
 
   const PercentageCalculation = (coins) => {
+
     const calc = (A_price, B_price, A_buy_sell_price, B_buy_sell_price) => {
       return ((A_price / A_buy_sell_price) / (B_price / B_buy_sell_price) - 1) * 100;
     };
-
+  
     const Data_percent = [];
+  
     coins.forEach((a, i) => {
       coins.forEach((b, j) => {
         if (j > i && b.nowPrice > 0) {
@@ -38,20 +40,64 @@ const Trade = () => {
         }
       });
     });
-
+  
     Data_percent.sort((a, b) => Math.abs(b.percent) - Math.abs(a.percent));
     setResults(Data_percent);
-
+  
+ 
     const filtered = Data_percent.filter(item => Math.abs(item.percent) > 2);
+  
     if (filtered.length > 0) {
-      const maxItem = filtered.reduce(
-        (max, item) => (Math.abs(item.percent) > Math.abs(max.percent) ? item : max),
-        filtered[0]
-      );
-      const temp = maxItem.coin_name_01;
-      maxItem.coin_name_01 = maxItem.coin_name_02;
-      maxItem.coin_name_02 = temp;
-      setHi_percent_coin(maxItem);
+      let selectedPair = null;
+  
+    
+      for (const item of filtered) {
+        const sellCoin = coins.find(c => c.nameCoin === item.coin_name_02);
+        const buyCoin = coins.find(c => c.nameCoin === item.coin_name_01);
+  
+      
+        const temp = item.coin_name_01;
+        item.coin_name_01 = item.coin_name_02;
+        item.coin_name_02 = temp;
+  
+        const sellCondition =
+          sellCoin &&
+          sellCoin.first_pcs * sellCoin.firstPrice * 0.25 <
+            sellCoin.now_pcs * sellCoin.nowPrice;
+  
+        if (sellCondition) {
+          selectedPair = {
+            sell: item.coin_name_02,
+            buy: item.coin_name_01,
+            percent: item.percent,
+          };
+          break;  
+        }
+      }
+  
+      if (selectedPair) {
+        setHi_percent_coin(selectedPair);
+        console.log("  جفت معتبر پیدا شد:", selectedPair);
+      } else {
+        setHi_percent_coin({});
+        console.log(" جفتی با شرط مورد نظر پیدا نشد");
+      }
+    }
+  };
+  
+   
+  const funTrade = async (symbol, side, size) => {
+    try {
+      const res = await fetch("http://localhost:3001/api/execute-trade", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ symbol, side, size }),
+      });
+  
+      const data = await res.json();
+      console.log("Trade result:", data);
+    } catch (err) {
+      console.error("Error executing trade:", err);
     }
   };
 
@@ -66,6 +112,8 @@ const Trade = () => {
     setC(totalWithoutTrade.toFixed(2));
     setD(totalInitial.toFixed(2));
   };
+  console.log("dataCoins " , dataCoins ) ; 
+  console.log("  hi_percent_coin ::  " , hi_percent_coin ) ; 
 
   useEffect(() => {
     const fetchFromHyperliquid = async () => {
@@ -157,9 +205,11 @@ const Trade = () => {
           </div>
 
           <div className="mt-10  ml-30 ">
+
               <h2 className="font-bold text-2xl">List (Buy & Sell)</h2>
-              <p className=" ml-10 mt-3 text-xl">Sell {"  "} : <span className=" text-green-500 font-bold " > {hi_percent_coin.coin_name_01} </span> </p>
-              <p className=" ml-10 text-xl">Buy {"  "} : <span className="  text-red-400   font-bold " > {hi_percent_coin.coin_name_02}</span> </p>
+              <p className=" ml-10 mt-4 text-xl "> Sell {"  "} : <span className="  text-red-400   font-bold " > {hi_percent_coin.sell}</span> </p>
+              <p className=" ml-10 text-xl mt-2 "> Buy {"  "} : <span className=" text-green-500 font-bold " > {hi_percent_coin.buy} </span> </p>
+
           </div>
           </div>
 
