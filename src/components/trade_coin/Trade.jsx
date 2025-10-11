@@ -3,30 +3,30 @@ import * as hl from "@nktkas/hyperliquid";
 
 const Trade = () => {
   const [dataCoins, setDataCoins] = useState([
-    // {
-    //   nameCoin: "XRP",
-    //   first_pcs: 10,
-    //   now_pcs: 11,
-    //   firstPrice: 2.8903,
-    //   nowPrice: 0,
-    //   buy_sell_price: 3.0454,
-    // },
-    // {
-    //   nameCoin: "DOGE",
-    //   first_pcs: 10,
-    //   now_pcs: 11,
-    //   firstPrice: 0.2334,
-    //   nowPrice: 0,
-    //   buy_sell_price: 0.25562,
-    // },
-    // {
-    //   nameCoin: "ADA",
-    //   first_pcs: 10,
-    //   now_pcs: 11,
-    //   firstPrice: 0.8067,
-    //   nowPrice: 0,
-    //   buy_sell_price: 0.8708,
-    // },
+    {
+      nameCoin: "XRP",
+      first_pcs: 10,
+      now_pcs: 11,
+      firstPrice: 2.8903,
+      nowPrice: 0,
+      buy_sell_price: 3.0454,
+    },
+    {
+      nameCoin: "DOGE",
+      first_pcs: 10,
+      now_pcs: 11,
+      firstPrice: 0.2334,
+      nowPrice: 0,
+      buy_sell_price: 0.25562,
+    },
+    {
+      nameCoin: "ADA",
+      first_pcs: 10,
+      now_pcs: 11,
+      firstPrice: 0.8067,
+      nowPrice: 0,
+      buy_sell_price: 0.8708,
+    },
     {
       nameCoin: "LINK",
       first_pcs: 10,
@@ -49,7 +49,7 @@ const Trade = () => {
       now_pcs: 11,
       firstPrice: 30.7806,
       nowPrice: 0,
-      buy_sell_price: 22.84,
+      buy_sell_price: 30.24,
     },
     {
       nameCoin: "HYPE",
@@ -57,7 +57,7 @@ const Trade = () => {
       now_pcs: 11,
       firstPrice: 46.406,
       nowPrice: 0,
-      buy_sell_price: 38.38,
+      buy_sell_price: 50.01,
     },
   ]);
 
