@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>جمع دو عدد</title>
+</head>
+<body>
+  <h1>جمع دو عدد</h1>
+  <input id="num1" type="number" placeholder="عدد اول" />
+  <input id="num2" type="number" placeholder="عدد دوم" />
+  <button onclick="sendRequest()">محاسبه</button>
+
+  <p id="result"></p>
+
+  <script>
+    function sendRequest() {
+      const a = document.getElementById('num1').value;
+      const b = document.getElementById('num2').value;
+
+      fetch(`http://YOUR_VPS_IP:3000/add?a=${a}&b=${b}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.result !== undefined) {
+            document.getElementById('result').innerText = 'نتیجه: ' + data.result;
+          } else {
+            document.getElementById('result').innerText = 'خطا در دریافت نتیجه';
+          }
+        })
+        .catch(err => {
+          document.getElementById('result').innerText = 'خطا: ' + err.message;
+        });
+    }
+  </script>
+</body>
+</html>
