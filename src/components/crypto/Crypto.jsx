@@ -7,10 +7,11 @@ function AddNumbers() {
   const [error, setError] = useState(null);
 
   const handleCalculate = () => {
-    fetch(`http://87.107.108.193:8000/add?a=${num1}&b=${num2}`)
+    fetch('http://YOUR_VPS_IP:8000/add?a=2&b=5')
     .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error('Error:', err));
+    .then(data => console.log(data))
+    .catch(err => console.error('Error:', err));
+  
   };
 
   return (
