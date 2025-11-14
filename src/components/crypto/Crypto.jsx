@@ -8,20 +8,9 @@ function AddNumbers() {
 
   const handleCalculate = () => {
     fetch(`http://87.107.108.193:8000/add?a=${num1}&b=${num2}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.result !== undefined) {
-          setResult(data.result);
-          setError(null);
-        } else {
-          setError('خطا در دریافت نتیجه');
-          setResult(null);
-        }
-      })
-      .catch(err => {
-        setError('خطا: ' + err.message);
-        setResult(null);
-      });
+    .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error('Error:', err));
   };
 
   return (
